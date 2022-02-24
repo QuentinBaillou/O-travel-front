@@ -1,19 +1,19 @@
 @use "./vars";
 
 @mixin mobile-only {
-  @media screen and (max-width: map-get(vars.$breakpoint, mobile)) {
+  @media screen and (min-width: map-get(vars.$breakpoint, mobile)) {
     @content;
   }
 }
 
 @mixin mobile-to-tablet {
-  @media screen and (max-width: map-get(vars.$breakpoint, tablet)) {
+  @media screen and (min-width: map-get(vars.$breakpoint, tablet)) {
     @content;
   }
 }
 
 @mixin tablet-to-desktop {
-  @media screen and (max-width: map-get(vars.$breakpoint, desktop)) {
+  @media screen and (min-width: map-get(vars.$breakpoint, desktop)) {
     @content;
   }
 }
