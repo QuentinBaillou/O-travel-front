@@ -1,11 +1,16 @@
-import PropTypes from 'prop-types';
+import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+
+import { menu } from 'src/data';
 import './style.scss';
 
-const Nav = ({ active, setIsActive }) => {
+const Nav = () => {
+  // Local state used to or to not display nav menu, when on mobile resolution
+  const [active, setActive] = useState(false);
   const handleClick = () => {
-    setIsActive(!active);
+    setActive(!active);
   };
+
   return (
     <nav className={`nav${active ? '--active' : ''}`}>
       <button
@@ -16,38 +21,22 @@ const Nav = ({ active, setIsActive }) => {
         <span>+</span>
       </button>
       <ul className="nav__list">
-        <li>
-          <NavLink
-            to="/"
-            className={({ isActive }) => (isActive ? 'nav__link--active' : 'nav__link')}
-          >
-            Accueil
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to="/destinations"
-            className={({ isActive }) => (isActive ? 'nav__link--active' : 'nav__link')}
-          >
-            Liste des voyages
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to="/profile"
-            className={({ isActive }) => (isActive ? 'nav__link--active' : 'nav__link')}
-          >
-            Profil
-          </NavLink>
-        </li>
+        {menu.map((menuItem) => (
+          <li key={menuItem.route}>
+            {
+            // NavLink used to style current page link, thanks to its property isActive
+          }
+            <NavLink
+              to={menuItem.route}
+              className={({ isActive }) => (isActive ? 'nav__link--active' : 'nav__link')}
+            >
+              {menuItem.name}
+            </NavLink>
+          </li>
+        ))}
       </ul>
     </nav>
   );
-};
-
-Nav.propTypes = {
-  active: PropTypes.bool.isRequired,
-  setIsActive: PropTypes.func.isRequired,
 };
 
 export default Nav;
