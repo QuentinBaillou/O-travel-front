@@ -39,6 +39,10 @@
       position: relative;
       font-size: 1.5rem;
       border-bottom: 2px vars.$dark-color solid;
+
+      &:hover {
+        color: vars.$dark-color;
+      }
     }
 
     &::before {
@@ -106,6 +110,10 @@
         border-radius: 0.5rem;
         padding: 0.5 * vars.$gutter;
         transition: 0.5s;
+
+        &:hover {
+          color: vars.$lightest-color;
+        }
       }
 
       &::before {
