@@ -1,4 +1,5 @@
 // == Import : npm
+import { BrowserRouter } from 'react-router-dom';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 
@@ -13,9 +14,11 @@ import Otravel from 'src/components/Otravel';
 // 1. Élément React racine (celui qui contient l'ensemble de l'app)
 //    => crée une structure d'objets imbriqués (DOM virtuel)
 const rootReactElement = (
-  <Provider store={store}>
-    <Otravel />
-  </Provider>
+  <BrowserRouter>
+    <Provider store={store}>
+      <Otravel />
+    </Provider>
+  </BrowserRouter>
 );
 // 2. La cible du DOM (là où la structure doit prendre vie dans le DOM)
 const target = document.getElementById('root');

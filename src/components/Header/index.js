@@ -1,4 +1,5 @@
 // == Import
+import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import Nav from './Nav';
 import './style.scss';
@@ -8,8 +9,8 @@ const Header = () => {
   const [isActive, setIsActive] = useState(false);
   return (
     <header className="header">
-      <h1 className="header__title"><span>☀️</span>'Travel</h1>
-      <Nav isActive={isActive} setIsActive={setIsActive} />
+      <h1 className="header__title"><Link to="/"><span>☀️</span>'Travel</Link></h1>
+      <Nav active={isActive} setIsActive={setIsActive} />
     </header>
   );
 };

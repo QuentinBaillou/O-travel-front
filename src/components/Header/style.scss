@@ -34,6 +34,13 @@
     position: relative;
     font-size: 1.5rem;
 
+    &--active {
+      color: vars.$dark-color;
+      position: relative;
+      font-size: 1.5rem;
+      border-bottom: 2px vars.$dark-color solid;
+    }
+
     &::before {
       content: "";
       position: absolute;
@@ -83,6 +90,15 @@
       border-radius: 0.5rem;
       padding: 0.5 * vars.$gutter;
       transition: 0.5s;
+
+      &--active {
+        background-color: vars.$header-main-color;
+        color: vars.$lightest-color;
+        font-size: 1.2rem;
+        box-shadow: vars.$darkest-color 1px 1px 5px;
+        border-radius: 0.5rem;
+        padding: 0.5 * vars.$gutter;
+      }
 
       &::before {
         display: none;
