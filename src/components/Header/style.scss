@@ -72,17 +72,22 @@
 
 @include desktop {
   .nav {
+    position: relative;
+
     &__list {
       position: absolute;
+      display: flex;
       flex-direction: column;
       align-items: flex-end;
-      top: 5rem;
-      right: -11rem;
-      gap: 1.5rem;
-      transition: 1s;
+      left: 4rem;
+      top: 3.5rem;
+      gap: 1rem;
+      transition: 0.5s;
     }
 
     &__link {
+      display: block;
+      width: max-content;
       background-color: vars.$lightest-color;
       color: vars.$darkest-color;
       font-size: 1.2rem;
@@ -92,12 +97,15 @@
       transition: 0.5s;
 
       &--active {
+        display: block;
+        width: max-content;
         background-color: vars.$header-main-color;
         color: vars.$lightest-color;
         font-size: 1.2rem;
         box-shadow: vars.$darkest-color 1px 1px 5px;
         border-radius: 0.5rem;
         padding: 0.5 * vars.$gutter;
+        transition: 0.5s;
       }
 
       &::before {
@@ -150,14 +158,12 @@
     }
 
     &--active {
-      display: flex;
       gap: 1rem;
+      position: relative;
 
-      & .nav {
-        &__list {
-          right: 1rem;
-          transition: 1s;
-        }
+      & .nav__list {
+        left: -10rem;
+        transition: 0.5s;
       }
     }
   }
