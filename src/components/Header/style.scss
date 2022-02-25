@@ -1,0 +1,164 @@
+@use "src/styles/vars";
+@import "src/styles/mixins";
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: vars.$gutter;
+  background-color: vars.$header-main-color;
+
+  &__title {
+    font-size: 2rem;
+    color: vars.$lightest-color;
+
+    & span {
+      font-size: 2.5rem;
+      color: orange;
+    }
+  }
+}
+
+.nav {
+  &__burger-button {
+    display: none;
+  }
+
+  &__list {
+    display: flex;
+    gap: 1.5 * vars.$gutter;
+  }
+
+  &__link {
+    color: vars.$lightest-color;
+    position: relative;
+    font-size: 1.5rem;
+
+    &--active {
+      color: vars.$dark-color;
+      position: relative;
+      font-size: 1.5rem;
+      border-bottom: 2px vars.$dark-color solid;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      background-color: vars.$dark-color;
+      bottom: -2px;
+      left: 50%;
+      right: 50%;
+      height: 2px;
+      transition: 0.2s;
+    }
+
+    &:hover {
+      color: vars.$dark-color;
+      transition: 0.5s;
+
+      &::before {
+        content: "";
+        position: absolute;
+        background-color: vars.$dark-color;
+        bottom: -2px;
+        left: 0;
+        right: 0;
+        height: 2px;
+        transition: 0.5s;
+      }
+    }
+  }
+}
+
+@include desktop {
+  .nav {
+    &__list {
+      position: absolute;
+      flex-direction: column;
+      align-items: flex-end;
+      top: 5rem;
+      right: -11rem;
+      gap: 1.5rem;
+      transition: 1s;
+    }
+
+    &__link {
+      background-color: vars.$lightest-color;
+      color: vars.$darkest-color;
+      font-size: 1.2rem;
+      box-shadow: vars.$darkest-color 1px 1px 5px;
+      border-radius: 0.5rem;
+      padding: 0.5 * vars.$gutter;
+      transition: 0.5s;
+
+      &--active {
+        background-color: vars.$header-main-color;
+        color: vars.$lightest-color;
+        font-size: 1.2rem;
+        box-shadow: vars.$darkest-color 1px 1px 5px;
+        border-radius: 0.5rem;
+        padding: 0.5 * vars.$gutter;
+      }
+
+      &::before {
+        display: none;
+      }
+
+      &:hover {
+        transition: 0.5s;
+        background-color: vars.$header-main-color;
+        color: vars.$lightest-color;
+      }
+    }
+
+    &__burger-button {
+      display: initial;
+      position: relative;
+      padding: 0;
+      width: 40px;
+      height: 30px;
+      background-color: transparent;
+      color: transparent;
+      border: none;
+
+      & span {
+        display: block;
+        height: 5px;
+        width: 100%;
+        background-color: vars.$dark-color;
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 5px;
+          background-color: vars.$dark-color;
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 5px;
+          background-color: vars.$dark-color;
+        }
+      }
+    }
+
+    &--active {
+      display: flex;
+      gap: 1rem;
+
+      & .nav {
+        &__list {
+          right: 1rem;
+          transition: 1s;
+        }
+      }
+    }
+  }
+}
