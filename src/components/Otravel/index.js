@@ -1,9 +1,10 @@
 // == Import
+import Header from 'src/components/Header';
 
 // == Composant
 const Otravel = () => (
   <div className="otravel">
-    <h1>Composant : Otravel</h1>
+    <Header />
   </div>
 );
 
