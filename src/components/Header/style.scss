@@ -37,7 +37,7 @@
     &::before {
       content: "";
       position: absolute;
-      background-color: vars.$darkest-color;
+      background-color: vars.$dark-color;
       bottom: -2px;
       left: 50%;
       right: 50%;
@@ -46,13 +46,13 @@
     }
 
     &:hover {
-      color: vars.$darkest-color;
+      color: vars.$dark-color;
       transition: 0.5s;
 
       &::before {
         content: "";
         position: absolute;
-        background-color: vars.$darkest-color;
+        background-color: vars.$dark-color;
         bottom: -2px;
         left: 0;
         right: 0;
