@@ -36,10 +36,10 @@
     &--active {
       position: relative;
       font-size: 1.5rem;
-      border-bottom: 2px vars.$dark-color solid;
+      border-bottom: 2px vars.$lightest-color solid;
 
       &:hover {
-        color: vars.$dark-color;
+        color: vars.$lightest-color;
       }
     }
 
@@ -55,6 +55,7 @@
     }
 
     &:hover {
+      color: vars.$lightest-color;
       &::before {
         content: "";
         position: absolute;
@@ -91,11 +92,7 @@
         @include mobile-link-style();
         background-color: vars.$header-main-color;
         color: vars.$lightest-color;
-        font-size: 1.2rem;
-        box-shadow: vars.$darkest-color 1px 1px 5px;
-        border-radius: 0.5rem;
-        padding: 0.5 * vars.$gutter;
-        transition: 0.5s;
+        border: none;
 
         &:hover {
           color: vars.$lightest-color;
