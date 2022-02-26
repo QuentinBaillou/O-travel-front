@@ -18,7 +18,7 @@ const Nav = () => {
         className="nav__burger-button"
         onClick={handleClick}
       >
-        <span>+</span>
+        <div />
       </button>
       <ul className="nav__list">
         {menu.map((menuItem) => (

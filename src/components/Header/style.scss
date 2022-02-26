@@ -7,10 +7,10 @@
   align-items: center;
   padding: vars.$gutter;
   background-color: vars.$header-main-color;
+  color: vars.$lightest-color;
 
   &__title {
     font-size: 2rem;
-    color: vars.$lightest-color;
 
     & span {
       font-size: 2.5rem;
@@ -30,41 +30,34 @@
   }
 
   &__link {
-    color: vars.$lightest-color;
     position: relative;
     font-size: 1.5rem;
 
     &--active {
-      color: vars.$dark-color;
       position: relative;
       font-size: 1.5rem;
-      border-bottom: 2px vars.$dark-color solid;
+      border-bottom: 2px vars.$lightest-color solid;
     }
 
     &::before {
       content: "";
       position: absolute;
-      background-color: vars.$dark-color;
+      background-color: vars.$lightest-color;
       bottom: -2px;
       left: 50%;
       right: 50%;
       height: 2px;
-      transition: 0.2s;
+      transition: 0.5s;
     }
 
     &:hover {
-      color: vars.$dark-color;
-      transition: 0.5s;
-
       &::before {
         content: "";
         position: absolute;
-        background-color: vars.$dark-color;
         bottom: -2px;
         left: 0;
         right: 0;
         height: 2px;
-        transition: 0.5s;
       }
     }
   }
@@ -79,33 +72,22 @@
       display: flex;
       flex-direction: column;
       align-items: flex-end;
-      left: 4rem;
+      right: -220px;
       top: 3.5rem;
       gap: 1rem;
       transition: 0.5s;
     }
 
     &__link {
-      display: block;
-      width: max-content;
+      @include mobile-link-style();
       background-color: vars.$lightest-color;
       color: vars.$darkest-color;
-      font-size: 1.2rem;
-      box-shadow: vars.$darkest-color 1px 1px 5px;
-      border-radius: 0.5rem;
-      padding: 0.5 * vars.$gutter;
-      transition: 0.5s;
 
       &--active {
-        display: block;
-        width: max-content;
+        @include mobile-link-style();
         background-color: vars.$header-main-color;
         color: vars.$lightest-color;
-        font-size: 1.2rem;
-        box-shadow: vars.$darkest-color 1px 1px 5px;
-        border-radius: 0.5rem;
-        padding: 0.5 * vars.$gutter;
-        transition: 0.5s;
+        border: none;
       }
 
       &::before {
@@ -126,33 +108,26 @@
       width: 40px;
       height: 30px;
       background-color: transparent;
-      color: transparent;
       border: none;
+      transition: all 0.5s;
 
-      & span {
-        display: block;
-        height: 5px;
-        width: 100%;
-        background-color: vars.$dark-color;
+      & div {
+        @include mobile-burger-button-div();
 
-        &::before {
+        &::before,
+        &::after {
           content: "";
+          @include mobile-burger-button-div();
           position: absolute;
-          top: 0;
           left: 0;
-          width: 100%;
-          height: 5px;
-          background-color: vars.$dark-color;
         }
 
         &::after {
-          content: "";
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          width: 100%;
-          height: 5px;
-          background-color: vars.$dark-color;
+          transform: translateY(13px);
+        }
+
+        &::before {
+          transform: translateY(-13px);
         }
       }
     }
@@ -161,9 +136,25 @@
       gap: 1rem;
       position: relative;
 
-      & .nav__list {
-        left: -10rem;
-        transition: 0.5s;
+      & .nav {
+        &__list {
+          right: 0;
+          transition: 0.5s;
+        }
+
+        &__burger-button {
+          & div {
+            background-color: transparent;
+
+            &::before {
+              transform: rotate(45deg);
+            }
+
+            &::after {
+              transform: rotate(-45deg);
+            }
+          }
+        }
       }
     }
   }
