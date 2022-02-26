@@ -17,3 +17,21 @@
     @content;
   }
 }
+
+@mixin mobile-link-style {
+  display: block;
+  width: max-content;
+  font-size: 1.2rem;
+  box-shadow: vars.$darkest-color 1px 1px 5px;
+  border-radius: 0.5rem;
+  padding: 0.5 * vars.$gutter;
+  transition: 0.5s;
+}
+
+@mixin mobile-burger-button-div {
+  width: 100%;
+  height: 5px;
+  background-color: vars.$lightest-color;
+  border-radius: 2.5px;
+  transition: all 0.5s;
+}
