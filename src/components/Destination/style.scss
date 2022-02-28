@@ -14,25 +14,13 @@
 }
 // Container principal
 
-
-// @font-face {
-//   font-family: 'Open Sans';
-//   src: url(path/to/file) format(Example: 'truetype' or 'opentype' depending on the file extension of your font);
-// }
-
-
-// //USAGE
-// body {
-//   font-family: 'Open Sans', sans-serif;
-// }
-
 // Bloc Header
 .destination_header {
   width: 50%;
   position: absolute;
   left: 25%; right: 25%; top: 7.6em;
   height: 7em;
-  background-color: red;
+  background-color: vars.$main-block-and-fonts-color;
   margin: auto;
 
   .block_part_title {
@@ -52,18 +40,37 @@
   }
 
   .block_part_infos {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 3.5em;
+    
+
+    .flag {
+      width: 3.5em;
+    }
+    
+    .infos {
+      font-family: 'Subway';
+      color: vars.$lightest-color;
+    }
+
+    .hidden {
+      width: 1em;
+      height: 1em;
+      color: vars.$main-block-and-fonts-color;
+    }
 
   }
-
 }
-
-
-
-.flag {
-  width: 3em;
-}
-
 // Bloc Header
+
+// Bloc Main Pic
+.main_pic {
+  margin-top: 5em;
+  width: 100%;
+}
+// Bloc Main Pic
 
 // Bloc Middle Pics
 .middle_pics {
@@ -84,4 +91,6 @@
 }
 // Bloc Middle Pics
 
-
+.final_pic {
+  width: 100%;
+}

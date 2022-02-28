@@ -3,7 +3,9 @@ import Pic5 from 'src/assets/images/rocky5.jpg';
 
 const FinalPic = () => {
   return (
-    <img src={Pic5} />
+    <div>
+      <img className="final_pic" src={Pic5} />
+    </div>
   );
 };
 

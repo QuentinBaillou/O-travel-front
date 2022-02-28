@@ -9,11 +9,18 @@ const Header = () => {
       </div>
 
       <div className="block_part_infos">
-          <img className="flag" src={Flag} />
+        <div className="flag">
+          <img src={Flag} />
+        </div>
         
-          <div className="infos">
+        <div className="infos">
+          <span>8 nuits | train | 1500€ / p.</span>
+        </div>
 
-          </div>
+        <div className="hidden">
+          <span>.</span>
+        </div>
+    
       </div>
     </header>
   );

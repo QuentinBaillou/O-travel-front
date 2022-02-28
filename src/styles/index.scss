@@ -2,6 +2,8 @@
 @use 'vars';
 
 body {
+  width: 75%;
+  margin: auto;
   font-family: sans-serif;
   background-color: vars.$background-color;
 }

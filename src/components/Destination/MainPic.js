@@ -4,7 +4,7 @@ import Pic1 from 'src/assets/images/rocky1.jpg';
 const MainPic = () => {
   return (
     <div>
-      <img src={Pic1} />
+      <img className="main_pic" src={Pic1} />
     </div>
   );
 };
