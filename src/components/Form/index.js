@@ -18,7 +18,7 @@ const Form = () => {
 
   const handleChange = (field, item) => {
     // Convert field name to match the changing array, in the state
-    const fieldToSend = `${field}Selected`;
+    const fieldToSend = `${field}sSelected`;
     dispatch(setSelectedItem(fieldToSend, item));
   };
 
@@ -45,7 +45,7 @@ const Form = () => {
               <Checkbox
                 item={landscape}
                 name={landscape.name}
-                field="landscapes"
+                field="landscape"
                 checked={isItemChecked(landscape, landscapesSelected)}
                 handleChange={handleChange}
                 key={landscape.id}
@@ -62,7 +62,7 @@ const Form = () => {
               <Checkbox
                 item={transport}
                 name={transport.way}
-                field="transports"
+                field="transport"
                 checked={isItemChecked(transport, transportsSelected)}
                 handleChange={handleChange}
                 key={transport.id}
@@ -81,7 +81,7 @@ const Form = () => {
               <Checkbox
                 item={season}
                 name={season.season}
-                field="seasons"
+                field="season"
                 checked={isItemChecked(season, seasonsSelected)}
                 handleChange={handleChange}
                 key={season.id}

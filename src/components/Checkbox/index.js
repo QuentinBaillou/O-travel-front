@@ -1,11 +1,15 @@
 import PropTypes from 'prop-types';
-import img from 'src/assets/images/desert.svg';
+import { useState } from 'react';
 
 import './style.scss';
 
 const Checkbox = ({
   item, name, field, checked, handleChange, rounded,
 }) => {
+  const [image, setImage] = useState('');
+  import(`src/assets/images/${field}${item.id}.svg`).then((response) => {
+    setImage(response.default);
+  });
   const changeStatus = () => {
     handleChange(field, item);
   };
@@ -20,7 +24,7 @@ const Checkbox = ({
         onChange={changeStatus}
         className="checkbox__input"
       />
-      <div className="checkbox__logo"><img src={img} alt="boat logo" /></div>
+      <div className="checkbox__logo"><img src={image} alt={`${name} logo`} /></div>
     </div>
   );
 };
