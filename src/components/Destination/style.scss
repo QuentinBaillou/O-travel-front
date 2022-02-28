@@ -1,0 +1,9 @@
+@use "src/styles/vars";
+
+.container {
+  width: 100%;
+  background-color: vars.$main-block-and-fonts-color;
+  margin-top: vars.$gutter*2;
+  margin-bottom: vars.$gutter*2;
+
+}
