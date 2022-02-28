@@ -5,5 +5,21 @@
   background-color: vars.$main-block-and-fonts-color;
   margin-top: vars.$gutter*2;
   margin-bottom: vars.$gutter*2;
+}
+
+.middle_pics {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+
+  .middle_pic1 {
+    width: 100%;
+  }
+  .middle_pic2 {
+    width: 50%;
+  }
+  .middle_pic3 {
+    width: 50%;
+  }
 
 }

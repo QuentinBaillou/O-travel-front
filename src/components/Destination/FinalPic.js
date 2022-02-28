@@ -1,8 +1,9 @@
 import './style.scss';
+import Pic5 from 'src/assets/images/rocky5.jpg';
 
 const FinalPic = () => {
   return (
-    <div>composant Final Pic</div>
+    <img src={Pic5} />
   );
 };
 
