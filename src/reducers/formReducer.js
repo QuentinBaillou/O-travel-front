@@ -1,4 +1,5 @@
 import { SET_SELECTED_ITEM } from 'src/actions/formActions';
+import { selectedItemArraySelector } from 'src/selectors/formSelectors';
 
 const initialState = {
   landscapes: [
@@ -70,6 +71,7 @@ const reducer = (state = initialState, action = {}) => {
     case SET_SELECTED_ITEM:
       return {
         ...state,
+        [action.field]: selectedItemArraySelector(state[action.field], action.item),
       };
     default:
       return state;

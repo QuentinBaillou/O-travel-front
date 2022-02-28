@@ -4,10 +4,10 @@ import img from 'src/assets/images/desert.svg';
 import './style.scss';
 
 const Checkbox = ({
-  name, field, checked, handleChange, rounded,
+  item, name, field, checked, handleChange, rounded,
 }) => {
   const changeStatus = () => {
-    handleChange(field, name);
+    handleChange(field, item);
   };
   return (
     <div className={rounded ? 'checkbox rounded' : 'checkbox'}>
@@ -26,16 +26,16 @@ const Checkbox = ({
 };
 
 Checkbox.propTypes = {
+  item: PropTypes.object.isRequired,
   name: PropTypes.string.isRequired,
   field: PropTypes.string.isRequired,
-  checked: PropTypes.bool,
+  checked: PropTypes.bool.isRequired,
   handleChange: PropTypes.func.isRequired,
   rounded: PropTypes.bool,
 };
 
 Checkbox.defaultProps = {
   rounded: false,
-  checked: false,
 };
 
 export default Checkbox;

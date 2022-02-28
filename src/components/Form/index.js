@@ -14,9 +14,10 @@ const Form = () => {
 
   const dispatch = useDispatch();
 
-  const handleChange = (field, name) => {
+  const handleChange = (field, item) => {
+    // Convert field name to match the changing array, in the state
     const fieldToSend = `${field}Selected`;
-    dispatch(setSelectedItem(fieldToSend, name));
+    dispatch(setSelectedItem(fieldToSend, item));
   };
 
   /**
@@ -40,6 +41,7 @@ const Form = () => {
           landscapes.map(
             (landscape) => (
               <Checkbox
+                item={landscape}
                 name={landscape.name}
                 field="landscapes"
                 checked={isItemChecked(landscape, landscapesSelected)}
@@ -56,6 +58,7 @@ const Form = () => {
           transports.map(
             (transport) => (
               <Checkbox
+                item={transport}
                 name={transport.way}
                 field="transports"
                 checked={isItemChecked(transport, transportsSelected)}
