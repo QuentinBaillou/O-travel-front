@@ -1,5 +1,4 @@
-import { SET_CHECKED_VALUE } from 'src/actions/formActions';
-import { itemCheckedSelector } from 'src/selectors/formSelectors';
+import { SET_SELECTED_ITEM } from 'src/actions/formActions';
 
 const initialState = {
   landscapes: [
@@ -62,14 +61,15 @@ const initialState = {
       id: 6,
     },
   ],
+  landscapesSelected: [],
+  transportsSelected: [],
 };
 
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
-    case SET_CHECKED_VALUE:
+    case SET_SELECTED_ITEM:
       return {
         ...state,
-        [action.field]: itemCheckedSelector(state[action.field], action.name),
       };
     default:
       return state;

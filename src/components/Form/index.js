@@ -1,17 +1,37 @@
 import { useDispatch, useSelector } from 'react-redux';
 
 import Checkbox from 'src/components/Checkbox';
-import { setCheckedValue } from 'src/actions/formActions';
+import { setSelectedItem } from 'src/actions/formActions';
 
 import './style.scss';
 
 const Form = () => {
+  // Get items from state
   const landscapes = useSelector((state) => state.form.landscapes);
   const transports = useSelector((state) => state.form.transports);
+  const transportsSelected = useSelector((state) => state.form.transportsSelected);
+  const landscapesSelected = useSelector((state) => state.form.landscapesSelected);
+
   const dispatch = useDispatch();
+
   const handleChange = (field, name) => {
-    dispatch(setCheckedValue(field, name));
+    const fieldToSend = `${field}Selected`;
+    dispatch(setSelectedItem(fieldToSend, name));
   };
+
+  /**
+   * This function return true if the item is in the array, and false if not
+   * @param {Object} item Item to find
+   * @param {array} arrayToSearch Searching array
+   * @returns bool
+   */
+  const isItemChecked = (item, arrayToSearch) => {
+    if (arrayToSearch.find((arrayItem) => arrayItem === item)) {
+      return true;
+    }
+    return false;
+  };
+
   return (
     <form className="form">
       <fieldset className="form__landscapes">
@@ -22,7 +42,7 @@ const Form = () => {
               <Checkbox
                 name={landscape.name}
                 field="landscapes"
-                checked={landscape.checked}
+                checked={isItemChecked(landscape, landscapesSelected)}
                 handleChange={handleChange}
                 key={landscape.id}
               />
@@ -38,12 +58,13 @@ const Form = () => {
               <Checkbox
                 name={transport.way}
                 field="transports"
-                checked={transport.checked}
+                checked={isItemChecked(transport, transportsSelected)}
                 handleChange={handleChange}
                 key={transport.id}
                 rounded
               />
-            ),
+            )
+            ,
           )
         }
       </fieldset>
