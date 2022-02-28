@@ -36,6 +36,32 @@ const initialState = {
       id: 8,
     },
   ],
+  transports: [
+    {
+      way: 'foot',
+      id: 1,
+    },
+    {
+      way: 'car',
+      id: 2,
+    },
+    {
+      way: 'campingcar',
+      id: 3,
+    },
+    {
+      way: 'boat',
+      id: 4,
+    },
+    {
+      way: 'train',
+      id: 5,
+    },
+    {
+      way: 'rocket',
+      id: 6,
+    },
+  ],
 };
 
 const reducer = (state = initialState, action = {}) => {
