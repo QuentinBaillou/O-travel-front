@@ -9,7 +9,7 @@ const Checkbox = ({
   // Local state for dynamically imported image for checkboxes
   const [image, setImage] = useState('');
   // Dynamic import of image, based on field and item.id props
-  import(`src/assets/images/${field}${item.id}.svg`).then((response) => {
+  import(`src/assets/images/${field.slice(0, -1)}${item.id}.svg`).then((response) => {
     setImage(response.default);
   });
 
