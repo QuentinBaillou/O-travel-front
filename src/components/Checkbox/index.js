@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import img from 'src/utils/images/boat.svg';
+import img from 'src/assets/images/desert.svg';
 
 import './style.scss';
 
@@ -28,13 +28,14 @@ const Checkbox = ({
 Checkbox.propTypes = {
   name: PropTypes.string.isRequired,
   field: PropTypes.string.isRequired,
-  checked: PropTypes.bool.isRequired,
+  checked: PropTypes.bool,
   handleChange: PropTypes.func.isRequired,
   rounded: PropTypes.bool,
 };
 
 Checkbox.defaultProps = {
   rounded: false,
+  checked: false,
 };
 
 export default Checkbox;

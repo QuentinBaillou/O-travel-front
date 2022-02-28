@@ -1,7 +1,7 @@
 // == Import
 import Header from 'src/components/Header';
 import Footer from 'src/components/Footer';
-import Checkbox from 'src/components/Checkbox';
+import Form from 'src/components/Form';
 
 import './style.scss';
 
@@ -9,7 +9,7 @@ import './style.scss';
 const Otravel = () => (
   <div className="otravel">
     <Header />
-    <Checkbox />
+    <Form />
     <Footer />
   </div>
 );

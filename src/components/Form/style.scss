@@ -1,0 +1,16 @@
+@use 'src/styles/vars';
+
+.form {
+  background-color: #000;
+
+  &__legend {
+    color: vars.$lightest-color;
+    font-size: 1.5rem;
+    padding: 1rem;
+  }
+
+  &__landscapes {
+    display: flex;
+    gap: 1rem;
+  }
+}
