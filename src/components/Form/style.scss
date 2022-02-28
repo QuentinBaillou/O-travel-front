@@ -1,7 +1,23 @@
 @use 'src/styles/vars';
 
+.wrapper {
+  position: relative;
+  display: flex;
+  justify-content: right;
+}
+
+#background-video {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+}
+
 .form {
-  background-color: #000;
+  background-color: rgba($color: #000, $alpha: 0.5);
+  width: 50%;
+  margin: 2rem;
 
   &__legend {
     color: vars.$lightest-color;
@@ -10,6 +26,10 @@
     &:first-child {
       padding-top: 1rem;
     }
+  }
+
+  &__section {
+    display: flex;
   }
 
   &__landscapes,

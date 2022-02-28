@@ -1,7 +1,7 @@
 .checkbox {
   position: relative;
-  width: 140px;
-  height: 140px;
+  width: 100px;
+  height: 100px;
   overflow: hidden;
 
   &__label {
@@ -18,8 +18,8 @@
 
     &:checked+.checkbox__logo,
     &:hover+.checkbox__logo {
-      border: yellow 4px solid;
-      color: yellow;
+      border: lightgoldenrodyellow 4px solid;
+      color: lightgoldenrodyellow;
       transition: all 0.5s;
 
       & img {

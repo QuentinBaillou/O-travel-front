@@ -6,10 +6,13 @@ import './style.scss';
 const Checkbox = ({
   item, name, field, checked, handleChange, rounded,
 }) => {
+  // Local state for dynamically imported image for checkboxes
   const [image, setImage] = useState('');
+  // Dynamic import of image, based on field and item.id props
   import(`src/assets/images/${field}${item.id}.svg`).then((response) => {
     setImage(response.default);
   });
+
   const changeStatus = () => {
     handleChange(field, item);
   };

@@ -69,6 +69,10 @@ module.exports = {
           filename: 'images/[hash][ext][query]'
         }
       },
+      {
+        test: /\.mp4$/,
+        use: 'file-loader?name=videos/[name].[ext]',
+      },
       // Fonts and SVGs
       {
         test: /\.(woff(2)?|eot|ttf|otf|svg|)$/,
