@@ -1,12 +1,71 @@
 @use "src/styles/vars";
 
+@font-face {
+  font-family: 'Subway';
+  src: url('src/assets/polices/Subway-Black.ttf');
+};
+
+// Container principal
 .container {
   width: 100%;
   background-color: vars.$main-block-and-fonts-color;
-  margin-top: vars.$gutter*2;
-  margin-bottom: vars.$gutter*2;
+  margin-top: vars.$gutter*5;
+  margin-bottom: vars.$gutter*5;
+}
+// Container principal
+
+
+// @font-face {
+//   font-family: 'Open Sans';
+//   src: url(path/to/file) format(Example: 'truetype' or 'opentype' depending on the file extension of your font);
+// }
+
+
+// //USAGE
+// body {
+//   font-family: 'Open Sans', sans-serif;
+// }
+
+// Bloc Header
+.destination_header {
+  width: 50%;
+  position: absolute;
+  left: 25%; right: 25%; top: 7.6em;
+  height: 7em;
+  background-color: red;
+  margin: auto;
+
+  .block_part_title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 3.5em;
+    background-color: vars.$titles-box-and-buttons-color;
+
+    .title {
+      color: vars.$lightest-color;
+      font-size: 2em;
+      font-family: 'Subway';
+    
+    }
+  }
+
+  .block_part_infos {
+
+  }
+
 }
 
+
+
+.flag {
+  width: 3em;
+}
+
+// Bloc Header
+
+// Bloc Middle Pics
 .middle_pics {
   width: 100%;
   display: flex;
@@ -23,3 +82,6 @@
   }
 
 }
+// Bloc Middle Pics
+
+
