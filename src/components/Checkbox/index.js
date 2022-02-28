@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import img from 'src/utils/images/boat.svg';
 
 import './style.scss';
 
@@ -19,7 +20,7 @@ const Checkbox = ({
         onChange={changeStatus}
         className="checkbox__input"
       />
-      <div className="checkbox__logo">logo</div>
+      <div className="checkbox__logo"><img src={img} alt="boat logo" /></div>
     </div>
   );
 };
