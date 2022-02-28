@@ -8,8 +8,14 @@ import './style.scss';
 const FormSection = ({
   field, legend, handleChange, isItemChecked,
 }) => {
+  // Get elements from state
   const sectionElements = useSelector((state) => state.form[field]);
   const selectedSectionElements = useSelector((state) => state.form[`${field}Selected`]);
+
+  // Get the property other than id from objects in state element
+  const keys = Object.keys(sectionElements[0]);
+  const [elementMainKey] = keys.filter((key) => key !== 'id');
+
   return (
     <fieldset className={`form__${field}`}>
       <legend className="form__legend">{legend}</legend>
@@ -18,7 +24,7 @@ const FormSection = ({
         (element) => (
           <Checkbox
             item={element}
-            name={element.name}
+            name={element[elementMainKey]}
             field={field}
             checked={isItemChecked(element, selectedSectionElements)}
             handleChange={handleChange}
