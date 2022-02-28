@@ -4,53 +4,53 @@ import { selectedItemArraySelector } from 'src/selectors/formSelectors';
 const initialState = {
   landscapes: [
     {
-      name: 'city',
+      name: 'littoral',
       id: 1,
     },
     {
-      name: 'mountains',
+      name: 'montagneux',
       id: 2,
     },
     {
-      name: 'sea',
+      name: 'plaine',
       id: 3,
     },
     {
-      name: 'tropical',
+      name: 'urbain',
       id: 4,
     },
     {
-      name: 'plain',
+      name: 'désertique',
       id: 5,
     },
     {
-      name: 'snow',
+      name: 'tropical',
       id: 6,
     },
     {
-      name: 'desert',
+      name: 'enneigé',
       id: 7,
     },
     {
-      name: 'volcano',
+      name: 'volcanique',
       id: 8,
     },
   ],
   transports: [
     {
-      way: 'foot',
+      way: 'transports en commun',
       id: 1,
     },
     {
-      way: 'car',
+      way: 'voiture',
       id: 2,
     },
     {
-      way: 'campingcar',
+      way: 'camping car',
       id: 3,
     },
     {
-      way: 'boat',
+      way: 'bateau',
       id: 4,
     },
     {
@@ -58,12 +58,31 @@ const initialState = {
       id: 5,
     },
     {
-      way: 'rocket',
+      way: 'fusée spatiale',
       id: 6,
+    },
+  ],
+  seasons: [
+    {
+      season: 'printemps',
+      id: 1,
+    },
+    {
+      season: 'été',
+      id: 2,
+    },
+    {
+      season: 'automne',
+      id: 3,
+    },
+    {
+      season: 'hiver',
+      id: 4,
     },
   ],
   landscapesSelected: [],
   transportsSelected: [],
+  seasonsSelected: [],
 };
 
 const reducer = (state = initialState, action = {}) => {

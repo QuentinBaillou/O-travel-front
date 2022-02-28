@@ -6,12 +6,18 @@
   &__legend {
     color: vars.$lightest-color;
     font-size: 1.5rem;
-    padding: 1rem;
+
+    &:first-child {
+      padding-top: 1rem;
+    }
   }
 
   &__landscapes,
-  &__transports {
+  &__transports,
+  &__seasons {
+    padding: 1rem;
     display: flex;
+    flex-wrap: wrap;
     gap: 1rem;
   }
 }

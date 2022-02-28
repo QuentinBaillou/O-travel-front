@@ -9,8 +9,10 @@ const Form = () => {
   // Get items from state
   const landscapes = useSelector((state) => state.form.landscapes);
   const transports = useSelector((state) => state.form.transports);
+  const seasons = useSelector((state) => state.form.seasons);
   const transportsSelected = useSelector((state) => state.form.transportsSelected);
   const landscapesSelected = useSelector((state) => state.form.landscapesSelected);
+  const seasonsSelected = useSelector((state) => state.form.seasonsSelected);
 
   const dispatch = useDispatch();
 
@@ -65,6 +67,24 @@ const Form = () => {
                 handleChange={handleChange}
                 key={transport.id}
                 rounded
+              />
+            )
+            ,
+          )
+        }
+      </fieldset>
+      <fieldset className="form__seasons">
+        <legend className="form__legend">Une saison idéale?</legend>
+        {
+          seasons.map(
+            (season) => (
+              <Checkbox
+                item={season}
+                name={season.season}
+                field="seasons"
+                checked={isItemChecked(season, seasonsSelected)}
+                handleChange={handleChange}
+                key={season.id}
               />
             )
             ,
