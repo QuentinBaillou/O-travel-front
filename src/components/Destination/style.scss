@@ -14,7 +14,7 @@
 }
 // Container principal
 
-// Bloc Header
+// Composant Header
 .destination_header {
   width: 50%;
   position: absolute;
@@ -63,14 +63,57 @@
 
   }
 }
-// Bloc Header
+// Composant Header
 
-// Bloc Main Pic
+
+// Composant Main Pic
 .main_pic {
   margin-top: 5em;
   width: 100%;
 }
-// Bloc Main Pic
+// Composant Main Pic
+
+
+// Composant Summary
+.summary_wrapper {
+  position: relative;
+  height: 8em;
+}
+
+.summary {
+  width: 85%;
+  margin-left: 6em;
+  margin-top: vars.$gutter*1.5;
+  margin-bottom: vars.$gutter*1.5;
+  color: vars.$lightest-color;
+  font-family: 'Subway';
+  border-left: 2px solid vars.$lightest-color;
+  padding-left: vars.$gutter*1.5;
+}
+
+.strong_points {
+  width: 40%;
+  height: 7em;
+  margin-left: 6em;
+  padding: vars.$gutter;
+  background-color: vars.$titles-box-and-buttons-color;
+  position: absolute;
+  top: 4.7em;
+  color: vars.$main-block-and-fonts-color;
+  font-family: 'Subway';
+}
+
+li {
+  display: inline;
+  color: vars.$lightest-color;
+}
+
+.bullet_point {
+  display: inline;
+  color: vars.$main-block-and-fonts-color;
+}
+// Composant Summary
+
 
 // Bloc Middle Pics
 .middle_pics {
