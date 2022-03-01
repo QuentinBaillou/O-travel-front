@@ -48,6 +48,20 @@
     .infos {
       font-family: vars.$font-subway;
       color: vars.$lightest-color;
+      margin-right: 3.5em;
+    }
+
+    .infos .nights {
+      margin-right: vars.$gutter;
+    }
+
+    .infos .way {
+      margin-left: vars.$gutter;
+      margin-right: vars.$gutter;
+    }
+
+    .infos .price {
+      margin-left: vars.$gutter;
     }
 
     .hidden {
@@ -90,7 +104,7 @@
 .strong_points {
   width: 40%;
   height: 10em;
-  margin-left: vars.$gutter * 6;
+  margin-left: vars.$gutter * 5.2;
   padding: vars.$gutter *2;
   background-color: vars.$titles-box-and-buttons-color;
   position: absolute;
@@ -98,6 +112,10 @@
   color: vars.$main-block-and-fonts-color;
   font-family: vars.$font-subway;
   overflow: hidden;
+}
+
+.strong_points h2 {
+  font-weight: bold;
 }
 
 li {
@@ -117,6 +135,7 @@ li {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
+  margin-top: vars.$gutter * 1.5;
 
   .middle_pic1 {
     width: 100%;

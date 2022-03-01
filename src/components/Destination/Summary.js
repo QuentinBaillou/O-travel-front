@@ -9,8 +9,8 @@ const Summary = () => {
 
     <div className="strong_points">
 
-      <span>Points forts</span>
-      <br /><br />
+      <h2>Points forts</h2>
+      <br />
       <ul>
         <span className="bullet_point">&#8227;</span><li> Soluta voluptas a accusamus</li><br />
         <span className="bullet_point">&#8227;</span><li> Ab mollitia, in totam consectetur iste esse</li><br />

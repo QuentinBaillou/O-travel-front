@@ -5,7 +5,7 @@ const Header = () => {
   return(
     <header className="destination_header">
       <div className="block_part_title">
-        <span className="title">Rocky Mountaineer</span> 
+        <h1 className="title">Rocky Mountaineer</h1> 
       </div>
 
       <div className="block_part_infos">
@@ -14,7 +14,11 @@ const Header = () => {
         </div>
         
         <div className="infos">
-          <span>8 nuits | train | 1500€ / p.</span>
+          <span className="nights">8 nuits</span>
+           | 
+          <span className="way">train</span>
+           | 
+          <span className="price">1500€ / p.</span>
         </div>
 
         <div className="hidden">
