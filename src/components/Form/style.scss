@@ -40,6 +40,12 @@
     border: none;
     border-radius: 50%;
     background-color: vars.$form-highlight-color;
+    transition: all 0.5s;
+
+    &:hover {
+      background-color: yellow;
+      transform: scale(1.5);
+    }
   }
 }
 
