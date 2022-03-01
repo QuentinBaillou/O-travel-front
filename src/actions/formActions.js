@@ -30,3 +30,11 @@ export const SEND_FORM = 'SEND_FORM';
 export const sendForm = () => ({
   type: SEND_FORM,
 });
+
+// ACTION TYPE SET_BUDGET_VALUE
+export const SET_BUDGET_VALUE = 'SET_BUDGET_VALUE';
+// ACTION CREATOR setBudgetValue
+export const setBudgetValue = (value) => ({
+  type: SET_BUDGET_VALUE,
+  value,
+});

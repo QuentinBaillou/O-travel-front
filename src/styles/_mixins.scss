@@ -24,6 +24,12 @@
   }
 }
 
+@mixin display-form-desktop {
+  @media screen and (max-width: map-get(vars.$breakpoint, display-form-desktop)) {
+    @content;
+  }
+}
+
 @mixin mobile-link-style {
   display: block;
   width: max-content;

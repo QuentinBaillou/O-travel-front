@@ -7,7 +7,7 @@ const dataFetchingMiddleware = (store) => (next) => (action) => {
       axios
         .get(`http://cedric-vandermaes.vpnuser.lan:8080/api/${action.field}`)
         .then((response) => {
-          store.useDispatch(setFormElements(action.field, response.data));
+          store.dispatch(setFormElements(action.field, response.data));
         })
         .catch((error) => {
           console.log('erreur : ', error);

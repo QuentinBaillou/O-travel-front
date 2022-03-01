@@ -15,8 +15,6 @@ const FormSection = ({
   const sectionElements = useSelector((state) => state.form[field]);
   const selectedSectionElements = useSelector((state) => state.form[`${field}Selected`]);
   const dispatch = useDispatch();
-  console.log(sectionElements);
-  console.log(selectedSectionElements);
 
   useEffect(() => {
     dispatch(getFormElements(field));
@@ -27,7 +25,6 @@ const FormSection = ({
     const keys = Object.keys(sectionElements[0]);
     [elementMainKey] = keys.filter((key) => key !== 'id');
   }
-  console.log(elementMainKey);
 
   return (
     <fieldset className={`form__${field}`}>
