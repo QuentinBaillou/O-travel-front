@@ -1,6 +1,9 @@
 /* eslint-disable no-console */
 import axios from 'axios';
-import { GET_FORM_ELEMENTS, setFormElements, SEND_FORM } from 'src/actions/formActions';
+import {
+  GET_FORM_ELEMENTS, setFormElements, SEND_FORM,
+  setDestinations,
+} from 'src/actions/formActions';
 
 const dataFetchingMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
@@ -26,7 +29,7 @@ const dataFetchingMiddleware = (store) => (next) => (action) => {
           budget: state.form.budget,
         })
         .then((response) => {
-          console.log(response);
+          store.dispatch(setDestinations(response.data));
         })
         .catch((error) => {
           console.log(error);

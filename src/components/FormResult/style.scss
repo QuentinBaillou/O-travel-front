@@ -1,0 +1,50 @@
+@use 'src/styles/vars';
+@import 'src/styles/mixins';
+
+.form-result {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+  height: 50%;
+
+  &__list {
+    width: 80%;
+    height: 80%;
+    margin: 2rem 0;
+    overflow: auto;
+  }
+}
+
+.destination {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  padding: vars.$gutter;
+  border-radius: 20px;
+  background-color: rgba($color: #000, $alpha: 0.3);
+  margin: vars.$gutter 0;
+  color: vars.$lightest-color;
+
+  &__picture {
+    width: 50%;
+    border-radius: 20px;
+  }
+
+  &__surname {
+    font-size: 1.5rem;
+    padding: 0.5rem 0;
+    text-transform: uppercase;
+  }
+
+  &__extract,
+  &__pros {
+    font-size: 1.2rem;
+
+    & span {
+      display: block;
+      font-size: 1rem;
+      text-indent: 10px;
+      margin: 0.2rem 0 0.8rem;
+    }
+  }
+}

@@ -1,4 +1,7 @@
-import { SET_SELECTED_ITEM, SET_FORM_ELEMENTS, SET_BUDGET_VALUE } from 'src/actions/formActions';
+import {
+  SET_SELECTED_ITEM, SET_FORM_ELEMENTS, SET_BUDGET_VALUE,
+  SET_DESTINATIONS,
+} from 'src/actions/formActions';
 import { selectedItemArraySelector } from 'src/selectors/formSelectors';
 
 const initialState = {
@@ -9,6 +12,8 @@ const initialState = {
   landscapesSelected: [],
   transportsSelected: [],
   seasonsSelected: [],
+  destinations: [],
+  isFormSend: false,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -29,6 +34,17 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         budget: action.value,
+      };
+
+    case SET_DESTINATIONS:
+      return {
+        ...state,
+        destinations: action.destinations,
+        budget: 2500,
+        landscapesSelected: [],
+        seasonsSelected: [],
+        transportsSelected: [],
+        isFormSend: true,
       };
 
     default:

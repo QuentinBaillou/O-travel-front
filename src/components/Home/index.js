@@ -1,4 +1,5 @@
 import Form from 'src/components/Form';
+import FormResult from 'src/components/FormResult';
 
 import backgroundVideo from 'src/assets/video/background-video.mp4';
 
@@ -10,6 +11,7 @@ const Home = () => (
     <video autoPlay muted loop id="background-video">
       <source src={backgroundVideo} type="video/mp4" />
     </video>
+    <FormResult />
     <Form />
   </div>
 );

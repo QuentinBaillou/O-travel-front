@@ -38,3 +38,11 @@ export const setBudgetValue = (value) => ({
   type: SET_BUDGET_VALUE,
   value,
 });
+
+// ACTION TYPE SET_DESTINATIONS
+export const SET_DESTINATIONS = 'SET_DESTINATIONS';
+// ACTION CREATOR setDestinations
+export const setDestinations = (destinations) => ({
+  type: SET_DESTINATIONS,
+  destinations,
+});
