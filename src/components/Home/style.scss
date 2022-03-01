@@ -1,9 +1,11 @@
 @use 'src/styles/vars';
+@import 'src/styles/mixins';
 
 .wrapper {
   position: relative;
   display: flex;
   justify-content: right;
+  z-index: -1;
 }
 
 #background-video {
@@ -12,4 +14,11 @@
   top: 0;
   width: 100%;
   z-index: -1;
+}
+
+@include video-mobile {
+  #background-video {
+    height: 100%;
+    width: auto;
+  }
 }

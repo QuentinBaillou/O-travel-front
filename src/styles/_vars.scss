@@ -1,8 +1,7 @@
-$breakpoint: (
-  mobile: 425px,
+$breakpoint: (mobile: 425px,
   tablet: 768px,
-  desktop: 1024px
-);
+  desktop: 1024px,
+  video-mobile: 540px);
 
 //COLORS
 $header-main-color: #3fc1b5;

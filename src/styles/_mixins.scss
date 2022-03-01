@@ -18,6 +18,12 @@
   }
 }
 
+@mixin video-mobile {
+  @media screen and (max-width: map-get(vars.$breakpoint, video-mobile)) {
+    @content;
+  }
+}
+
 @mixin mobile-link-style {
   display: block;
   width: max-content;

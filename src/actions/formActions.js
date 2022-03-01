@@ -23,3 +23,10 @@ export const setFormElements = (field, formElements) => ({
   field,
   formElements,
 });
+
+// ACTION TYPE SEND_FORM
+export const SEND_FORM = 'SEND_FORM';
+// ACTION CREATOR sendForm
+export const sendForm = () => ({
+  type: SEND_FORM,
+});

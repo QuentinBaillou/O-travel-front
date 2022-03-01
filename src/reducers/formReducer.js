@@ -80,6 +80,7 @@ const initialState = {
       id: 4,
     }, */
   ],
+  budget: 1000,
   landscapesSelected: [],
   transportsSelected: [],
   seasonsSelected: [],

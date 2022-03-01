@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 
-import { setSelectedItem } from 'src/actions/formActions';
+import { setSelectedItem, sendForm } from 'src/actions/formActions';
 
 import FormSection from './FormSection';
 
@@ -13,6 +13,11 @@ const Form = () => {
     // Convert field name to match the changing array, in the state
     const fieldToSend = `${field}Selected`;
     dispatch(setSelectedItem(fieldToSend, item));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(sendForm());
   };
 
   /**
@@ -29,7 +34,7 @@ const Form = () => {
   };
 
   return (
-    <form className="form">
+    <form className="form" onSubmit={handleSubmit}>
       <FormSection
         field="landscapes"
         legend="Un paysage de rêve?"
@@ -50,6 +55,7 @@ const Form = () => {
           isItemChecked={isItemChecked}
         />
       </div>
+      <button type="submit">Envoyer</button>
     </form>
   );
 };
