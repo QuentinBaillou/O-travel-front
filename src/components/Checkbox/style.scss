@@ -1,3 +1,5 @@
+@use 'src/styles/vars';
+
 .checkbox {
   position: relative;
   width: 100px;
@@ -18,8 +20,8 @@
 
     &:checked+.checkbox__logo,
     &:hover+.checkbox__logo {
-      border: lightgoldenrodyellow 4px solid;
-      color: lightgoldenrodyellow;
+      border: vars.$form-highlight-color 4px solid;
+      color: vars.$form-highlight-color;
       transition: all 0.5s;
 
       & img {

@@ -1,6 +1,7 @@
 import { useDispatch } from 'react-redux';
 
 import { setSelectedItem, sendForm } from 'src/actions/formActions';
+import sendLogo from 'src/assets/images/send.svg';
 
 import FormSection from './FormSection';
 
@@ -55,7 +56,7 @@ const Form = () => {
           isItemChecked={isItemChecked}
         />
       </div>
-      <button type="submit">Envoyer</button>
+      <button type="submit" className="form__submit"><img src={sendLogo} alt="send logo" /></button>
     </form>
   );
 };
