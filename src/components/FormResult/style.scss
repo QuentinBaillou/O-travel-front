@@ -63,3 +63,9 @@
     height: auto;
   }
 }
+
+@include tablet {
+  .form-result__picture {
+    display: none;
+  }
+}
