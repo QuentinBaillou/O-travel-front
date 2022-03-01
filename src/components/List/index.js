@@ -112,16 +112,14 @@ const List = () => (
         </Card.Content>
       </Card>
     </Card.Group>
-    <Pagination color='white'
-    defaultActivePage={1}
-    firstItem={null}
-    lastItem={null}
-    pointing
-    secondary
-    totalPages={3}
-  />
-    
-
+    <Pagination
+      defaultActivePage={1}
+      firstItem={null}
+      lastItem={null}
+      pointing
+      secondary
+      totalPages={3}
+    />
   </div>
 );
 
