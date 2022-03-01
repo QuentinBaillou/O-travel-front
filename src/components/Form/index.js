@@ -2,8 +2,6 @@ import { useDispatch } from 'react-redux';
 
 import { setSelectedItem } from 'src/actions/formActions';
 
-import backgroundVideo from 'src/assets/video/background-video.mp4';
-
 import FormSection from './FormSection';
 
 import './style.scss';
@@ -31,33 +29,28 @@ const Form = () => {
   };
 
   return (
-    <div className="wrapper">
-      <video autoPlay muted loop id="background-video">
-        <source src={backgroundVideo} type="video/mp4" />
-      </video>
-      <form className="form">
+    <form className="form">
+      <FormSection
+        field="landscapes"
+        legend="Un paysage de rêve?"
+        handleChange={handleChange}
+        isItemChecked={isItemChecked}
+      />
+      <div className="form__section">
         <FormSection
-          field="landscapes"
-          legend="Un paysage de rêve?"
+          field="transports"
+          legend="Un moyen de transport idéal?"
           handleChange={handleChange}
           isItemChecked={isItemChecked}
         />
-        <div className="form__section">
-          <FormSection
-            field="transports"
-            legend="Un moyen de transport idéal?"
-            handleChange={handleChange}
-            isItemChecked={isItemChecked}
-          />
-          <FormSection
-            field="seasons"
-            legend="Une saison idéale?"
-            handleChange={handleChange}
-            isItemChecked={isItemChecked}
-          />
-        </div>
-      </form>
-    </div>
+        <FormSection
+          field="seasons"
+          legend="Une saison idéale?"
+          handleChange={handleChange}
+          isItemChecked={isItemChecked}
+        />
+      </div>
+    </form>
   );
 };
 

@@ -1,9 +1,9 @@
-import { SET_SELECTED_ITEM } from 'src/actions/formActions';
+import { SET_SELECTED_ITEM, SET_FORM_ELEMENTS } from 'src/actions/formActions';
 import { selectedItemArraySelector } from 'src/selectors/formSelectors';
 
 const initialState = {
   landscapes: [
-    {
+    /* {
       name: 'littoral',
       id: 1,
     },
@@ -34,10 +34,10 @@ const initialState = {
     {
       name: 'volcanique',
       id: 8,
-    },
+    }, */
   ],
   transports: [
-    {
+    /* {
       way: 'transports en commun',
       id: 1,
     },
@@ -60,10 +60,10 @@ const initialState = {
     {
       way: 'fusée spatiale',
       id: 6,
-    },
+    }, */
   ],
   seasons: [
-    {
+    /* {
       season: 'printemps',
       id: 1,
     },
@@ -78,7 +78,7 @@ const initialState = {
     {
       season: 'hiver',
       id: 4,
-    },
+    }, */
   ],
   landscapesSelected: [],
   transportsSelected: [],
@@ -91,6 +91,11 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         [action.field]: selectedItemArraySelector(state[action.field], action.item),
+      };
+    case SET_FORM_ELEMENTS:
+      return {
+        ...state,
+        [action.field]: action.formElements,
       };
     default:
       return state;

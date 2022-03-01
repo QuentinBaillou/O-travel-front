@@ -1,6 +1,8 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
+import { getFormElements } from 'src/actions/formActions';
 import Checkbox from 'src/components/Checkbox';
 
 import './style.scss';
@@ -8,13 +10,24 @@ import './style.scss';
 const FormSection = ({
   field, legend, handleChange, isItemChecked,
 }) => {
-  // Get elements from state
+  let elementMainKey = '';
+  // Get elements from state, based on props
   const sectionElements = useSelector((state) => state.form[field]);
   const selectedSectionElements = useSelector((state) => state.form[`${field}Selected`]);
+  const dispatch = useDispatch();
+  console.log(sectionElements);
+  console.log(selectedSectionElements);
+
+  useEffect(() => {
+    dispatch(getFormElements(field));
+  }, []);
 
   // Get the property other than id from objects in state element
-  const keys = Object.keys(sectionElements[0]);
-  const [elementMainKey] = keys.filter((key) => key !== 'id');
+  if (sectionElements[0]) {
+    const keys = Object.keys(sectionElements[0]);
+    [elementMainKey] = keys.filter((key) => key !== 'id');
+  }
+  console.log(elementMainKey);
 
   return (
     <fieldset className={`form__${field}`}>

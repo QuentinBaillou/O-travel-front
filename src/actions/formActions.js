@@ -6,3 +6,20 @@ export const setSelectedItem = (field, item) => ({
   field,
   item,
 });
+
+// ACTION TYPE GET_FORM_ELEMENTS
+export const GET_FORM_ELEMENTS = 'GET_FORM_ELEMENTS';
+// ACTION CREATOR getFormElements
+export const getFormElements = (field) => ({
+  type: GET_FORM_ELEMENTS,
+  field,
+});
+
+// ACTION TYPE SET_FORM_ELEMENTS
+export const SET_FORM_ELEMENTS = 'SET_FORM_ELEMENTS';
+// ACTION CREATOR setFormElements
+export const setFormElements = (field, formElements) => ({
+  type: SET_FORM_ELEMENTS,
+  field,
+  formElements,
+});
