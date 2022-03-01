@@ -2,8 +2,10 @@
 
 // Container principal
 .container {
-  width: 100%;
+  width: 70%;
   background-color: vars.$main-block-and-fonts-color;
+  margin-left: auto;
+  margin-right: auto;
   margin-top: vars.$gutter*5;
   margin-bottom: vars.$gutter*5;
 }
@@ -13,7 +15,7 @@
 .destination_header {
   width: 50%;
   position: absolute;
-  left: 25%; right: 25%; top: 7.6em;
+  left: 25%; right: 25%; top: 7.2em;
   height: 7em;
   background-color: vars.$main-block-and-fonts-color;
   margin: auto;
@@ -30,8 +32,6 @@
       color: vars.$lightest-color;
       font-size: 2em;
       font-weight: bold;
-      font-family: vars.$font;
-    
     }
   }
 
@@ -47,7 +47,6 @@
     }
     
     .infos {
-      font-family: vars.$font;
       color: vars.$lightest-color;
       margin-right: 3.5em;
     }
@@ -97,7 +96,6 @@
   margin-top: vars.$gutter*1.5;
   margin-bottom: vars.$gutter*1.5;
   color: vars.$lightest-color;
-  font-family: vars.$font;
   border-left: 2px solid vars.$lightest-color;
   padding-left: vars.$gutter*1.5;
 }
@@ -111,7 +109,6 @@
   position: absolute;
   top: 4.7em;
   color: vars.$main-block-and-fonts-color;
-  font-family: vars.$font;
   overflow: hidden;
 }
 

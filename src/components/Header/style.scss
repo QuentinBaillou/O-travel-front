@@ -9,8 +9,10 @@
   background-color: vars.$header-main-color;
 
   &__title {
-    font-size: 2rem;
+    font-size: 1.5em;
+    letter-spacing: 0.3em;
     color: vars.$lightest-color;
+    font-weight: bold;
 
     & span {
       font-size: 2.5rem;
@@ -19,16 +21,13 @@
   }
 }
 
-.header__title {
-  font-family: vars.$font;
-  font-size: 1.5em;
-  letter-spacing: 0.3em;
-  
+.header_left_part {
+  display: flex;
+  align-items: center;
 }
 
 .header_sun {
   width: 2em;
-  
 }
 
 .nav {
@@ -44,12 +43,12 @@
   &__link {
     color: vars.$lightest-color;
     position: relative;
-    font-size: 1.5rem;
+    font-size: 1rem;
 
     &--active {
       color: vars.$dark-color;
       position: relative;
-      font-size: 1.5rem;
+      font-size: 1rem;
       border-bottom: 2px vars.$dark-color solid;
     }
 
