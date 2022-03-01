@@ -3,15 +3,15 @@ import { motion, useSpring } from 'framer-motion';
 import './style.scss';
 
 const squareVariant = {
-  hidden: {
-   
+  hover: {
+    scale: 1.5,
   },
-  visible: {
-    x: [0, 100, -100],
-    transition: {
-      times: [5, 1, 5],
-    } 
-  }
+  pressed: {
+    scale: 0.5,
+  },
+  rest: {
+    scale: 1,
+  },
 };
 
 const circleVariant = {
@@ -31,7 +31,7 @@ const circleVariant = {
 const Test = () => {
   return (
     <div className="wrapper">
-      <motion.div id="square" variants={squareVariant} initial="hidden" animate="visible" drag></motion.div>
+      <motion.div id="square" variants={squareVariant} whileHover="hover" whileTap="pressed" initial="rest" drag></motion.div>
 
       <motion.div id="circle" variants={circleVariant} initial="hidden" animate="visible" drag></motion.div>
     </div>

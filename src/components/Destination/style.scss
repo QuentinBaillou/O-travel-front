@@ -29,7 +29,8 @@
     .title {
       color: vars.$lightest-color;
       font-size: 2em;
-      font-family: vars.$font-subway;
+      font-weight: bold;
+      font-family: vars.$font;
     
     }
   }
@@ -46,7 +47,7 @@
     }
     
     .infos {
-      font-family: vars.$font-subway;
+      font-family: vars.$font;
       color: vars.$lightest-color;
       margin-right: 3.5em;
     }
@@ -96,7 +97,7 @@
   margin-top: vars.$gutter*1.5;
   margin-bottom: vars.$gutter*1.5;
   color: vars.$lightest-color;
-  font-family: vars.$font-subway;
+  font-family: vars.$font;
   border-left: 2px solid vars.$lightest-color;
   padding-left: vars.$gutter*1.5;
 }
@@ -110,7 +111,7 @@
   position: absolute;
   top: 4.7em;
   color: vars.$main-block-and-fonts-color;
-  font-family: vars.$font-subway;
+  font-family: vars.$font;
   overflow: hidden;
 }
 
@@ -156,7 +157,7 @@ li {
 // Bloc Itinerary
 .itinerary {
   color: vars.$lightest-color;
-  font-family: vars.$font-subway;
+  font-family: vars.$font;
   width: 85%;
   margin-left: auto;
   margin-right: auto;

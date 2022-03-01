@@ -21,7 +21,7 @@ return (
     <MiddlePics />
     <Itinerary />
     <FinalPic />
-    
+    <Test />
   </div>
 );
 };
