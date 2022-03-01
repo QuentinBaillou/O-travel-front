@@ -16,15 +16,19 @@ const dataFetchingMiddleware = (store) => (next) => (action) => {
       break;
     case SEND_FORM: {
       const state = store.getState();
+      console.log(state.form);
       axios
         .post('http://cedric-vandermaes.vpnuser.lan:8080/api/destinations/form', {
-          landscapes: state.form.landscapes,
-          transports: state.form.transports,
-          seasons: state.form.seasons,
+          selectedLandscapes: state.form.landscapesSelected,
+          selectedTransports: state.form.transportsSelected,
+          selectedSeasons: state.form.seasonsSelected,
           budget: state.form.budget,
         })
         .then((response) => {
           console.log(response);
+        })
+        .catch((error) => {
+          console.log(error);
         });
       next(action);
       break;
