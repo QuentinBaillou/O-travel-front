@@ -1,50 +1,128 @@
 import './style.scss';
 
-import { Card, Image } from 'semantic-ui-react';
+import train from 'src/assets/images/train-1542096_1920.jpg';
+import flag from 'src/assets/images/canada-svgrepo-com.svg';
+
+import { Card, Image, Pagination } from 'semantic-ui-react';
 
 const List = () => (
-  <Card.Group>
-    <Card>
-      <Card.Content>
-        <Image src='/images/avatar/large/daniel.jpg' wrapped ui={false} />
-        <Card.Header>Rocky Mountaineer</Card.Header>
-        <Card.Description>
-          8 nuits | train
-        </Card.Description>
-      </Card.Content>
-    </Card>
-    <Card>
-      <Card.Content>
-        <Card.Header>Matthew Harris</Card.Header>
-        <Image src='/images/avatar/large/daniel.jpg' wrapped ui={false} />
-        <Card.Meta>Co-Worker</Card.Meta>
-        <Card.Description>
-          Matthew is a pianist living in Nashville.
-        </Card.Description>
-      </Card.Content>
-    </Card>
-    <Card>
-      <Card.Content>
-        <Card.Header>Matthew Harris</Card.Header>
-        <Image src='/images/avatar/large/daniel.jpg' wrapped ui={false} />
-        <Card.Meta>Co-Worker</Card.Meta>
-        <Card.Description>
-          Matthew is a pianist living in Nashville.
-        </Card.Description>
-      </Card.Content>
-    </Card>
-    <Card>
-      <Card.Content>
-        <Card.Header>Matthew Harris</Card.Header>
-        <Image src='/images/avatar/large/daniel.jpg' wrapped ui={false} />
-        <Card.Meta>Co-Worker</Card.Meta>
-        <Card.Description>
-          Matthew is a pianist living in Nashville.
-        </Card.Description>
-      </Card.Content>
-    </Card>
-  </Card.Group>
+  <div className="trip-list">
+    <h2 className="trip-title">Les voyages</h2>
+    <Card.Group>
+      <Card>
+        <Card.Content>
+          <Image src={flag} size="mini" />
+          <Image
+            src={train}
+            ui={false}
+            fluid
+            label={{ as: 'a', corner: 'right', icon: 'star' }}
+          />
+          <Card.Header>
+            Rocky Mountaineer
+            <Card.Description>
+              8 nuits | train
+            </Card.Description>
+          </Card.Header>
+        </Card.Content>
+      </Card>
+      <Card>
+        <Card.Content>
+          <Image src={flag} size="mini" />
+          <Image
+            src={train}
+            ui={false}
+            fluid
+            label={{ as: 'a', corner: 'right', icon: 'star' }}
+          />
+          <Card.Header>
+            Rocky Mountaineer
+            <Card.Description>
+              8 nuits | train
+            </Card.Description>
+          </Card.Header>
+        </Card.Content>
+      </Card>
+      <Card>
+        <Card.Content>
+          <Image src={flag} size="mini" />
+          <Image
+            src={train}
+            ui={false}
+            fluid
+            label={{ as: 'a', corner: 'right', icon: 'star' }}
+          />
+          <Card.Header>
+            Rocky Mountaineer
+            <Card.Description>
+              8 nuits | train
+            </Card.Description>
+          </Card.Header>
+        </Card.Content>
+      </Card>
+      <Card>
+        <Card.Content>
+          <Image src={flag} size="mini" />
+          <Image
+            src={train}
+            ui={false}
+            fluid
+            label={{ as: 'a', corner: 'right', icon: 'star' }}
+          />
+          <Card.Header>
+            Rocky Mountaineer
+            <Card.Description>
+              8 nuits | train
+            </Card.Description>
+          </Card.Header>
+        </Card.Content>
+      </Card>
+      <Card>
+        <Card.Content>
+          <Image src={flag} size="mini" />
+          <Image
+            src={train}
+            ui={false}
+            fluid
+            label={{ as: 'a', corner: 'right', icon: 'star' }}
+          />
+          <Card.Header>
+            Rocky Mountaineer
+            <Card.Description>
+              8 nuits | train
+            </Card.Description>
+          </Card.Header>
+        </Card.Content>
+      </Card>
+      <Card>
+        <Card.Content>
+          <Image src={flag} size="mini" />
+          <Image
+            src={train}
+            ui={false}
+            fluid
+            label={{ as: 'a', corner: 'right', icon: 'star' }}
+          />
+          <Card.Header>
+            Rocky Mountaineer
+            <Card.Description>
+              8 nuits | train
+            </Card.Description>
+          </Card.Header>
+        </Card.Content>
+      </Card>
+    </Card.Group>
+    <Pagination color='white'
+    defaultActivePage={1}
+    firstItem={null}
+    lastItem={null}
+    pointing
+    secondary
+    totalPages={3}
+  />
+    
 
+  </div>
 );
 
 export default List;
