@@ -1,10 +1,5 @@
 @use "src/styles/vars";
 
-@font-face {
-  font-family: 'Subway';
-  src: url('src/assets/polices/Subway-Black.ttf');
-};
-
 // Container principal
 .container {
   width: 100%;
@@ -34,7 +29,7 @@
     .title {
       color: vars.$lightest-color;
       font-size: 2em;
-      font-family: 'Subway';
+      font-family: vars.$font-subway;
     
     }
   }
@@ -51,7 +46,7 @@
     }
     
     .infos {
-      font-family: 'Subway';
+      font-family: vars.$font-subway;
       color: vars.$lightest-color;
     }
 
@@ -86,7 +81,7 @@
   margin-top: vars.$gutter*1.5;
   margin-bottom: vars.$gutter*1.5;
   color: vars.$lightest-color;
-  font-family: 'Subway';
+  font-family: vars.$font-subway;
   border-left: 2px solid vars.$lightest-color;
   padding-left: vars.$gutter*1.5;
 }
@@ -100,7 +95,7 @@
   position: absolute;
   top: 4.7em;
   color: vars.$main-block-and-fonts-color;
-  font-family: 'Subway';
+  font-family: vars.$font-subway;
 }
 
 li {
@@ -123,17 +118,47 @@ li {
 
   .middle_pic1 {
     width: 100%;
+    margin-bottom: vars.$gutter * 0.5;
   }
   .middle_pic2 {
-    width: 50%;
+    width: calc(50% - vars.$gutter * 0.25);
+    margin-right: vars.$gutter * 0.25;
   }
   .middle_pic3 {
-    width: 50%;
+    width: calc(50% - vars.$gutter * 0.25);
+    margin-left: vars.$gutter * 0.25;
   }
 
 }
 // Bloc Middle Pics
 
+// Bloc Itinerary
+.itinerary {
+  color: vars.$lightest-color;
+  font-family: vars.$font-subway;
+  width: 85%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: vars.$gutter * 4;
+  margin-bottom: vars.$gutter * 4;
+}
+
+.itinerary_icon {
+  width: 4em;
+  stroke: white;
+  float: left;
+  margin-right: vars.$gutter;
+  margin-bottom: vars.$gutter;
+}
+
+.itinerary.text {
+  float: right;
+  
+}
+// Bloc Itinerary
+
+// Bloc Final Pic
 .final_pic {
   width: 100%;
 }
+// Bloc Final Pic

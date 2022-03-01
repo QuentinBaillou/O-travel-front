@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'Subway';
+  src: url('src/assets/polices/Subway-Black.ttf');
+};
+
 $breakpoint: (
   mobile: 425px,
   tablet: 768px,
@@ -16,3 +21,6 @@ $lightest-color: #fff;
 
 // GUTTER
 $gutter: 1rem;
+
+// POLICES 
+$font-subway: 'Subway';
