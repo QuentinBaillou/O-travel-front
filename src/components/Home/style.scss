@@ -1,10 +1,30 @@
 @use 'src/styles/vars';
 @import 'src/styles/mixins';
 
-.wrapper {
+.home {
   position: relative;
   display: flex;
   justify-content: right;
+  margin: 3 * vars.$gutter 0;
+
+  &__title {
+    position: absolute;
+    width: fit-content;
+    top: -1.5rem;
+    left: 3rem;
+    padding: 1rem;
+    border-radius: 5px;
+    background-color: vars.$form-highlight-color;
+    color: darken(vars.$main-blue-color, 20%);
+    z-index: 3;
+  }
+}
+
+@include tablet {
+  .home__title {
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
 
 #background-video {

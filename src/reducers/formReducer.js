@@ -18,16 +18,19 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         [action.field]: selectedItemArraySelector(state[action.field], action.item),
       };
+
     case SET_FORM_ELEMENTS:
       return {
         ...state,
         [action.field]: action.formElements,
       };
+
     case SET_BUDGET_VALUE:
       return {
         ...state,
         budget: action.value,
       };
+
     default:
       return state;
   }

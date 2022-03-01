@@ -6,7 +6,7 @@
   justify-content: space-between;
   align-items: center;
   padding: vars.$gutter;
-  background-color: vars.$header-main-color;
+  background-color: vars.$main-blue-color;
   color: vars.$lightest-color;
 
   &__title {
@@ -14,7 +14,7 @@
 
     & span {
       font-size: 2.5rem;
-      color: orange;
+      color: vars.$form-highlight-color;
     }
   }
 }
@@ -91,7 +91,7 @@
 
       &--active {
         @include mobile-link-style();
-        background-color: vars.$header-main-color;
+        background-color: vars.$main-blue-color;
         color: vars.$lightest-color;
         border: none;
 
@@ -106,7 +106,7 @@
 
       &:hover {
         transition: 0.5s;
-        background-color: vars.$header-main-color;
+        background-color: vars.$main-blue-color;
         color: vars.$lightest-color;
       }
     }

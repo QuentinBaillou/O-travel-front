@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import axios from 'axios';
 import { GET_FORM_ELEMENTS, setFormElements, SEND_FORM } from 'src/actions/formActions';
 
@@ -14,9 +15,9 @@ const dataFetchingMiddleware = (store) => (next) => (action) => {
         });
       next(action);
       break;
+
     case SEND_FORM: {
       const state = store.getState();
-      console.log(state.form);
       axios
         .post('http://cedric-vandermaes.vpnuser.lan:8080/api/destinations/form', {
           selectedLandscapes: state.form.landscapesSelected,
@@ -33,6 +34,7 @@ const dataFetchingMiddleware = (store) => (next) => (action) => {
       next(action);
       break;
     }
+
     default:
       next(action);
   }
