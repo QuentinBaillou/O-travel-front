@@ -27,6 +27,12 @@
   }
 }
 
+@include display-form-desktop {
+  .home {
+    flex-direction: column-reverse;
+  }
+}
+
 #background-video {
   position: absolute;
   left: 0;

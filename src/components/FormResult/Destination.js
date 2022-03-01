@@ -21,7 +21,7 @@ Destination.propTypes = {
   surname: PropTypes.string.isRequired,
   extract: PropTypes.string.isRequired,
   pros: PropTypes.string.isRequired,
-  pricePerNight: PropTypes.number.isRequired,
+  pricePerNight: PropTypes.string.isRequired,
 };
 
 export default Destination;
