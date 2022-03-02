@@ -9,9 +9,7 @@ import FinalPic from 'src/components/Destination/FinalPic';
 // IMPORT styles
 import './style.scss';
 
-const Destination = () => {
-
-return (
+const Destination = () => (
   <div className="container">
     <Header />
     <MainPic />
@@ -19,9 +17,8 @@ return (
     <MiddlePics />
     <Itinerary />
     <FinalPic />
-    
+
   </div>
 );
-};
 
 export default Destination;

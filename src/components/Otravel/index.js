@@ -16,9 +16,9 @@ const Otravel = () => (
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/destinations" element={<List />} />
+      <Route path="/destinations/:id" element={<Destination />} />
     </Routes>
     <Footer />
-    <Destination />
   </div>
 );
 

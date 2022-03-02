@@ -6,7 +6,7 @@
   justify-content: space-between;
   align-items: center;
   padding: vars.$gutter;
-  background-color: vars.$main-blue-color;
+  background-color: vars.$header-main-color;
   color: vars.$lightest-color;
 
   &__title {
@@ -17,7 +17,7 @@
 
     & span {
       font-size: 2.5rem;
-      color: vars.$form-highlight-color;
+      color: vars.$titles-box-and-buttons-color;
     }
 
     & a {
@@ -52,17 +52,13 @@
 
     &--active {
       position: relative;
-<<<<<<< HEAD
-      font-size: 1.5rem;
+      font-size: 1rem;
       border-bottom: 2px vars.$lightest-color solid;
+      color: vars.$lightest-color;
 
       &:hover {
         color: vars.$lightest-color;
       }
-=======
-      font-size: 1rem;
-      border-bottom: 2px vars.$dark-color solid;
->>>>>>> page-fiche-voyage
     }
 
     &::before {
@@ -112,7 +108,7 @@
 
       &--active {
         @include mobile-link-style();
-        background-color: vars.$main-blue-color;
+        background-color: vars.$header-main-color;
         color: vars.$lightest-color;
         border: none;
 
@@ -127,7 +123,7 @@
 
       &:hover {
         transition: 0.5s;
-        background-color: vars.$main-blue-color;
+        background-color: vars.$header-main-color;
         color: vars.$lightest-color;
       }
     }

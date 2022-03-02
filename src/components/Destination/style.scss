@@ -2,6 +2,7 @@
 
 // Container principal
 .container {
+  position: relative;
   width: 70%;
   background-color: vars.$main-block-and-fonts-color;
   margin-left: auto;
@@ -15,7 +16,7 @@
 .destination_header {
   width: 50%;
   position: absolute;
-  left: 25%; right: 25%; top: 7.2em;
+  left: 25%; right: 25%; top: -2em;
   height: 7em;
   background-color: vars.$main-block-and-fonts-color;
   margin: auto;

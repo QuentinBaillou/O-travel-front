@@ -1,10 +1,9 @@
 import './style.scss';
 
-const Summary = () => {
-  return (
+const Summary = () => (
   <div className="summary_wrapper">
     <div className="summary">
-      Soluta voluptas a accusamus, eius voluptatibus iusto molestiae, vitae cupiditate necessitatibus facilis minima fugiat placeat. Ab mollitia, in totam consectetur iste esse quos reprehenderit quod iusto soluta nulla. Cupiditate, nostrum. 
+      Soluta voluptas a accusamus, eius voluptatibus iusto molestiae, vitae cupiditate necessitatibus facilis minima fugiat placeat. Ab mollitia, in totam consectetur iste esse quos reprehenderit quod iusto soluta nulla. Cupiditate, nostrum.
     </div>
 
     <div className="strong_points_wrapper">
@@ -20,7 +19,6 @@ const Summary = () => {
     </div>
 
   </div>
-  );
-};
+);
 
 export default Summary;

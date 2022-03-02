@@ -21,8 +21,8 @@
 
     &:checked+.checkbox__logo,
     &:hover+.checkbox__logo {
-      border: vars.$form-highlight-color 4px solid;
-      color: vars.$form-highlight-color;
+      border: vars.$titles-box-and-buttons-color 4px solid;
+      color: vars.$titles-box-and-buttons-color;
       transition: all 0.5s;
 
       & img {

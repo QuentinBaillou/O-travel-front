@@ -15,8 +15,8 @@
     left: 3rem;
     padding: 1rem;
     border-radius: 5px;
-    background-color: vars.$form-highlight-color;
-    color: darken(vars.$main-blue-color, 20%);
+    background-color: vars.$titles-box-and-buttons-color;
+    color: darken(vars.$header-main-color, 20%);
     z-index: 3;
   }
 }
