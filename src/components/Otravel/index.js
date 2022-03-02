@@ -10,12 +10,8 @@ import './style.scss';
 const Otravel = () => (
   <div className="otravel">
     <Header />
-<<<<<<< HEAD
     <Home />
-=======
-    <h1>Composant : Otravel</h1>
     <List />
->>>>>>> feature/list
     <Footer />
   </div>
 );
