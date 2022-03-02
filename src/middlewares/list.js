@@ -5,7 +5,7 @@ const fetchList = (store) => (next) => (action) => {
   switch (action.type) {
     case GET_DESTINATIONS:
       axios
-        .get(`http://cedric-vandermaes.vpnuser.lan:8080/api/${action.field}`)
+        .get(`http://leluya-server.eddi.cloud/projet-23-o-travel-back/public/api/destinations/list${action.field}`)
         .then((response) => {
           store.dispatch(saveDestinations(response.data));
         })
