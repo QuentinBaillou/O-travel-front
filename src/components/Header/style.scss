@@ -53,16 +53,12 @@
     &--active {
       position: relative;
       font-size: 1rem;
-<<<<<<< HEAD
       border-bottom: 2px vars.$lightest-color solid;
       color: vars.$lightest-color;
 
       &:hover {
         color: vars.$lightest-color;
       }
-=======
-      border-bottom: 2px vars.$dark-color solid;
->>>>>>> 4727797c00db875782a16dab309bba188d2ac560
     }
 
     &::before {
