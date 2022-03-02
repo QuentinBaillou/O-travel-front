@@ -1,4 +1,6 @@
 // == Import
+import { Routes, Route } from 'react-router-dom';
+
 import Header from 'src/components/Header';
 import List from 'src/components/List';
 import Footer from 'src/components/Footer';
@@ -10,8 +12,10 @@ import './style.scss';
 const Otravel = () => (
   <div className="otravel">
     <Header />
-    <Home />
-    <List />
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/destinations" element={<List />} />
+    </Routes>
     <Footer />
   </div>
 );
