@@ -1,12 +1,7 @@
-@font-face {
-  font-family: 'Subway';
-  src: url('src/assets/polices/Subway-Black.ttf');
-};
-
-@font-face {
-  font-family: 'Louis George Cafe';
-  src: url('src/assets/polices/Louis George Cafe.ttf');
-};
+// @font-face {
+//   font-family: 'Louis George Cafe';
+//   src: url('src/assets/polices/Louis George Cafe.ttf');
+// };
 
 $breakpoint: (
   mobile: 425px,
@@ -29,4 +24,4 @@ $lightest-color: #fff;
 $gutter: 1rem;
 
 // POLICES 
-$font: 'Louis George Cafe';
+// $font: 'Louis George Cafe';
