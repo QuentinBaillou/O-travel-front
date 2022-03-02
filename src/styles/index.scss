@@ -1,11 +1,15 @@
 @use 'reset';
 @use 'vars';
+@font-face {
+  font-family: 'Louis George Cafe';
+  src: url('src/assets/polices/Louis George Cafe.ttf');
+};
 
 body {
   width: 100%;
   height: 100vh;
   margin: auto;
-  font-family: vars.$font, sans-serif;
+  font-family: 'Louis George Cafe', sans-serif;
   background-color: vars.$background-color;
 }
 
