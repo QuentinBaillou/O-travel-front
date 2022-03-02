@@ -65,7 +65,10 @@
 }
 
 @include tablet {
-  .form-result__picture {
-    display: none;
+  .destination {
+    height: auto;
+    &__picture {
+      display: none;
+    }
   }
 }
