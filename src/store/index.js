@@ -1,12 +1,13 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 
 import reducer from 'src/reducers';
+import destinationMiddleware from 'src/middlewares/destination';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const enhancers = composeEnhancers(
   applyMiddleware(
-    
+    destinationMiddleware,
   ),
 );
 
