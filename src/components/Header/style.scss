@@ -52,17 +52,8 @@
 
     &--active {
       position: relative;
-<<<<<<< HEAD
-      font-size: 1.5rem;
-      border-bottom: 2px vars.$lightest-color solid;
-
-      &:hover {
-        color: vars.$lightest-color;
-      }
-=======
       font-size: 1rem;
       border-bottom: 2px vars.$dark-color solid;
->>>>>>> page-fiche-voyage
     }
 
     &::before {
