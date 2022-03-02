@@ -6,7 +6,8 @@ const fetchDestinations = (store) => (next) => (action) => {
     case GET_DESTINATIONS:
       axios.get(`http://cedric-vandermaes.vpnuser.lan:8080/api/`)
          .then((response) => {
-           store.dispatch(setFormElements(action.field, response.data));
+           console.log(response.data);
+           //store.dispatch();
          })
          .catch((error) => {
            console.log('erreur : ', error);
