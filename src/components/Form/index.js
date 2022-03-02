@@ -1,7 +1,8 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import { setSelectedItem, sendForm } from 'src/actions/formActions';
 import sendLogo from 'src/assets/images/send.svg';
+import FormChoices from './FormChoices';
 
 import FormSection from './FormSection';
 import FormSlider from './FormSlider';
@@ -10,9 +11,6 @@ import './style.scss';
 
 const Form = () => {
   const dispatch = useDispatch();
-  const landscapesSelected = useSelector((state) => state.form.landscapesSelected);
-  const transportsSelected = useSelector((state) => state.form.transportsSelected);
-  const seasonsSelected = useSelector((state) => state.form.seasonsSelected);
 
   const handleChange = (field, item) => {
     // Convert field name to match the changing array, in the state
@@ -61,14 +59,7 @@ const Form = () => {
         />
       </div>
       <FormSlider />
-      <div className="form__choices">
-        {landscapesSelected.length > 0
-        && <p>Vous voulez un paysage {landscapesSelected.map((landscape) => `, ${landscape.name}`)}.</p>}
-        {transportsSelected.length > 0
-        && <p>Vous voulez vous déplacer en {transportsSelected.map((transport) => `, ${transport.way}`)}</p>}
-        {seasonsSelected.length > 0
-        && <p>Vous voulez partir en {seasonsSelected.map((seasons) => `, ${seasons.season}`)}.</p>}
-      </div>
+      <FormChoices />
       <button type="submit" className="form__submit"><img src={sendLogo} alt="send logo" /></button>
     </form>
   );
