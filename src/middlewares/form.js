@@ -6,10 +6,11 @@ import {
 } from 'src/actions/formActions';
 
 const dataFetchingMiddleware = (store) => (next) => (action) => {
+  const baseUrl = 'http://cedric-vandermaes.vpnuser.lan:8080';
   switch (action.type) {
     case GET_FORM_ELEMENTS:
       axios
-        .get(`http://cedric-vandermaes.vpnuser.lan:8080/api/${action.field}`)
+        .get(`${baseUrl}/api/${action.field}`)
         .then((response) => {
           store.dispatch(setFormElements(action.field, response.data));
         })
@@ -22,7 +23,7 @@ const dataFetchingMiddleware = (store) => (next) => (action) => {
     case SEND_FORM: {
       const state = store.getState();
       axios
-        .post('http://cedric-vandermaes.vpnuser.lan:8080/api/destinations/form', {
+        .post(`${baseUrl}/api/destinations/form`, {
           selectedLandscapes: state.form.landscapesSelected,
           selectedTransports: state.form.transportsSelected,
           selectedSeasons: state.form.seasonsSelected,
