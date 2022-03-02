@@ -28,40 +28,6 @@ const List = () => (
           </Card.Header>
         </Card.Content>
       </Card>
-      <Card>
-        <Card.Content>
-          <Image src={flag} size="mini" />
-          <Image
-            src={train}
-            ui={false}
-            fluid
-            label={{ as: 'a', corner: 'right', icon: 'star' }}
-          />
-          <Card.Header>
-            Rocky Mountaineer
-            <Card.Description>
-              8 nuits | train
-            </Card.Description>
-          </Card.Header>
-        </Card.Content>
-      </Card>
-      <Card>
-        <Card.Content>
-          <Image src={flag} size="mini" />
-          <Image
-            src={train}
-            ui={false}
-            fluid
-            label={{ as: 'a', corner: 'right', icon: 'star' }}
-          />
-          <Card.Header>
-            Rocky Mountaineer
-            <Card.Description>
-              8 nuits | train
-            </Card.Description>
-          </Card.Header>
-        </Card.Content>
-      </Card>
     </Card.Group>
     <Pagination
       defaultActivePage={1}
