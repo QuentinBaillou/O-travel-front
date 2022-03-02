@@ -7,6 +7,7 @@ import Footer from 'src/components/Footer';
 import Home from 'src/components/Home';
 
 import './style.scss';
+import Destination from 'src/components/Destination';
 
 // == Composant
 const Otravel = () => (
@@ -17,6 +18,7 @@ const Otravel = () => (
       <Route path="/destinations" element={<List />} />
     </Routes>
     <Footer />
+    <Destination />
   </div>
 );
 

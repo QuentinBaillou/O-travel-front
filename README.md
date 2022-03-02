@@ -12,5 +12,6 @@ Simply clone this repo and run
 
 ```shell
 yarn
+yarn add semantic-ui-react semantic-ui-css
 yarn start
 ```

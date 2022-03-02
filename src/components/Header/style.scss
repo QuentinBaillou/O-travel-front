@@ -10,7 +10,10 @@
   color: vars.$lightest-color;
 
   &__title {
-    font-size: 2rem;
+    font-size: 1.5em;
+    letter-spacing: 0.3em;
+    color: vars.$lightest-color;
+    font-weight: bold;
 
     & span {
       font-size: 2.5rem;
@@ -21,6 +24,15 @@
       color: vars.$lightest-color;
     }
   }
+}
+
+.header_left_part {
+  display: flex;
+  align-items: center;
+}
+
+.header_sun {
+  width: 2em;
 }
 
 .nav {
@@ -36,16 +48,21 @@
 
   &__link {
     position: relative;
-    font-size: 1.5rem;
+    font-size: 1rem;
 
     &--active {
       position: relative;
+<<<<<<< HEAD
       font-size: 1.5rem;
       border-bottom: 2px vars.$lightest-color solid;
 
       &:hover {
         color: vars.$lightest-color;
       }
+=======
+      font-size: 1rem;
+      border-bottom: 2px vars.$dark-color solid;
+>>>>>>> page-fiche-voyage
     }
 
     &::before {

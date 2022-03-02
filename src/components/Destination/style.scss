@@ -1,0 +1,188 @@
+@use "src/styles/vars";
+
+// Container principal
+.container {
+  width: 70%;
+  background-color: vars.$main-block-and-fonts-color;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: vars.$gutter*5;
+  margin-bottom: vars.$gutter*5;
+}
+// Container principal
+
+// Composant Header
+.destination_header {
+  width: 50%;
+  position: absolute;
+  left: 25%; right: 25%; top: 7.2em;
+  height: 7em;
+  background-color: vars.$main-block-and-fonts-color;
+  margin: auto;
+
+  .block_part_title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 3.5em;
+    background-color: vars.$titles-box-and-buttons-color;
+
+    .title {
+      color: vars.$lightest-color;
+      font-size: 2em;
+      font-weight: bold;
+    }
+  }
+
+  .block_part_infos {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 3.5em;
+    
+
+    .flag {
+      width: 3.5em;
+    }
+    
+    .infos {
+      color: vars.$lightest-color;
+      margin-right: 3.5em;
+    }
+
+    .infos .nights {
+      margin-right: vars.$gutter;
+    }
+
+    .infos .way {
+      margin-left: vars.$gutter;
+      margin-right: vars.$gutter;
+    }
+
+    .infos .price {
+      margin-left: vars.$gutter;
+    }
+
+    .hidden {
+      width: 0.1em;
+      height: 0.1em;
+      color: vars.$main-block-and-fonts-color;
+    }
+
+  }
+}
+// Composant Header
+
+
+// Composant Main Pic
+.main_pic {
+  margin-top: 5em;
+  width: 100%;
+}
+// Composant Main Pic
+
+
+// Composant Summary
+.summary_wrapper {
+  position: relative;
+  height: 8em;
+}
+
+.summary {
+  width: 85%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: vars.$gutter*1.5;
+  margin-bottom: vars.$gutter*1.5;
+  color: vars.$lightest-color;
+  border-left: 2px solid vars.$lightest-color;
+  padding-left: vars.$gutter*1.5;
+}
+
+.strong_points_wrapper {
+  width: 85%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.strong_points {
+  width: 40%;
+  height: 10em;
+  padding: vars.$gutter *2;
+  background-color: vars.$titles-box-and-buttons-color;
+  position: absolute;
+  top: 4.7em;
+  color: vars.$main-block-and-fonts-color;
+  overflow: hidden;
+}
+
+.strong_points h2 {
+  font-weight: bold;
+}
+
+li {
+  display: inline;
+  color: vars.$lightest-color;
+}
+
+.bullet_point {
+  display: inline;
+  color: vars.$main-block-and-fonts-color;
+}
+// Composant Summary
+
+
+// Bloc Middle Pics
+.middle_pics {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: vars.$gutter * 1.5;
+
+  .middle_pic1 {
+    width: 100%;
+    margin-bottom: vars.$gutter * 0.5;
+  }
+  .middle_pic2 {
+    width: calc(50% - vars.$gutter * 0.25);
+    margin-right: vars.$gutter * 0.25;
+  }
+  .middle_pic3 {
+    width: calc(50% - vars.$gutter * 0.25);
+    margin-left: vars.$gutter * 0.25;
+  }
+
+}
+// Bloc Middle Pics
+
+// Bloc Itinerary
+.itinerary {
+  color: vars.$lightest-color;
+  font-family: vars.$font;
+  width: 85%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: vars.$gutter * 4;
+  margin-bottom: vars.$gutter * 4;
+}
+
+.itinerary_icon {
+  width: 4em;
+  stroke: white;
+  float: left;
+  margin-right: vars.$gutter;
+  margin-bottom: vars.$gutter;
+}
+
+.itinerary.text {
+  float: right;
+  
+}
+// Bloc Itinerary
+
+// Bloc Final Pic
+.final_pic {
+  width: 100%;
+}
+// Bloc Final Pic

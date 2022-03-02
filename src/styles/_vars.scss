@@ -1,11 +1,25 @@
-$breakpoint: (mobile: 425px,
+@font-face {
+  font-family: 'Subway';
+  src: url('src/assets/polices/Subway-Black.ttf');
+};
+
+@font-face {
+  font-family: 'Louis George Cafe';
+  src: url('src/assets/polices/Louis George Cafe.ttf');
+};
+
+$breakpoint: (
+  mobile: 425px,
   tablet: 768px,
   desktop: 1024px,
   display-form-desktop: 1231px);
 
 //COLORS
-$main-blue-color: #3fc1b5;
-$form-highlight-color: #ffcc00;
+$header-main-color: #3fc1b5;
+$main-block-and-fonts-color: #476C65;
+$background-color: #E3DEDB;
+$titles-box-and-buttons-color: #E3B758;
+
 $dark-color: #636363;
 $light-color: #e3dedb;
 $darkest-color: #000;
@@ -13,3 +27,6 @@ $lightest-color: #fff;
 
 // GUTTER
 $gutter: 1rem;
+
+// POLICES 
+$font: 'Louis George Cafe';
