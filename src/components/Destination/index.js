@@ -1,3 +1,6 @@
+import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+
 // IMPORT composants internes
 import Header from 'src/components/Destination/Header';
 import MainPic from 'src/components/Destination/MainPic';
@@ -9,7 +12,18 @@ import FinalPic from 'src/components/Destination/FinalPic';
 // IMPORT styles
 import './style.scss';
 
-const Destination = () => (
+const Destination = () => {
+
+  const destinations = useSelector((state) => state.destination.destinations);
+
+  useEffect(
+    () => {
+      console.log(destinations);
+    },
+    [],
+  );
+
+  return (
   <div className="container">
     <Header />
     <MainPic />
@@ -19,6 +33,7 @@ const Destination = () => (
     <FinalPic />
 
   </div>
-);
+  );
+};
 
 export default Destination;
