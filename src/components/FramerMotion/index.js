@@ -1,41 +1,34 @@
 
-import { motion, useSpring } from 'framer-motion';
+import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
 import './style.scss';
 
-const squareVariant = {
-  hover: {
-    scale: 1.5,
-  },
-  pressed: {
-    scale: 0.5,
-  },
-  rest: {
-    scale: 1,
-  },
-};
+const Example = () => {
 
-const circleVariant = {
+const variant = {
+  hover: {
+    scale: 1.2,
+    originX: -1,
+    originY: -1,
+  },
+
   hidden: {
-    y: '-200px',
+    opacity: 0,
   },
   visible: {
-    y: '0px',
+    opacity: 1,
     transition: {
-      duration: 2,
-      type: 'spring',
-      stiffness: 100,
+      duration: 1,
+      ease: 'easeInOut',
+      repeat: Infinity,
+      repeatType: 'reverse',
     }
   }
+}
+
+return(
+<motion.div className="press_start" variants={variant} initial="hidden" animate="visible" whileHover="hover">Press Start</motion.div>
+);
 };
 
-const Test = () => {
-  return (
-    <div className="wrapper">
-      <motion.div id="square" variants={squareVariant} whileHover="hover" whileTap="pressed" initial="rest" drag></motion.div>
-
-      <motion.div id="circle" variants={circleVariant} initial="hidden" animate="visible" drag></motion.div>
-    </div>
-  );
-};
-
-export default Test;
+export default Example;

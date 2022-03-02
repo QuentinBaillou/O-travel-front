@@ -6,7 +6,7 @@ import MiddlePics from 'src/components/Destination/MiddlePics';
 import Itinerary from 'src/components/Destination/Itinerary';
 import FinalPic from 'src/components/Destination/FinalPic';
 
-import Test from 'src/components/FramerMotion';
+import Example from 'src/components/FramerMotion';
 
 // IMPORT styles
 import './style.scss';
