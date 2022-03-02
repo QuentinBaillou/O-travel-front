@@ -21,6 +21,7 @@ const FormResult = () => {
                 extract={destination.extract}
                 pros={destination.pros}
                 pricePerNight={destination.price_per_night}
+                key={destination.id}
               />
             ),
           )

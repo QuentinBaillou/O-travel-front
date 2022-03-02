@@ -7,12 +7,12 @@ const Destination = ({
 }) => (
   <div className="destination">
     <img src={picture} alt={surname} className="destination__picture" />
-    <destination className="content">
+    <div className="content">
       <h3 className="destination__surname">{surname}</h3>
       <p className="destination__extract">Résumé : <span>{extract}</span></p>
       <p className="destination__pros">Point fort : <span>{pros}</span></p>
       <p className="destination__price">Prix par personnes : {pricePerNight}</p>
-    </destination>
+    </div>
   </div>
 );
 

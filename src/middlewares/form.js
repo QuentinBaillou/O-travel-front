@@ -29,6 +29,7 @@ const dataFetchingMiddleware = (store) => (next) => (action) => {
           budget: state.form.budget,
         })
         .then((response) => {
+          console.log(response);
           store.dispatch(setDestinations(response.data));
         })
         .catch((error) => {
