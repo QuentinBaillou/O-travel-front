@@ -40,10 +40,6 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         destinations: action.destinations,
-        budget: 2500,
-        landscapesSelected: [],
-        seasonsSelected: [],
-        transportsSelected: [],
         isFormSend: true,
       };
 
