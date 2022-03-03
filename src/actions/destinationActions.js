@@ -11,3 +11,10 @@ export const saveDestination = (destination) => ({
   type: SAVE_DESTINATION,
   destination,
 });
+
+export const SET_FLAG = 'SET_FLAG';
+
+export const setFlag = (countryName) => ({
+  type: SET_FLAG,
+  countryName,
+});

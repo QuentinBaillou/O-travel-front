@@ -28,18 +28,19 @@ const Destination = () => {
   );
 
   const currentDestination = useSelector((state) => state.destination.destination);
-  console.log(currentDestination);
+  const currentTransport = useSelector((state) => state.destination.destination.transport);
+
+  const way = currentTransport && currentTransport[0].way;
   
-  const { state, surname, summary, transport, picture, picture2, picture3, picture4, picture5 } = currentDestination;
-  
+  const { state, surname, extract, summary, price_per_night, picture, picture2, picture3, picture4, picture5 } = currentDestination;
 
   return (
   <div className="container">
-    <Header state={state} />
+    <Header state={state} surname={surname} price_per_night={price_per_night} way={way} />
     <MainPic picture={picture} />
-    <Summary />
+    <Summary extract={extract} />
     <MiddlePics picture2={picture2} picture3={picture3} picture4={picture4} />
-    <Itinerary />
+    <Itinerary summary={summary} />
     <FinalPic picture5={picture5} />
 
   </div>

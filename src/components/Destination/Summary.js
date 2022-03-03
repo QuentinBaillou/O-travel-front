@@ -1,9 +1,9 @@
 import './style.scss';
 
-const Summary = () => (
+const Summary = ({extract}) => (
   <div className="summary_wrapper">
     <div className="summary">
-      Soluta voluptas a accusamus, eius voluptatibus iusto molestiae, vitae cupiditate necessitatibus facilis minima fugiat placeat. Ab mollitia, in totam consectetur iste esse quos reprehenderit quod iusto soluta nulla. Cupiditate, nostrum.
+      {extract}
     </div>
 
     <div className="strong_points_wrapper">

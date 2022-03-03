@@ -1,23 +1,36 @@
-import './style.scss';
-import Flag from 'src/assets/svg/flag_canada.svg';
+import { useDispatch, useSelector } from 'react-redux';
+import { setFlag } from 'src/actions/destinationActions';
 
-const Header = ({state}) => (
+import './style.scss';
+
+const Header = ({state, surname, way, price_per_night}) => {
+  
+  const dispatch = useDispatch();
+  const flag = useSelector((state) => state.destination.countryName);
+
+  import(`src/assets/svg/flags/${state}.svg`).then((response) => {
+    console.log(response.default);
+    dispatch(setFlag(response.default));
+  });
+
+  return (
   <header className="destination_header">
     <div className="block_part_title">
-      <h1 className="title">{state}</h1>
+      <h1 className="title">{surname}</h1>
     </div>
 
     <div className="block_part_infos">
       <div className="flag">
-        <img src={Flag} />
+
+        <img src={flag} />
       </div>
 
       <div className="infos">
-        <span className="nights">8 nuits</span>
+        <span className="nights"></span>
+        
+        <span className="way">{way}</span>
         |
-        <span className="way">train</span>
-        |
-        <span className="price">1500€ / p.</span>
+        <span className="price">{price_per_night} / p.</span>
       </div>
 
       <div className="hidden">
@@ -26,6 +39,7 @@ const Header = ({state}) => (
 
     </div>
   </header>
-);
+  );
+};
 
 export default Header;
