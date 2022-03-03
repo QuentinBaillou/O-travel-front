@@ -12,11 +12,7 @@ const dataFetchingMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case GET_FORM_ELEMENTS:
       axios
-<<<<<<< HEAD
         .get(`${baseUrl}api/${action.field}`)
-=======
-        .get(`http://leluya-server.eddi.cloud/projet-23-o-travel-back/public/api/${action.field}`)
->>>>>>> page-fiche-voyage
         .then((response) => {
           store.dispatch(setFormElements(action.field, response.data));
         })
@@ -29,11 +25,7 @@ const dataFetchingMiddleware = (store) => (next) => (action) => {
     case SEND_FORM: {
       const state = store.getState();
       axios
-<<<<<<< HEAD
         .post(`${baseUrl}api/destinations/form`, {
-=======
-        .post('http://leluya-server.eddi.cloud/projet-23-o-travel-back/public/api/destinations/form', {
->>>>>>> page-fiche-voyage
           selectedLandscapes: state.form.landscapesSelected,
           selectedTransports: state.form.transportsSelected,
           selectedSeasons: state.form.seasonsSelected,
