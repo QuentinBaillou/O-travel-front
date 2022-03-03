@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
@@ -32,7 +33,16 @@ const Destination = () => {
   const way = currentTransport && currentTransport[0].way;
 
   const {
-    state, surname, extract, summary, price_per_night, picture, picture2, picture3, picture4, picture5,
+    state,
+    surname,
+    extract,
+    summary,
+    price_per_night,
+    picture,
+    picture2,
+    picture3,
+    picture4,
+    picture5,
   } = currentDestination;
 
   return (
