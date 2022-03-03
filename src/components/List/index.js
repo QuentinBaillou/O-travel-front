@@ -22,32 +22,33 @@ const List = () => {
     [],
   );
 
-  const currentDestination = useSelector((state) => state.destination.destination);
-  console.log(currentDestination);
+  const destinations = useSelector((state) => state.list.destinations);
+  console.table(destinations);
 
   return (
+
     <div className="trip-list">
       <h2 className="trip-title">Les voyages</h2>
       <Card.Group>
-        <Link to="/">
-          <Card>
+        {destinations.map((destination) => (
+          <Card key={destination.id}>
             <Card.Content>
-              <Image src={flag} size="mini" />
+              {/* <Image src={flag} size="mini" /> */}
               <Image
-                src={train}
+                src= {destination.picture}
                 ui={false}
                 fluid
                 label={{ as: 'div', corner: 'right', icon: 'star' }}
               />
               <Card.Header>
-                Rocky Mountaineer
+                {destination.state}|{destination.surname}
                 <Card.Description>
                   8 nuits | train
                 </Card.Description>
               </Card.Header>
             </Card.Content>
           </Card>
-        </Link>
+        ))}
       </Card.Group>
       <Pagination
         defaultActivePage={1}
