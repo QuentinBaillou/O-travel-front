@@ -41,7 +41,7 @@
   }
 
   &__list {
-    z-index: 2;
+    z-index: 1000;
     display: flex;
     gap: 1.5 * vars.$gutter;
   }

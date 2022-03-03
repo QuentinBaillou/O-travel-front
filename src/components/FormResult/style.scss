@@ -36,12 +36,22 @@
     height: 200px;
     border-radius: 20px;
     aspect-ratio: 1 / 1;
+    transition: all 0.5s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
   }
 
   &__surname {
     font-size: 1.5rem;
     padding: 0.5rem 0;
     text-transform: uppercase;
+    transition: all 0.5s;
+
+    &:hover {
+      color: vars.$header-main-color;
+    }
   }
 
   &__extract,

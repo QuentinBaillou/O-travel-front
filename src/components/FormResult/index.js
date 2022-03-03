@@ -16,11 +16,7 @@ const FormResult = () => {
           destinations.map(
             (destination) => (
               <Destination
-                picture={destination.picture}
-                surname={destination.surname}
-                extract={destination.extract}
-                pros={destination.pros}
-                pricePerNight={destination.price_per_night}
+                {...destination}
                 key={destination.id}
               />
             ),
