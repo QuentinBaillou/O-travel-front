@@ -6,11 +6,11 @@ import {
 } from 'src/actions/formActions';
 
 const dataFetchingMiddleware = (store) => (next) => (action) => {
-  const baseUrl = 'http://cedric-vandermaes.vpnuser.lan:8080';
+  const baseUrl = 'http://leluya-server.eddi.cloud/projet-23-o-travel-back/public/';
   switch (action.type) {
     case GET_FORM_ELEMENTS:
       axios
-        .get(`${baseUrl}/api/${action.field}`)
+        .get(`${baseUrl}api/${action.field}`)
         .then((response) => {
           store.dispatch(setFormElements(action.field, response.data));
         })
@@ -23,7 +23,7 @@ const dataFetchingMiddleware = (store) => (next) => (action) => {
     case SEND_FORM: {
       const state = store.getState();
       axios
-        .post(`${baseUrl}/api/destinations/form`, {
+        .post(`${baseUrl}api/destinations/form`, {
           selectedLandscapes: state.form.landscapesSelected,
           selectedTransports: state.form.transportsSelected,
           selectedSeasons: state.form.seasonsSelected,
