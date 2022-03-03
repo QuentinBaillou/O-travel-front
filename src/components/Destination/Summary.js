@@ -1,6 +1,6 @@
 import './style.scss';
 
-const Summary = ({extract}) => (
+const Summary = ({ extract }) => (
   <div className="summary_wrapper">
     <div className="summary">
       {extract}

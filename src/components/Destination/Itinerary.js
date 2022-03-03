@@ -1,7 +1,7 @@
 import './style.scss';
 import ItineraryIcon from 'src/assets/svg/itinerary.svg';
 
-const Itinerary = ({summary}) => (
+const Itinerary = ({ summary }) => (
   <div className="itinerary">
 
     <img className="itinerary_icon" src={ItineraryIcon} />

@@ -10,13 +10,16 @@
   margin-top: vars.$gutter*5;
   margin-bottom: vars.$gutter*5;
 }
+
 // Container principal
 
 // Composant Header
 .destination_header {
   width: 50%;
   position: absolute;
-  left: 25%; right: 25%; top: -2em;
+  left: 25%;
+  right: 25%;
+  top: -2em;
   height: 7em;
   background-color: vars.$main-block-and-fonts-color;
   margin: auto;
@@ -41,12 +44,12 @@
     justify-content: space-between;
     align-items: center;
     height: 3.5em;
-    
+
 
     .flag {
       width: 3.5em;
     }
-    
+
     .infos {
       color: vars.$lightest-color;
       margin-right: 3.5em;
@@ -73,6 +76,7 @@
 
   }
 }
+
 // Composant Header
 
 
@@ -81,6 +85,7 @@
   margin-top: 5em;
   width: 100%;
 }
+
 // Composant Main Pic
 
 
@@ -131,6 +136,7 @@ li {
   display: inline;
   color: vars.$main-block-and-fonts-color;
 }
+
 // Composant Summary
 
 
@@ -145,16 +151,19 @@ li {
     width: 100%;
     margin-bottom: vars.$gutter * 0.5;
   }
+
   .middle_pic2 {
     width: calc(50% - vars.$gutter * 0.25);
     margin-right: vars.$gutter * 0.25;
   }
+
   .middle_pic3 {
     width: calc(50% - vars.$gutter * 0.25);
     margin-left: vars.$gutter * 0.25;
   }
 
 }
+
 // Bloc Middle Pics
 
 // Bloc Itinerary
@@ -177,12 +186,14 @@ li {
 
 .itinerary.text {
   float: right;
-  
+
 }
+
 // Bloc Itinerary
 
 // Bloc Final Pic
 .final_pic {
   width: 100%;
 }
+
 // Bloc Final Pic
