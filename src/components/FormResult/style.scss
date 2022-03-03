@@ -71,7 +71,13 @@
       display: block;
       font-size: 1rem;
       text-indent: 10px;
+      max-height: 3rem;
+      overflow: hidden;
       margin: 0.2rem 0 0.8rem;
+
+      &::after {
+        content: "...";
+      }
     }
   }
 }
