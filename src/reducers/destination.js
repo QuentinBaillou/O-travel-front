@@ -1,16 +1,27 @@
-import { GET_DESTINATIONS } from "../actions/destinationActions";
+import { SAVE_DESTINATION, SET_FLAG } from "../actions/destinationActions";
 
 const initialState = {
-  landscapes: [],
-  transports: [],
+  destination: [],
+  countryName: '',
 };
 
 const reducer = (state = initialState, action = {}) => {
   switch(action.type) {
-
+      case SAVE_DESTINATION:
+        return {
+        ...state,
+        destination: action.destination,
+        };
+      case SET_FLAG:
+        return {
+          ...state,
+          countryName: action.countryName, 
+        };
     default:
        return state;
   }
 };
 
 export default reducer;
+
+

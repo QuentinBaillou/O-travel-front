@@ -1,6 +1,20 @@
-export const GET_DESTINATIONS = 'GET_DESTINATIONS';
+export const GET_DESTINATION = 'GET_DESTINATION';
 
-export const getDestinations = () => ({
-  type: GET_DESTINATIONS,
-  destinations,
+export const getDestination = (destinationId) => ({
+  type: GET_DESTINATION,
+  destinationId,
+});
+
+export const SAVE_DESTINATION = 'SAVE_DESTINATION';
+
+export const saveDestination = (destination) => ({
+  type: SAVE_DESTINATION,
+  destination,
+});
+
+export const SET_FLAG = 'SET_FLAG';
+
+export const setFlag = (countryName) => ({
+  type: SET_FLAG,
+  countryName,
 });

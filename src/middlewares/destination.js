@@ -1,13 +1,16 @@
+/* eslint-disable no-console */
+// http://leluya-server.eddi.cloud/projet-23-o-travel-back/public/api/destinations/list
+
 import axios from 'axios';
-import { GET_DESTINATIONS } from 'src/actions/destinationActions';
+import { GET_DESTINATION, saveDestination } from 'src/actions/destinationActions';
 
 const fetchDestinations = (store) => (next) => (action) => {
   switch (action.type) {
-    case GET_DESTINATIONS:
-      axios.get('http://cedric-vandermaes.vpnuser.lan:8080/api/')
+    case GET_DESTINATION:
+      axios.get(`http://leluya-server.eddi.cloud/projet-23-o-travel-back/public/api/destinations/${action.destinationId}`)
         .then((response) => {
           console.log(response.data);
-          // store.dispatch();
+          store.dispatch(saveDestination(response.data));
         })
         .catch((error) => {
           console.log('erreur : ', error);
