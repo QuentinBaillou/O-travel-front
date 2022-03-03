@@ -1,12 +1,13 @@
-export const GET_DESTINATIONS = 'GET_DESTINATIONS';
+export const GET_DESTINATION = 'GET_DESTINATION';
 
-export const getDestinations = () => ({
-  type: GET_DESTINATIONS,
+export const getDestination = (destinationId) => ({
+  type: GET_DESTINATION,
+  destinationId,
 });
 
-export const SAVE_DESTINATIONS = 'SAVE_DESTINATIONS';
+export const SAVE_DESTINATION = 'SAVE_DESTINATION';
 
-export const saveDestinations = (destinations) => ({
-  type: SAVE_DESTINATIONS,
-  destinations,
+export const saveDestination = (destination) => ({
+  type: SAVE_DESTINATION,
+  destination,
 });

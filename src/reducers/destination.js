@@ -1,15 +1,16 @@
-import { SAVE_DESTINATIONS } from "../actions/destinationActions";
+import { SAVE_DESTINATION } from "../actions/destinationActions";
 
 const initialState = {
-  destinations: [],
+  destination: [],
+  var: 'test',
 };
 
 const reducer = (state = initialState, action = {}) => {
   switch(action.type) {
-      case SAVE_DESTINATIONS:
+      case SAVE_DESTINATION:
         return {
         ...state,
-        destinatons: action.destinations,
+        destination: action.destination,
         }
     default:
        return state;

@@ -1,4 +1,5 @@
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 
 // IMPORT composants internes
@@ -12,25 +13,34 @@ import FinalPic from 'src/components/Destination/FinalPic';
 // IMPORT styles
 import './style.scss';
 
+import { getDestination } from 'src/actions/destinationActions';
+
 const Destination = () => {
 
-  const destinations = useSelector((state) => state.destination.destinations);
+  const dispatch = useDispatch();
+  const { id } = useParams();
 
   useEffect(
     () => {
-      console.log(destinations);
+      dispatch(getDestination(id));   
     },
     [],
   );
 
+  const currentDestination = useSelector((state) => state.destination.destination);
+  console.log(currentDestination);
+  
+  const { state, surname, summary, transport, picture, picture2, picture3, picture4, picture5 } = currentDestination;
+  
+
   return (
   <div className="container">
-    <Header />
-    <MainPic />
+    <Header state={state} />
+    <MainPic picture={picture} />
     <Summary />
-    <MiddlePics />
+    <MiddlePics picture2={picture2} picture3={picture3} picture4={picture4} />
     <Itinerary />
-    <FinalPic />
+    <FinalPic picture5={picture5} />
 
   </div>
   );

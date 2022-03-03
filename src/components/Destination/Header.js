@@ -1,10 +1,10 @@
 import './style.scss';
 import Flag from 'src/assets/svg/flag_canada.svg';
 
-const Header = () => (
+const Header = ({state}) => (
   <header className="destination_header">
     <div className="block_part_title">
-      <h1 className="title">Rocky Mountaineer</h1>
+      <h1 className="title">{state}</h1>
     </div>
 
     <div className="block_part_infos">
