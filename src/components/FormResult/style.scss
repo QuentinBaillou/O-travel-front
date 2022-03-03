@@ -16,6 +16,14 @@
     margin: 2rem 0;
     overflow: auto;
   }
+
+  &__empty {
+    padding: 1rem;
+    font-size: 1.2rem;
+    color: white;
+    background-color: rgba($color: #000, $alpha: 0.5);
+    border-radius: 1rem;
+  }
 }
 
 .destination {
