@@ -7,6 +7,7 @@
   justify-content: space-between;
   align-items: center;
   margin: 3 * vars.$gutter 0;
+  min-height: calc(100vh - 10rem - 96.44px);
 
   &__title {
     position: absolute;
