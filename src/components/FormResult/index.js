@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 import { useSelector } from 'react-redux';
 
 import Destination from './Destination';
