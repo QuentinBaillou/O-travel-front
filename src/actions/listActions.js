@@ -1,6 +1,6 @@
-// ACTION TYPE SET_DESTINATIONS
+// ACTION TYPE GET_DESTINATIONS
 export const GET_DESTINATIONS = 'GET_DESTINATIONS';
-// ACTION CREATOR setDestinations
+// ACTION CREATOR getDestinations
 export const getDestinations = () => ({
   type: GET_DESTINATIONS,
 });
