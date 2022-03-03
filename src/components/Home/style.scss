@@ -5,7 +5,7 @@
   position: relative;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: stretch;
   margin: 3 * vars.$gutter 0;
   min-height: calc(100vh - 10rem - 96.44px);
 
