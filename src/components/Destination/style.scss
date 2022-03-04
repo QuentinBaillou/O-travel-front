@@ -46,8 +46,10 @@
     height: 3.5em;
 
 
-    .flag {
-      width: 3.5em;
+    .flags {
+      display: flex;
+      gap: 5px;
+      width: 3em;
     }
 
     .infos {

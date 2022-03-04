@@ -1,14 +1,22 @@
 import './style.scss';
-import Pic2 from 'src/assets/images/rocky2.jpg';
-import Pic3 from 'src/assets/images/rocky3.jpg';
-import Pic4 from 'src/assets/images/rocky4.jpg';
+import PropTypes from 'prop-types';
 
-const MiddlePics = ({ picture2, picture3, picture4 }) => (
-  <div className="middle_pics">
-    <img className="middle_pic1" src={picture2} />
-    <img className="middle_pic2" src={picture3} />
-    <img className="middle_pic3" src={picture4} />
-  </div>
-);
+const MiddlePics = ({picture2, picture3, picture4}) => {
+
+  return (
+    <div className="middle_pics">
+      <img className="middle_pic1" src={picture2} />
+      <img className="middle_pic2" src={picture3} />
+      <img className="middle_pic3" src={picture4} />
+    </div>
+  );
+
+  MiddlePics.propTypes = {
+    picture2: PropTypes.string.isRequired,
+    picture3: PropTypes.string.isRequired,
+    picture4: PropTypes.string.isRequired,
+  };
+
+};
 
 export default MiddlePics;
