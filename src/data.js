@@ -11,4 +11,8 @@ export const menu = [
     route: '/profile',
     name: 'Profil',
   },
+  {
+    route: '/signin',
+    name: 'Sign In',
+  },
 ];

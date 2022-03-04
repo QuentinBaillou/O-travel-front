@@ -32,7 +32,6 @@ const reducer = (state = initialState, action = {}) => {
       case RESET_FLAGS:
         return {
           ...state,
-          flag1: '',
           flag2: '',
           flag3: '',
         }
