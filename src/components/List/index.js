@@ -5,7 +5,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 
-import train from 'src/assets/images/train-1542096_1920.jpg';
 import flag from 'src/assets/images/canada-svgrepo-com.svg';
 
 import { Card, Image, Pagination } from 'semantic-ui-react';
@@ -32,21 +31,23 @@ const List = () => {
       <Card.Group>
         {destinations.map((destination) => (
           <Card key={destination.id}>
-            <Card.Content>
-              {/* <Image src={flag} size="mini" /> */}
-              <Image
-                src= {destination.picture}
-                ui={false}
-                fluid
-                label={{ as: 'div', corner: 'right', icon: 'star' }}
-              />
-              <Card.Header>
-                {destination.state}|{destination.surname}
-                <Card.Description>
-                  8 nuits | train
-                </Card.Description>
-              </Card.Header>
-            </Card.Content>
+            <Link to={`/destinations/${destination.id}`}>
+              <Card.Content>
+                {/* <Image src={flag} size="mini" /> */}
+                <Image
+                  src={destination.picture}
+                  ui={false}
+                  fluid
+                  label={{ as: 'div', corner: 'right', icon: 'star' }}
+                />
+                <Card.Header>
+                  {destination.state} | {destination.surname}
+                  <Card.Description>
+                    8 nuits | train
+                  </Card.Description>
+                </Card.Header>
+              </Card.Content>
+            </Link>
           </Card>
         ))}
       </Card.Group>
