@@ -1,19 +1,30 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { setFlag1, setFlag2, setFlag3 } from 'src/actions/destinationActions';
+import { setFlag1, setFlag2, setFlag3, setResetFlags } from 'src/actions/destinationActions';
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 import './style.scss';
 
 import PropTypes from 'prop-types';
 
 const Header = ({state, surname, way, price_per_night}) => {
-  
+
   const dispatch = useDispatch();
+  const location = useLocation();
+
   const flag1 = useSelector((state) => state.destination.flag1);
   const flag2 = useSelector((state) => state.destination.flag2);
   const flag3 = useSelector((state) => state.destination.flag3);
 
+  //* Resetting flags in state when url changes
+  useEffect(() => {
+    window.scrollTo(0,0);
+    dispatch(setResetFlags());
+  }, [location]);
+  //* Resetting flags in state when url changes
+
   //* Flags display
-  if(state == 'Pays nordique'){
+  if(state == 'Pays nordique'){ 
     import(`src/assets/svg/flags/Suède.svg`).then((response) => {
       dispatch(setFlag1(response.default));
     });

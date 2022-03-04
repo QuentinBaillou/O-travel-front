@@ -1,4 +1,4 @@
-import { SAVE_DESTINATION, SET_FLAG1, SET_FLAG2, SET_FLAG3 } from "../actions/destinationActions";
+import { SAVE_DESTINATION, SET_FLAG1, SET_FLAG2, SET_FLAG3, RESET_FLAGS } from "../actions/destinationActions";
 
 const initialState = {
   destination: [],
@@ -29,6 +29,13 @@ const reducer = (state = initialState, action = {}) => {
           ...state,
           flag3: action.flag3, 
         };
+      case RESET_FLAGS:
+        return {
+          ...state,
+          flag1: '',
+          flag2: '',
+          flag3: '',
+        }
     default:
        return state;
   }

@@ -33,4 +33,10 @@ export const setFlag3 = (flag3) => ({
   type: SET_FLAG3,
   flag3,
 });
+
+export const RESET_FLAGS = 'RESET_FLAGS';
+
+export const setResetFlags = () => ({
+  type: RESET_FLAGS,
+});
 // FLAGS
