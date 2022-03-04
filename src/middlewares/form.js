@@ -7,8 +7,8 @@ import {
 } from 'src/actions/formActions';
 
 const dataFetchingMiddleware = (store) => (next) => (action) => {
-  // const baseUrl = 'http://leluya-server.eddi.cloud/projet-23-o-travel-back/public/';
-  const baseUrl = 'http://cedric-vandermaes.vpnuser.lan/projet-23-o-travel-back/public/';
+  const baseUrl = 'http://leluya-server.eddi.cloud/projet-23-o-travel-back/public/';
+  //const baseUrl = 'http://cedric-vandermaes.vpnuser.lan/projet-23-o-travel-back/public/';
   switch (action.type) {
     case GET_FORM_ELEMENTS:
       axios
