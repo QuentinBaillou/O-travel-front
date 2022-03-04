@@ -3,7 +3,7 @@ import {
   GET_FORM_ELEMENTS, setFormElements, SEND_FORM,
   setDestinations,
 } from 'src/actions/formActions';
-import axiosInstance from '../axiosInstance';
+import axiosInstance from 'src/axiosInstance';
 
 const dataFetchingMiddleware = (store) => (next) => (action) => {
   switch (action.type) {

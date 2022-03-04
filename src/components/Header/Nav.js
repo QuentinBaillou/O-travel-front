@@ -5,7 +5,7 @@ import menu from './menuData';
 import './style.scss';
 
 const Nav = () => {
-  // Local state used to or to not display nav menu, when on mobile resolution
+  // Local state used to or to not display nav menu, when on tablet resolution and bellow
   const [active, setActive] = useState(false);
   const handleClick = () => {
     setActive(!active);
@@ -24,8 +24,9 @@ const Nav = () => {
         {menu.map((menuItem) => (
           <li key={menuItem.route}>
             {
-            // NavLink used to style current page link, thanks to its property isActive
-          }
+              // NavLink from React-router-dom used to style current page link,
+              // thanks to its property isActive
+            }
             <NavLink
               to={menuItem.route}
               className={({ isActive }) => (isActive ? 'nav__link--active' : 'nav__link')}
