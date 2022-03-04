@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { setFlag } from 'src/actions/destinationActions';
+import { setFlag1, setFlag2, setFlag3 } from 'src/actions/destinationActions';
 
 import './style.scss';
 
@@ -8,12 +8,47 @@ import PropTypes from 'prop-types';
 const Header = ({state, surname, way, price_per_night}) => {
   
   const dispatch = useDispatch();
-  const flag = useSelector((state) => state.destination.countryName);
+  const flag1 = useSelector((state) => state.destination.flag1);
+  const flag2 = useSelector((state) => state.destination.flag2);
+  const flag3 = useSelector((state) => state.destination.flag3);
 
-  import(`src/assets/svg/flags/${state}.svg`).then((response) => {
-    console.log(response.default);
-    dispatch(setFlag(response.default));
-  });
+  //* Flags display
+  if(state == 'Pays nordique'){
+    import(`src/assets/svg/flags/Suède.svg`).then((response) => {
+      dispatch(setFlag1(response.default));
+    });
+    import(`src/assets/svg/flags/Norvège.svg`).then((response) => {
+      dispatch(setFlag2(response.default));
+    });
+  }
+  else if(state == 'Amérique du Sud'){
+    import(`src/assets/svg/flags/Bolivie.svg`).then((response) => {
+      dispatch(setFlag1(response.default));
+    });
+    import(`src/assets/svg/flags/Paraguay.svg`).then((response) => {
+      dispatch(setFlag2(response.default));
+    });
+    import(`src/assets/svg/flags/Argentine.svg`).then((response) => {
+      dispatch(setFlag3(response.default));
+    });
+  }
+  else if(state == 'Road Trip Alpes'){
+    import(`src/assets/svg/flags/Suisse.svg`).then((response) => {
+      dispatch(setFlag1(response.default));
+    });
+    import(`src/assets/svg/flags/Italie.svg`).then((response) => {
+      dispatch(setFlag2(response.default));
+    });
+    import(`src/assets/svg/flags/Croatie.svg`).then((response) => {
+      dispatch(setFlag3(response.default));
+    });
+  }
+  else {
+    import(`src/assets/svg/flags/${state}.svg`).then((response) => {
+      dispatch(setFlag1(response.default));
+    });
+  }
+   //* Flags display
 
   return (
   <header className="destination_header">
@@ -23,8 +58,9 @@ const Header = ({state, surname, way, price_per_night}) => {
 
     <div className="block_part_infos">
       <div className="flag">
-
-        <img src={flag} />
+        <img src={flag1} />
+        <img src={flag2} />
+        <img src={flag3} />
       </div>
 
       <div className="infos">

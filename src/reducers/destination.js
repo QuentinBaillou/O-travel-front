@@ -1,8 +1,10 @@
-import { SAVE_DESTINATION, SET_FLAG } from "../actions/destinationActions";
+import { SAVE_DESTINATION, SET_FLAG1, SET_FLAG2, SET_FLAG3 } from "../actions/destinationActions";
 
 const initialState = {
   destination: [],
-  countryName: '',
+  flag1: '',
+  flag2: '',
+  flag3: '',
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -12,10 +14,20 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         destination: action.destination,
         };
-      case SET_FLAG:
+      case SET_FLAG1:
         return {
           ...state,
-          countryName: action.countryName, 
+          flag1: action.flag1, 
+        };
+      case SET_FLAG2:
+        return {
+          ...state,
+          flag2: action.flag2, 
+        };
+      case SET_FLAG3:
+        return {
+          ...state,
+          flag3: action.flag3, 
         };
     default:
        return state;
