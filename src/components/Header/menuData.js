@@ -11,8 +11,4 @@ export default [
     route: '/profile',
     name: 'Profil',
   },
-  {
-    route: '/login',
-    name: 'Connexion',
-  },
 ];
