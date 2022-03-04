@@ -3,6 +3,8 @@ import { setFlag } from 'src/actions/destinationActions';
 
 import './style.scss';
 
+import PropTypes from 'prop-types';
+
 const Header = ({state, surname, way, price_per_night}) => {
   
   const dispatch = useDispatch();
@@ -40,6 +42,13 @@ const Header = ({state, surname, way, price_per_night}) => {
     </div>
   </header>
   );
+
+  Header.propTypes = {
+    state: PropTypes.string.isRequired,
+    surname: PropTypes.string.isRequired,
+    way: PropTypes.string.isRequired,
+    price_per_night: PropTypes.number.isRequired,
+  };
 };
 
 export default Header;

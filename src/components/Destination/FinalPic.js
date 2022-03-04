@@ -1,10 +1,18 @@
 import './style.scss';
-import Pic5 from 'src/assets/images/rocky5.jpg';
+import PropTypes from 'prop-types';
 
-const FinalPic = ({picture5}) => (
-  <div>
-    <img className="final_pic" src={picture5} />
-  </div>
-);
+const FinalPic = ({picture5}) => {
+
+  return (  
+    <div>
+      <img className="final_pic" src={picture5} />
+    </div>
+  );
+
+  FinalPic.propTypes = {
+    picture5: PropTypes.string.isRequired,
+  };
+
+};
 
 export default FinalPic;
