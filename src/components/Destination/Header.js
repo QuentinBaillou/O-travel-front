@@ -57,7 +57,7 @@ const Header = ({state, surname, way, price_per_night}) => {
     </div>
 
     <div className="block_part_infos">
-      <div className="flag">
+      <div className="flags">
         <img src={flag1} />
         <img src={flag2} />
         <img src={flag3} />
