@@ -1,4 +1,4 @@
-export const menu = [
+export default [
   {
     route: '/',
     name: 'Accueil',
@@ -10,5 +10,9 @@ export const menu = [
   {
     route: '/profile',
     name: 'Profil',
+  },
+  {
+    route: '/login',
+    name: 'Connexion',
   },
 ];
