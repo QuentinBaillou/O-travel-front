@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import axios from 'axios';
 import { SEND_LOGIN_FORM } from 'src/actions/authentication';
 

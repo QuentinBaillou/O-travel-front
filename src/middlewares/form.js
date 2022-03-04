@@ -1,18 +1,15 @@
 /* eslint-disable no-console */
-
-import axios from 'axios';
 import {
   GET_FORM_ELEMENTS, setFormElements, SEND_FORM,
   setDestinations,
 } from 'src/actions/formActions';
+import axiosInstance from '../axiosInstance';
 
 const dataFetchingMiddleware = (store) => (next) => (action) => {
-  // const baseUrl = 'http://leluya-server.eddi.cloud/projet-23-o-travel-back/public/';
-  const baseUrl = 'http://cedric-vandermaes.vpnuser.lan/projet-23-o-travel-back/public/';
   switch (action.type) {
     case GET_FORM_ELEMENTS:
-      axios
-        .get(`${baseUrl}api/${action.field}`)
+      axiosInstance
+        .get(action.field)
         .then((response) => {
           store.dispatch(setFormElements(action.field, response.data));
         })
@@ -24,8 +21,8 @@ const dataFetchingMiddleware = (store) => (next) => (action) => {
 
     case SEND_FORM: {
       const state = store.getState();
-      axios
-        .post(`${baseUrl}api/destinations/form`, {
+      axiosInstance
+        .post('destinations/form', {
           selectedLandscapes: state.form.landscapesSelected,
           selectedTransports: state.form.transportsSelected,
           selectedSeasons: state.form.seasonsSelected,
