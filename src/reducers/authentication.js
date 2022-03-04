@@ -1,10 +1,10 @@
-import { SET_FORM_FIELD } from 'src/actions/authentication';
+import { SET_FORM_FIELD, LOGOUT, SAVE_USER_INFO } from 'src/actions/authenticationActions';
 
 const initialState = {
-  fistname: '',
+  firstname: '',
   lastname: '',
-  password: '',
-  email: '',
+  password: 'user',
+  email: 'user@user.com',
   isUserLogged: false,
 };
 
@@ -14,6 +14,24 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         [action.field]: action.value,
+      };
+
+    case SAVE_USER_INFO:
+      return {
+        ...state,
+        firstname: action.firstname,
+        lastname: action.lastname,
+        isUserLogged: true,
+      };
+
+    case LOGOUT:
+      return {
+        ...state,
+        firstname: '',
+        lastname: '',
+        email: '',
+        password: '',
+        isUserLogged: false,
       };
     default:
       return state;

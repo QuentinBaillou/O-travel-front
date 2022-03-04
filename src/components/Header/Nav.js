@@ -1,12 +1,14 @@
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import { logout } from 'src/actions/authenticationActions';
 
 import menu from './menuData';
 import './style.scss';
 
 const Nav = () => {
-  const isUserLogged = useSelector((state) => state.authentication.isUserLogged);
+  const dispatch = useDispatch();
+  const logged = useSelector((state) => state.authentication.isUserLogged);
   // Local state used to or to not display nav menu, when on tablet resolution and bellow
   const [active, setActive] = useState(false);
   const handleClick = () => {
@@ -37,7 +39,7 @@ const Nav = () => {
             </NavLink>
           </li>
         ))}
-        {!isUserLogged && (
+        {!logged && (
         <li>
           <NavLink
             to="/login"
@@ -47,11 +49,14 @@ const Nav = () => {
           </NavLink>
         </li>
         )}
-        {isUserLogged && (
+        {logged && (
         <li>
           <NavLink
             to="/logout"
-            className={({ isActive }) => (isActive ? 'nav__link--active' : 'nav__link')}
+            className="nav__link"
+            onClick={() => {
+              dispatch(logout());
+            }}
           >
             Déconnexion
           </NavLink>

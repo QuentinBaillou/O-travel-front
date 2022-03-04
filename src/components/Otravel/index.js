@@ -1,5 +1,5 @@
 // == Import
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 
 import Header from 'src/components/Header';
 import List from 'src/components/List';
@@ -19,6 +19,7 @@ const Otravel = () => (
       <Route path="/destinations" element={<List />} />
       <Route path="/destinations/:id" element={<Destination />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/logout" element={<Navigate to="/" />} />
     </Routes>
     <Footer />
   </div>

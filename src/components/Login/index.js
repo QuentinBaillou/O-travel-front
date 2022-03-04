@@ -1,12 +1,15 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { setFormField, sendLoginForm } from 'src/actions/authentication';
+import { Link, useNavigate } from 'react-router-dom';
+import { setFormField, login } from 'src/actions/authenticationActions';
 import './style.scss';
 
 const Login = () => {
   const email = useSelector((state) => state.authentication.email);
   const password = useSelector((state) => state.authentication.password);
+  const logged = useSelector((state) => state.authentication.isUserLogged);
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const handleChange = (e) => {
@@ -15,8 +18,15 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(sendLoginForm());
+    dispatch(login());
   };
+
+  // Redirection after successfully logged, using useNavigate hook from react-router-dom
+  useEffect(() => {
+    if (logged) {
+      navigate('/');
+    }
+  });
 
   return (
     <div className="form-wrapper">

@@ -74,6 +74,7 @@
 
     &:hover {
       color: vars.$lightest-color;
+
       &::before {
         content: "";
         position: absolute;
