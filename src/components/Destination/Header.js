@@ -3,16 +3,10 @@ import { setFlag1, setFlag2, setFlag3 } from 'src/actions/destinationActions';
 
 import './style.scss';
 
-<<<<<<< HEAD
-const Header = ({
-  state, surname, way, price_per_night,
-}) => {
-=======
 import PropTypes from 'prop-types';
 
 const Header = ({state, surname, way, price_per_night}) => {
   
->>>>>>> page-fiche-voyage
   const dispatch = useDispatch();
   const flag1 = useSelector((state) => state.destination.flag1);
   const flag2 = useSelector((state) => state.destination.flag2);
