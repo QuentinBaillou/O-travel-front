@@ -11,6 +11,7 @@ const FormSlider = () => {
   const handleSlider = (e) => {
     dispatch(setBudgetValue(e.target.value));
   };
+
   return (
     <div className="form__slider">
       <input

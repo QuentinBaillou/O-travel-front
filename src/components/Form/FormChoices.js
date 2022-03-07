@@ -14,7 +14,7 @@ const FormChoices = () => {
     <div className="form__choices">
       {areLandscapesPresent && (
         <p>Vous voulez un paysage {
-          // Condition to match the correct display,
+          // Condition to match a correct punctuation,
           // with a comma if there is more than 1 item in the array
           landscapesSelected.map((landscape, index) => (index >= 1 ? `, ${landscape.name}` : landscape.name))
         }.

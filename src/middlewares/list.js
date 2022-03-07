@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import axios from 'axios';
 import { GET_DESTINATIONS, saveDestinations } from 'src/actions/listActions';
 
