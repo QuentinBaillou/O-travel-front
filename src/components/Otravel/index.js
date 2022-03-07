@@ -7,6 +7,7 @@ import Footer from 'src/components/Footer';
 import Home from 'src/components/Home';
 import NotFound from 'src/components/NotFound';
 import Login from 'src/components/Login';
+import Profil from 'src/components/Profil';
 
 import './style.scss';
 import Destination from 'src/components/Destination';
@@ -22,6 +23,7 @@ const Otravel = () => (
       <Route path="*" element={<NotFound />} />
       <Route path="/login" element={<Login />} />
       <Route path="/logout" element={<Navigate to="/" />} />
+      <Route path="/profile" element={<Profil />} />
     </Routes>
     <Footer />
   </div>
