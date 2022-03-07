@@ -6,19 +6,22 @@
   display: flex;
   justify-content: space-between;
   align-items: stretch;
-  margin: 3 * vars.$gutter 0;
+  margin: 2 * vars.$gutter 0;
   min-height: calc(100vh - 10rem - 96.44px);
 
   &__title {
     position: absolute;
-    width: fit-content;
-    top: -1.5rem;
-    left: 3rem;
-    padding: 1rem;
-    border-radius: 5px;
+    left: 2rem;
+    top: -1.2rem;
+    height: 2em;
+    width: 16rem;
+    font-size: 1.3em;
+    padding: 0.8rem;
+    font-weight: bold;
     background-color: vars.$titles-box-and-buttons-color;
-    color: darken(vars.$header-main-color, 20%);
-    z-index: 3;
+    color: #446962;
+    text-transform: uppercase;
+    z-index: 1;
   }
 }
 

@@ -20,7 +20,7 @@ const FormSection = ({
     dispatch(getFormElements(field));
   }, []);
 
-  // Get the property other than id from objects in state element
+  // Get the property other than id in objects from state element
   if (sectionElements[0]) {
     const keys = Object.keys(sectionElements[0]);
     [elementMainKey] = keys.filter((key) => key !== 'id');

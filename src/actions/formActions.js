@@ -25,10 +25,10 @@ export const setFormElements = (field, formElements) => ({
 });
 
 // ACTION TYPE SEND_FORM
-export const SEND_FORM = 'SEND_FORM';
+export const SEND_DESTINATION_FORM = 'SEND_DESTINATION_FORM';
 // ACTION CREATOR sendForm
-export const sendForm = () => ({
-  type: SEND_FORM,
+export const sendDestinationForm = () => ({
+  type: SEND_DESTINATION_FORM,
 });
 
 // ACTION TYPE SET_BUDGET_VALUE
@@ -45,4 +45,11 @@ export const SET_DESTINATIONS = 'SET_DESTINATIONS';
 export const setDestinations = (destinations) => ({
   type: SET_DESTINATIONS,
   destinations,
+});
+
+// ACTION TYPE RESET_CHOICES
+export const RESET_CHOICES = 'RESET_CHOICES';
+// ACTION CREATOR resetChoices
+export const resetChoices = () => ({
+  type: RESET_CHOICES,
 });

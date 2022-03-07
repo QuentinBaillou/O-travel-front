@@ -1,6 +1,7 @@
 import {
   SET_SELECTED_ITEM, SET_FORM_ELEMENTS, SET_BUDGET_VALUE,
   SET_DESTINATIONS,
+  RESET_CHOICES,
 } from 'src/actions/formActions';
 import { selectedItemArraySelector } from 'src/selectors/formSelectors';
 
@@ -42,6 +43,9 @@ const reducer = (state = initialState, action = {}) => {
         destinations: action.destinations,
         isFormSend: true,
       };
+
+    case RESET_CHOICES:
+      return initialState;
 
     default:
       return state;

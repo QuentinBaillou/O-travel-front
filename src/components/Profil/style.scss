@@ -1,0 +1,110 @@
+.profil {
+  padding: 2em 0;
+  position: relative;
+}
+
+.profil-title{
+  background-color: hsl(42deg 69% 61%);
+  height: 2em;
+  width: 16rem;
+  font-size: 1.3em;
+  padding: 0.8rem;
+  margin: 2rem;
+  position: absolute;
+  font-weight: bold;
+  color: #446962;
+  text-transform: uppercase;
+  top: 0.8rem;
+}
+
+.profil-description{
+  margin: 0 2em;
+  padding: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.profil-button{
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  margin: auto 0;
+
+  .ui.button{
+    margin: 0.5em;
+  }
+}
+
+.ui.list.profil-list{
+  margin: auto;
+  background-color: #446962;
+  color: white;
+  padding: 3em;
+  display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.item{
+  padding: 0.5em;
+
+  .icon{
+    font-size: 1.2em;
+  }
+  .content{
+    font-size: 1.2em;
+    padding-top: 0.2em;
+  }
+}
+
+.favorites{
+  padding: 2em 0 0;
+  position: relative;
+}
+
+.favorites-title{
+  background-color: hsl(42deg 69% 61%);
+  height: 2em;
+  width: 16rem;
+  font-size: 1.3em;
+  padding: 0.8rem;
+  margin: 2rem;
+  position: absolute;
+  font-weight: bold;
+  color: #446962;
+  text-transform: uppercase;
+  top: 0.8rem;
+}
+
+.ui.list.favorites-list{
+  margin: auto;
+  background-color: #446962;
+  color: white;
+  padding: 3em 0 1.5em;
+  display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .item{
+      width: 25em;
+      margin: 0 2em;
+    }
+
+    .content{
+      font-size: 1.5em;
+      text-align: center;
+    }
+
+    .description{
+      font-size: 1.2em;
+      color: white;
+      text-align: center;
+      margin: 1em;
+    }
+
+    .button{
+      margin: 1em 9.3em 0;
+    }
+
+}

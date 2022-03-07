@@ -8,6 +8,11 @@ const FormResult = () => {
   const destinations = useSelector((state) => state.form.destinations);
   const isFormSend = useSelector((state) => state.form.isFormSend);
 
+  /**
+   * Display correct elements, depending on values of isFormSend and destinations.length,
+   * got from the state
+   * @returns element
+   */
   const displayResult = () => {
     if (isFormSend) {
       if (destinations.length > 0) {

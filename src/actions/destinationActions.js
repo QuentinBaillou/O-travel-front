@@ -13,24 +13,10 @@ export const saveDestination = (destination) => ({
 });
 
 // FLAGS
-export const SET_FLAG1 = 'SET_FLAG1';
+export const SET_FLAG = 'SET_FLAG';
 
-export const setFlag1 = (flag1) => ({
-  type: SET_FLAG1,
-  flag1,
-});
-
-export const SET_FLAG2 = 'SET_FLAG2';
-
-export const setFlag2 = (flag2) => ({
-  type: SET_FLAG2,
-  flag2,
-});
-
-export const SET_FLAG3 = 'SET_FLAG3';
-
-export const setFlag3 = (flag3) => ({
-  type: SET_FLAG3,
-  flag3,
+export const setFlag = (flag1) => ({
+  type: SET_FLAG,
+  flag,
 });
 // FLAGS

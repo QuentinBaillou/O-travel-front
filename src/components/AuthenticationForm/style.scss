@@ -1,0 +1,76 @@
+@use 'src/styles/vars';
+
+.form-wrapper {
+  min-height: calc(100vh - 8rem - 96.44px);
+  position: relative;
+  margin: 2 * vars.$gutter 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: vars.$main-block-and-fonts-color;
+
+  &__title {
+    position: absolute;
+    left: 2rem;
+    top: -1.2rem;
+    height: 2em;
+    width: 16rem;
+    font-size: 1.3em;
+    padding: 0.8rem;
+    font-weight: bold;
+    background-color: vars.$titles-box-and-buttons-color;
+    color: #446962;
+    text-transform: uppercase;
+  }
+}
+
+.authentication-form {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba($color: #000000, $alpha: 0.3);
+  padding: 2rem;
+  border-radius: 1rem;
+  gap: 1rem;
+
+  &__error-message {
+    padding: 0.5 * vars.$gutter;
+    border-radius: 5px;
+    text-align: center;
+    background-color: vars.$titles-box-and-buttons-color;
+    color: red;
+  }
+
+  &__label {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.2 * vars.$gutter;
+    color: vars.$lightest-color;
+    font-size: 1.5rem;
+  }
+
+  &__input,
+  &__submit {
+    padding: 0.5 * vars.$gutter;
+    background-color: rgba($color: vars.$lightest-color, $alpha: 0.8);
+    font-size: 1.2rem;
+    border-radius: 1.1rem;
+    border: none;
+
+    &:hover,
+    &:focus {
+      background-color: #fff;
+    }
+  }
+
+  &__link {
+    cursor: pointer;
+    color: vars.$lightest-color;
+    text-align: center;
+    transition: 0.2s;
+
+    &:hover {
+      text-decoration: underline;
+      color: vars.$lightest-color;
+    }
+  }
+}

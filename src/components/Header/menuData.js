@@ -1,4 +1,4 @@
-export const menu = [
+export default [
   {
     route: '/',
     name: 'Accueil',
