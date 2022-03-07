@@ -8,13 +8,13 @@ const Inscription = () => {
 
   const dispatch = useDispatch();
 
-  const email = useSelector((state) => state.authentication.email);
-  const password = useSelector((state) => state.authentication.password);
-  const firstname = useSelector((state) => state.authentication.firstname);
-  const lastname = useSelector((state) => state.authentication.lastname);
+  const email = useSelector((state) => state.signin.email);
+  const password = useSelector((state) => state.signin.password);
+  const firstname = useSelector((state) => state.signin.firstname);
+  const lastname = useSelector((state) => state.signin.lastname);
 
-  const error = useSelector((state) => state.authentication.error);
-  const submitted = useSelector((state) => state.authentication.submitted);
+  const error = useSelector((state) => state.signin.error);
+  const submitted = useSelector((state) => state.signin.submitted);
 
   console.log(`Email : ${email}`);
   console.log(`Mot de passe : ${password}`);
@@ -83,27 +83,26 @@ const Inscription = () => {
   };
 
   return (
-      <div className="signin_container">
+      <div className="signin">
 
-        <div className="messages">
+        <div className="signin_messages">
           {errorMessage()}
           {successMessage()}
         </div>
 
+        <h2 className="signin_title">Créez votre espace perso</h2><br />
+
         <form onSubmit={handleSubmit} className="signin_form">
+            <label htmlFor="email">E-mail</label><br />
+              <input className="signin_form__input" size="60" value={email} onChange={handleEmail} className="form__input" name="email" type="email" placeholder="Saisissez votre e-mail" /><br />
+            <label htmlFor="password">Mot de passe</label><br />
+              <input className="signin_form__input" size="60" value={password} onChange={handlePassword} className="form__input" name="password" type="password" placeholder="Saisissez votre mot de passe" /><br />
+            <label htmlFor="firstname">Prénom</label><br />
+              <input className="signin_form__input" size="60" value={firstname} onChange={handleFirstname} className="form__input" name="firstname" type="text" placeholder="Saisissez votre prénom" /><br />
+            <label htmlFor="lastname">Nom</label><br />
+              <input className="signin_form__input" size="60" value={lastname} onChange={handleLastname} className="form__input" name="lastname" type="text" placeholder="Saisissez votre nom" /><br /><br />
 
-          <h2 className="signin_container__title">Créez votre espace perso</h2>
-
-            <label htmlFor="email">E-mail</label>
-              <input value={email} onChange={handleEmail} className="form__input" name="email" type="email" placeholder="Saisissez votre e-mail" />
-            <label htmlFor="password">Mot de passe</label>
-              <input value={password} onChange={handlePassword} className="form__input" name="password" type="password" placeholder="Saisissez votre mot de passe" />
-            <label htmlFor="firstname">Prénom</label>
-              <input value={firstname} onChange={handleFirstname} className="form__input" name="firstname" type="text" placeholder="Saisissez votre prénom" />
-            <label htmlFor="lastname">Nom</label>
-              <input value={lastname} onChange={handleLastname} className="form__input" name="lastname" type="text" placeholder="Saisissez votre nom" />
-
-          <button className="form__submit" type="submit">Sign In</button>
+          <button className="signin_form__submit" type="submit">Sign In</button>
         </form>
 
       </div>
