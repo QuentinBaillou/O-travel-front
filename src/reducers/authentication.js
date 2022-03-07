@@ -45,7 +45,6 @@ const reducer = (state = initialState, action = {}) => {
         isUserLogged: false,
         isFormSend: false,
       };
-
     default:
       return state;
   }

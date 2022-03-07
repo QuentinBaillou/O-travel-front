@@ -11,4 +11,8 @@ export default [
     route: '/profile',
     name: 'Profil',
   },
+  {
+    route: '/inscription',
+    name: 'Inscription',
+  },
 ];

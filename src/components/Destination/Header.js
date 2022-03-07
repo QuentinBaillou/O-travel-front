@@ -6,12 +6,13 @@ import './style.scss';
 import PropTypes from 'prop-types';
 
 const Header = ({state, surname, way, price_per_night}) => {
-  
+
   const dispatch = useDispatch();
+
   const flag = useSelector((state) => state.destination.flag);
 
   //* Flags display
-  if(state == 'Pays nordique'){
+  if(state == 'Pays nordique'){ 
     import(`src/assets/svg/flags/pays_nordique.svg`).then((response) => {
       dispatch(setFlag(response.default));
     });
@@ -28,10 +29,10 @@ const Header = ({state, surname, way, price_per_night}) => {
   }
   else {
     import(`src/assets/svg/flags/${state}.svg`).then((response) => {
-      dispatch(setFlag1(response.default));
+      dispatch(setFlag(response.default));
     });
-  }
-   //* Flags display
+  };
+  //* Flags display
 
   return (
     <header className="destination_header">

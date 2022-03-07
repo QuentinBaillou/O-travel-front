@@ -1,0 +1,33 @@
+@use "src/styles/vars";
+
+.signin_container{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: vars.$gutter * 3;
+  margin-bottom: vars.$gutter * 3;
+};
+
+.signin_container__title {
+  width: 100%;
+  text-align: center;
+};
+
+.form {
+  width: 30%;
+  padding-left: vars.$gutter * 5;
+  padding-right: vars.$gutter *5;
+  padding-top: vars.$gutter *2;
+  padding-bottom: vars.$gutter *4;
+};
+
+.error {
+  font-weight: bold;
+  color: red;
+};
+
+.success {
+  font-weight: bold;
+  color: green;
+}
+
