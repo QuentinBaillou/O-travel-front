@@ -1,15 +1,16 @@
 import axiosInstance from 'src/axiosInstance';
+import { CREATE_USER } from 'src/actions/signin';
 
-const authenticationMiddleware = (store) => (next) => (action) => {
+const signInMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case CREATE_USER:
       const state = store.getState();
       axiosInstance
         .post('user/form', {
-          email: state.authentication.email,
-          password: state.authentication.password,
-          firstname: state.authentication.firstname,
-          lastname: state.authentication.lastname,
+          email: state.signin.email,
+          password: state.signin.password,
+          firstname: state.signin.firstname,
+          lastname: state.signin.lastname,
         })
         .then((response) => {
           console.log(response);
@@ -23,6 +24,11 @@ const authenticationMiddleware = (store) => (next) => (action) => {
       next(action);
       break;
   };
+}
 
+<<<<<<< HEAD
 export default authenticationMiddleware;
 
+=======
+export default signInMiddleware;
+>>>>>>> Fix: fixing problems due to branch merge
