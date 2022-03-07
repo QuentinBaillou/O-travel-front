@@ -1,11 +1,11 @@
 // == Import
 import './style.scss';
 
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 
 import { Image, List, Button } from 'semantic-ui-react';
-import { getDestinations } from 'src/actions/favoritesActions';
+import { getFavoritesDestinations } from 'src/actions/favoritesActions';
 
 // == Composant
 const Profil = () => {
@@ -13,12 +13,16 @@ const Profil = () => {
 
   useEffect(
     () => {
-      dispatch(getDestinations());
+      dispatch(getFavoritesDestinations());
     },
     [],
   );
 
+  const destinations = useSelector((state) => state.favorites.destinations);
+  console.table(destinations);
+
   return (
+
     <div className="profil">
       <h2 className="profil-title">Mon profil</h2>
       <List className="profil-list">
