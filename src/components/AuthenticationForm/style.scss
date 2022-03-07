@@ -2,11 +2,26 @@
 
 .form-wrapper {
   min-height: calc(100vh - 8rem - 96.44px);
+  position: relative;
   margin: 2 * vars.$gutter 0;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: vars.$main-block-and-fonts-color;
+
+  &__title {
+    position: absolute;
+    left: 2rem;
+    top: -1.2rem;
+    height: 2em;
+    width: 16rem;
+    font-size: 1.3em;
+    padding: 0.8rem;
+    font-weight: bold;
+    background-color: vars.$titles-box-and-buttons-color;
+    color: #446962;
+    text-transform: uppercase;
+  }
 }
 
 .authentication-form {
