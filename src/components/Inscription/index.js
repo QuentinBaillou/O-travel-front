@@ -23,6 +23,7 @@ const Inscription = () => {
   console.log(`Erreur : ${error}`);
   console.log(`Submitted : ${submitted}`);
 
+  // A la soumission du formulaire
   const handleSubmit = (event) => {
     event.preventDefault();
     if (email === '' || password === '' || firstname === '' || lastname === '') {
