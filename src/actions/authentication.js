@@ -39,3 +39,9 @@ export const setError = (bool) => ({
   type: SET_ERROR,
   error: bool,
 });
+
+export const CREATE_USER = 'CREATE_USER';
+
+export const setCreateUser = () => ({
+  type: CREATE_USER,
+});

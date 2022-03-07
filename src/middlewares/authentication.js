@@ -1,12 +1,21 @@
 import axiosInstance from 'src/axiosInstance';
+import { setCreateUser } from 'src/actions/authentication';
 
 const authenticationMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case CREATE_USER:
+      const state = store.getState();
       axiosInstance
-        .post('user/form')
+        .post('user/form', {
+          email: state.authentication.email,
+          password: state.authentication.password,
+          firstname: state.authentication.firstname,
+          lastname: state.authentication.lastname,
+        })
         .then((response) => {
-          console.log(response)})
+          console.log(response);
+          store.dispatch(setCreateUser(response.data));
+        })
         .catch((error) => {
           (console.log(error))
         });
