@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import { LOGIN, saveUserInfo } from 'src/actions/authenticationActions';
+import { LOGIN, saveUserInfo, sendForm } from 'src/actions/authenticationActions';
 import axiosInstance from 'src/axiosInstance';
 
 const authenticationMiddleware = (store) => (next) => (action) => {
@@ -19,6 +19,7 @@ const authenticationMiddleware = (store) => (next) => (action) => {
         })
         .catch((error) => {
           console.log(error);
+          store.dispatch(sendForm(true));
         });
       next(action);
       break;

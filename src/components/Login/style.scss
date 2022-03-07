@@ -17,6 +17,14 @@
   border-radius: 1rem;
   gap: 1rem;
 
+  &__error-message {
+    padding: 0.5 * vars.$gutter;
+    border-radius: 5px;
+    text-align: center;
+    background-color: vars.$titles-box-and-buttons-color;
+    color: red;
+  }
+
   &__label {
     display: flex;
     flex-direction: column;
@@ -33,12 +41,14 @@
     border-radius: 1.1rem;
     border: none;
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       background-color: #fff;
     }
   }
 
-  &__sign-in-link {
+  &__link {
+    cursor: pointer;
     color: vars.$lightest-color;
     text-align: center;
     transition: 0.2s;

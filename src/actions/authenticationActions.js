@@ -28,3 +28,11 @@ export const saveUserInfo = (firstname, lastname) => ({
   firstname,
   lastname,
 });
+
+// ACTION TYPE SEND_FORM
+export const SEND_FORM = 'SEND_FORM';
+// ACTION CREATOR sendForm
+export const sendForm = (state) => ({
+  type: SEND_FORM,
+  state,
+});

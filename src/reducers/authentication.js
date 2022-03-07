@@ -1,4 +1,7 @@
-import { SET_FORM_FIELD, LOGOUT, SAVE_USER_INFO } from 'src/actions/authenticationActions';
+import {
+  SET_FORM_FIELD, LOGOUT, SAVE_USER_INFO,
+  SEND_FORM,
+} from 'src/actions/authenticationActions';
 
 const initialState = {
   firstname: '',
@@ -6,6 +9,7 @@ const initialState = {
   password: 'user',
   email: 'user@user.com',
   isUserLogged: false,
+  isFormSend: false,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -22,6 +26,13 @@ const reducer = (state = initialState, action = {}) => {
         firstname: action.firstname,
         lastname: action.lastname,
         isUserLogged: true,
+        isFormSend: true,
+      };
+
+    case SEND_FORM:
+      return {
+        ...state,
+        isFormSend: action.state,
       };
 
     case LOGOUT:
@@ -32,7 +43,9 @@ const reducer = (state = initialState, action = {}) => {
         email: '',
         password: '',
         isUserLogged: false,
+        isFormSend: false,
       };
+
     default:
       return state;
   }
