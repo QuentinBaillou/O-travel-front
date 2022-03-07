@@ -10,10 +10,15 @@
 
 .signin_container__title {
   width: 100%;
+  text-align: center;
 };
 
 .form {
-  width: 100%;
+  width: 30%;
+  padding-left: vars.$gutter * 5;
+  padding-right: vars.$gutter *5;
+  padding-top: vars.$gutter *2;
+  padding-bottom: vars.$gutter *4;
 };
 
 .error {

@@ -85,22 +85,23 @@ const Inscription = () => {
   return (
       <div className="signin_container">
 
-        <h2 className="signin_container__title">Créez votre espace perso</h2>
-
         <div className="messages">
           {errorMessage()}
           {successMessage()}
         </div>
 
         <form onSubmit={handleSubmit} className="form">
-          <label htmlFor="email">E-mail</label>
-            <input value={email} onChange={handleEmail} className="form__input" name="email" type="email" placeholder="Saisissez votre e-mail" />
-          <label htmlFor="password">Mot de passe</label>
-            <input value={password} onChange={handlePassword} className="form__input" name="password" type="password" placeholder="Saisissez votre mot de passe" />
-          <label htmlFor="firstname">Prénom</label>
-            <input value={firstname} onChange={handleFirstname} className="form__input" name="firstname" type="text" placeholder="Saisissez votre prénom" />
-          <label htmlFor="lastname">Nom</label>
-            <input value={lastname} onChange={handleLastname} className="form__input" name="lastname" type="text" placeholder="Saisissez votre nom" />
+
+          <h2 className="signin_container__title">Créez votre espace perso</h2>
+
+            <label htmlFor="email">E-mail</label>
+              <input value={email} onChange={handleEmail} className="form__input" name="email" type="email" placeholder="Saisissez votre e-mail" />
+            <label htmlFor="password">Mot de passe</label>
+              <input value={password} onChange={handlePassword} className="form__input" name="password" type="password" placeholder="Saisissez votre mot de passe" />
+            <label htmlFor="firstname">Prénom</label>
+              <input value={firstname} onChange={handleFirstname} className="form__input" name="firstname" type="text" placeholder="Saisissez votre prénom" />
+            <label htmlFor="lastname">Nom</label>
+              <input value={lastname} onChange={handleLastname} className="form__input" name="lastname" type="text" placeholder="Saisissez votre nom" />
 
           <button className="form__submit" type="submit">Sign In</button>
         </form>
