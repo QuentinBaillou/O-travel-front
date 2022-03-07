@@ -1,13 +1,13 @@
 import axiosInstance from 'src/axiosInstance';
-import { GET_DESTINATIONS, saveDestinations } from 'src/actions/favoritesActions';
+import { GET_FAVORITES_DESTINATIONS, saveFavoritesDestinations } from 'src/actions/favoritesActions';
 
 const fetchFavorites = (store) => (next) => (action) => {
   switch (action.type) {
-    case GET_DESTINATIONS:
+    case GET_FAVORITES_DESTINATIONS:
       axiosInstance
-        .get('destinations/Profile')
+        .get('user/favoris')
         .then((response) => {
-          store.dispatch(saveDestinations(response.data));
+          store.dispatch(saveFavoritesDestinations(response.data));
         })
         .catch((error) => {
           console.log('erreur : ', error);
