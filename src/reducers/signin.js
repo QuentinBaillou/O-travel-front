@@ -1,4 +1,4 @@
-import { SET_EMAIL, SET_PASSWORD, SET_FIRSTNAME, SET_LASTNAME, SET_SUBMITTED, SET_ERROR } from "../actions/authentication";
+import { SET_EMAIL, SET_PASSWORD, SET_FIRSTNAME, SET_LASTNAME, SET_SUBMITTED, SET_ERROR } from "../actions/signin";
 
 const initialState = {
   firstname: '',

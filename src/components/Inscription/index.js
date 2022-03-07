@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { setEmail, setPassword, setFirstname, setLastname } from 'src/actions/authentication'; 
-import { setSubmitted, setError, setCreateUser } from '../../actions/authentication';
+import { setEmail, setPassword, setFirstname, setLastname } from 'src/actions/signin'; 
+import { setSubmitted, setError, setCreateUser } from 'src/actions/signin';
 
 import './style.scss';
 
@@ -90,7 +90,7 @@ const Inscription = () => {
           {successMessage()}
         </div>
 
-        <form onSubmit={handleSubmit} className="form">
+        <form onSubmit={handleSubmit} className="signin_form">
 
           <h2 className="signin_container__title">Créez votre espace perso</h2>
 
