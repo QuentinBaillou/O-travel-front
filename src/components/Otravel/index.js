@@ -22,6 +22,7 @@ const Otravel = () => (
       <Route path="/destinations/:id" element={<Destination />} />
       <Route path="*" element={<NotFound />} />
       <Route path="/login" element={<AuthenticationForm shape="login" />} />
+      <Route path="/login/forgotten-password" element={<AuthenticationForm shape="forgotten-password" />} />
       <Route path="/logout" element={<Navigate to="/" />} />
       <Route path="/profile" element={<Profil />} />
     </Routes>

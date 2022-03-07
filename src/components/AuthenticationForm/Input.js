@@ -7,10 +7,10 @@ const Input = ({
   value, name, handleChange, label,
 }) => (
   <div>
-    <label htmlFor={name} className="login__label">{label}</label>
+    <label htmlFor={name} className="authentication-form__label">{label}</label>
     <input
       type={name}
-      className="login__input"
+      className="authentication-form__input"
       id={name}
       value={value}
       onChange={handleChange}
