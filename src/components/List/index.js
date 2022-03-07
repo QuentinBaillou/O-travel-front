@@ -22,7 +22,6 @@ const List = () => {
   );
 
   const destinations = useSelector((state) => state.list.destinations);
-  console.table(destinations);
 
   return (
 
