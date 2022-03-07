@@ -12,13 +12,13 @@ import Destination from 'src/components/Destination';
 
 // == Composant
 const Otravel = () => (
-  <div className="otravel">
+   <div className="otravel">
     <Header />
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/destinations" element={<List />} />
       <Route path="/destinations/:id" element={<Destination />} />
-      <Route path="/signin" element={<Inscription />} />
+      <Route path="/inscription" element={<Inscription />} />
     </Routes>
     <Footer />
   </div>

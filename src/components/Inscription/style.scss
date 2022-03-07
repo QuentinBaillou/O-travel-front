@@ -1,6 +1,6 @@
 @use "src/styles/vars";
 
-.container{
+.signin_container{
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -8,7 +8,7 @@
   margin-bottom: vars.$gutter * 3;
 };
 
-.title {
+.signin_container__title {
   width: 100%;
 };
 

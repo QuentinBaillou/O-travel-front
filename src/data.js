@@ -12,7 +12,7 @@ export const menu = [
     name: 'Profil',
   },
   {
-    route: '/signin',
-    name: 'Sign In',
+    route: '/inscription',
+    name: 'Inscription',
   },
 ];

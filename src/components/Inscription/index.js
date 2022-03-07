@@ -8,9 +8,9 @@ const Inscription = () => {
   }
 
   return (
-      <div className="container">
+      <div className="signin_container">
 
-        <h2 className="signin_title">Créez votre espace perso</h2>
+        <h2 className="signin_container__title">Créez votre espace perso</h2>
 
         <form className="form" onSubmit={handleSubmit} >
           <input className="form__input" type="email" placeholder="Saisissez votre e-mail" />
