@@ -46,3 +46,10 @@ export const setDestinations = (destinations) => ({
   type: SET_DESTINATIONS,
   destinations,
 });
+
+// ACTION TYPE RESET_CHOICES
+export const RESET_CHOICES = 'RESET_CHOICES';
+// ACTION CREATOR resetChoices
+export const resetChoices = () => ({
+  type: RESET_CHOICES,
+});
