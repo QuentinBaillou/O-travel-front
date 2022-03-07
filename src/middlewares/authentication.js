@@ -21,6 +21,14 @@ const authenticationMiddleware = (store) => (next) => (action) => {
           console.log(error);
           store.dispatch(sendForm(true));
         });
+      axiosInstance
+        .post('login_check', {
+          username: email,
+          password,
+        })
+        .then((response) => {
+          console.log(response);
+        });
       next(action);
       break;
     }
