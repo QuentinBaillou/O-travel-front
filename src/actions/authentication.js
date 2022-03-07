@@ -28,6 +28,14 @@ export const setLastname = (lastname) => ({
 
 export const SET_SUBMITTED = 'SET_SUBMITTED';
 
-export const setSubmitted = () => ({
+export const setSubmitted = (bool) => ({
   type: SET_SUBMITTED,
+  submitted: bool,
+});
+
+export const SET_ERROR = 'SET_ERROR';
+
+export const setError = (bool) => ({
+  type: SET_ERROR,
+  error: bool,
 });

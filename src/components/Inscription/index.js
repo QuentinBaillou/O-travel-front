@@ -1,19 +1,63 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { setEmail, setPassword, setFirstname, setLastname } from 'src/actions/authentication'; 
+import { setSubmitted, setError } from '../../actions/authentication';
 
 import './style.scss';
 
 const Inscription = () => {
 
   const dispatch = useDispatch();
+
   const email = useSelector((state) => state.authentication.email);
   const password = useSelector((state) => state.authentication.password);
   const firstname = useSelector((state) => state.authentication.firstname);
   const lastname = useSelector((state) => state.authentication.lastname);
-  
+
+  const error = useSelector((state) => state.authentication.error);
+  const submitted = useSelector((state) => state.authentication.submitted);
+
+  console.log(`Email : ${email}`);
+  console.log(`Mot de passe : ${password}`);
+  console.log(`Prénom : ${firstname}`);
+  console.log(`Nom de famille : ${lastname}`);
+  console.log(`Erreur : ${error}`);
+  console.log(`Submitted : ${submitted}`);
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    if (email === '' || password === '' || firstname === '' || lastname === '') {
+      dispatch(setError(true));
+    }
+    else {
+      dispatch(setSubmitted(true));
+      dispatch(setError(false));
+    }
+  };
+
+  // Si authentification réussie
+  const successMessage = () => {
+    return (
+      <div
+        className="success"
+        style={{
+          display: submitted ? '' : 'none',
+        }}>
+        <h1>L'utilisateur {firstname} {lastname} a bien été enregistré !</h1>
+      </div>
+    );
+  };
+ 
+  // Si persiste des erreurs
+  const errorMessage = () => {
+    return (
+      <div
+        className="error"
+        style={{
+          display: error ? '' : 'none',
+        }}>
+        <h1>Merci de remplir tous les champs</h1>
+      </div>
+    );
   };
 
   const handleEmail = (event) => {
@@ -40,6 +84,11 @@ const Inscription = () => {
       <div className="signin_container">
 
         <h2 className="signin_container__title">Créez votre espace perso</h2>
+
+        <div className="messages">
+          {errorMessage()}
+          {successMessage()}
+        </div>
 
         <form onSubmit={handleSubmit} className="form">
           <label htmlFor="email">E-mail</label>
