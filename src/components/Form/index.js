@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { setSelectedItem, sendForm, resetChoices } from 'src/actions/formActions';
+import { setSelectedItem, sendDestinationForm, resetChoices } from 'src/actions/formActions';
 import sendLogo from 'src/assets/images/send.svg';
 import FormChoices from './FormChoices';
 
@@ -25,7 +25,7 @@ const Form = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(sendForm());
+    dispatch(sendDestinationForm());
   };
 
   /**

@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 import {
-  GET_FORM_ELEMENTS, setFormElements, SEND_FORM,
+  GET_FORM_ELEMENTS, setFormElements, SEND_DESTINATION_FORM,
   setDestinations,
 } from 'src/actions/formActions';
 import axiosInstance from 'src/axiosInstance';
@@ -19,7 +19,7 @@ const dataFetchingMiddleware = (store) => (next) => (action) => {
       next(action);
       break;
 
-    case SEND_FORM: {
+    case SEND_DESTINATION_FORM: {
       const state = store.getState();
       axiosInstance
         .post('destinations/form', {
