@@ -14,7 +14,6 @@ const authenticationMiddleware = (store) => (next) => (action) => {
         })
         .then((response) => {
           console.log(response);
-          store.dispatch(setCreateUser(response.data));
         })
         .catch((error) => {
           (console.log(error))

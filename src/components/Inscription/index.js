@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { setEmail, setPassword, setFirstname, setLastname } from 'src/actions/authentication'; 
-import { setSubmitted, setError } from '../../actions/authentication';
+import { setSubmitted, setError, setCreateUser } from '../../actions/authentication';
 
 import './style.scss';
 
@@ -32,6 +32,7 @@ const Inscription = () => {
     else {
       dispatch(setSubmitted(true));
       dispatch(setError(false));
+      setCreateUser();
     }
   };
 
