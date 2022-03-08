@@ -13,6 +13,7 @@ export const LOGIN = 'LOGIN';
 export const login = () => ({
   type: LOGIN,
 });
+
 // ACTION TYPE LOGOUT
 export const LOGOUT = 'LOGOUT';
 // ACTION CREATOR logout
@@ -23,8 +24,9 @@ export const logout = () => ({
 // ACTION TYPE SAVE_USER_INFO
 export const SAVE_USER_INFO = 'SAVE_USER_INFO';
 // ACTION CREATOR saveUserInfo
-export const saveUserInfo = (firstname, lastname) => ({
+export const saveUserInfo = (email, firstname, lastname) => ({
   type: SAVE_USER_INFO,
+  email,
   firstname,
   lastname,
 });
@@ -42,16 +44,6 @@ export const GET_LAST_USER = 'GET_LAST_USER';
 // ACTION CREATOR getLastUser
 export const getLastUser = () => ({
   type: GET_LAST_USER,
-});
-
-// ACTION TYPE SAVE_PREVIOUS_USER
-export const SAVE_PREVIOUS_USER = 'SAVE_PREVIOUS_USER';
-// ACTION CREATOR savePreviousUser
-export const savePreviousUser = (email, firstname, lastname) => ({
-  type: SAVE_PREVIOUS_USER,
-  email,
-  firstname,
-  lastname,
 });
 
 // ACTION TYPE GET_NEW_PASSWORD
