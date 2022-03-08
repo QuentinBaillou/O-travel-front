@@ -28,9 +28,4 @@ const signInMiddleware = (store) => (next) => (action) => {
   }
 };
 
-<<<<<<< HEAD
-export default authenticationMiddleware;
-
-=======
 export default signInMiddleware;
->>>>>>> Fix: fixing problems due to branch merge
