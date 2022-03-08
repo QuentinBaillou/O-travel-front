@@ -63,6 +63,14 @@ const Nav = () => {
           <>
             <li>
               <NavLink
+                to="/profile"
+                className={({ isActive }) => (isActive ? 'nav__link--active' : 'nav__link')}
+              >
+                Profil
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
                 to="/logout"
                 className="nav__link"
                 onClick={() => {
@@ -70,14 +78,6 @@ const Nav = () => {
                 }}
               >
                 Déconnexion
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/profile"
-                className={({ isActive }) => (isActive ? 'nav__link--active' : 'nav__link')}
-              >
-                Profil
               </NavLink>
             </li>
           </>

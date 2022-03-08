@@ -36,3 +36,20 @@ export const sendForm = (state) => ({
   type: SEND_FORM,
   state,
 });
+
+// ACTION TYPE GET_LAST_USER
+export const GET_LAST_USER = 'GET_LAST_USER';
+// ACTION CREATOR getLastUser
+export const getLastUser = () => ({
+  type: GET_LAST_USER,
+});
+
+// ACTION TYPE SAVE_PREVIOUS_USER
+export const SAVE_PREVIOUS_USER = 'SAVE_PREVIOUS_USER';
+// ACTION CREATOR savePreviousUser
+export const savePreviousUser = (email, firstname, lastname) => ({
+  type: SAVE_PREVIOUS_USER,
+  email,
+  firstname,
+  lastname,
+});

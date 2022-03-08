@@ -1,5 +1,8 @@
 /* eslint-disable no-console */
-import { LOGIN, saveUserInfo, sendForm } from 'src/actions/authenticationActions';
+import jwtDecode from 'jwt-decode';
+import {
+  LOGIN, GET_LAST_USER, LOGOUT, saveUserInfo, sendForm, savePreviousUser,
+} from 'src/actions/authenticationActions';
 import axiosInstance from 'src/axiosInstance';
 
 const authenticationMiddleware = (store) => (next) => (action) => {
@@ -28,10 +31,28 @@ const authenticationMiddleware = (store) => (next) => (action) => {
         })
         .then((response) => {
           console.log(response);
+          localStorage.setItem('token', response.data.token);
+        })
+        .catch((error) => {
+          console.log(error);
         });
       next(action);
       break;
     }
+
+    case GET_LAST_USER:
+      if (localStorage.getItem('token')) {
+        const token = localStorage.getItem('token');
+        const { username: email, firstname, lastname } = jwtDecode(token);
+        store.dispatch(savePreviousUser(email, 'firstname', 'lastname'));
+      }
+      next(action);
+      break;
+
+    case LOGOUT:
+      localStorage.removeItem('token');
+      next(action);
+      break;
     default:
       next(action);
   }
