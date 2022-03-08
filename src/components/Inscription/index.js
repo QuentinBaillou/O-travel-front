@@ -17,12 +17,12 @@ const Inscription = () => {
   const error = useSelector((state) => state.signin.error);
   const submitted = useSelector((state) => state.signin.submitted);
 
-  console.log(`Email : ${email}`);
-  console.log(`Mot de passe : ${password}`);
-  console.log(`Prénom : ${firstname}`);
-  console.log(`Nom de famille : ${lastname}`);
-  console.log(`Erreur : ${error}`);
-  console.log(`Submitted : ${submitted}`);
+  // console.log(`Email : ${email}`);
+  // console.log(`Mot de passe : ${password}`);
+  // console.log(`Prénom : ${firstname}`);
+  // console.log(`Nom de famille : ${lastname}`);
+  // console.log(`Erreur : ${error}`);
+  // console.log(`Submitted : ${submitted}`);
 
   // A la soumission du formulaire
   const handleSubmit = (event) => {
