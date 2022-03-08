@@ -2,8 +2,6 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { logout } from 'src/actions/authenticationActions';
-
-import menu from './menuData';
 import './style.scss';
 
 const Nav = () => {
@@ -25,42 +23,64 @@ const Nav = () => {
         <div />
       </button>
       <ul className="nav__list">
-        {menu.map((menuItem) => (
-          <li key={menuItem.route}>
-            {
-              // NavLink from React-router-dom used to style current page link,
-              // thanks to its property isActive
-            }
-            <NavLink
-              to={menuItem.route}
-              className={({ isActive }) => (isActive ? 'nav__link--active' : 'nav__link')}
-            >
-              {menuItem.name}
-            </NavLink>
-          </li>
-        ))}
-        {!logged && (
         <li>
           <NavLink
-            to="/login"
+            to="/"
             className={({ isActive }) => (isActive ? 'nav__link--active' : 'nav__link')}
           >
-            Connexion
+            Accueil
           </NavLink>
         </li>
-        )}
-        {logged && (
         <li>
           <NavLink
-            to="/logout"
-            className="nav__link"
-            onClick={() => {
-              dispatch(logout());
-            }}
+            to="/destinations"
+            className={({ isActive }) => (isActive ? 'nav__link--active' : 'nav__link')}
           >
-            Déconnexion
+            Liste des voyages
           </NavLink>
         </li>
+        {!logged && (
+          <>
+            <li>
+              <NavLink
+                to="/inscription"
+                className={({ isActive }) => (isActive ? 'nav__link--active' : 'nav__link')}
+              >
+                Inscription
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/login"
+                className={({ isActive }) => (isActive ? 'nav__link--active' : 'nav__link')}
+              >
+                Connexion
+              </NavLink>
+            </li>
+          </>
+        )}
+        {logged && (
+          <>
+            <li>
+              <NavLink
+                to="/logout"
+                className="nav__link"
+                onClick={() => {
+                  dispatch(logout());
+                }}
+              >
+                Déconnexion
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/profile"
+                className={({ isActive }) => (isActive ? 'nav__link--active' : 'nav__link')}
+              >
+                Profil
+              </NavLink>
+            </li>
+          </>
         )}
       </ul>
     </nav>
