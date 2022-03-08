@@ -1,5 +1,4 @@
 /* eslint-disable no-console */
-import jwtDecode from 'jwt-decode';
 import {
   LOGIN, GET_LAST_USER, LOGOUT, saveUserInfo, sendForm,
   GET_NEW_PASSWORD,
@@ -37,6 +36,8 @@ const authenticationMiddleware = (store) => (next) => (action) => {
       // If there is a token in local storage, then pick it up
       if (localStorage.getItem('token')) {
         const token = localStorage.getItem('token');
+
+        // Retrieve user info from api thanks to jwt token
         axiosInstance
           .get('destinations/list', {
             headers: {
