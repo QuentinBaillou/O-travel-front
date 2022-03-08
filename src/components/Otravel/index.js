@@ -12,25 +12,35 @@ import Inscription from 'src/components/Inscription';
 
 import './style.scss';
 import Destination from 'src/components/Destination';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { getLastUser } from 'src/actions/authenticationActions';
 
 // == Composant
-const Otravel = () => (
-   <div className="otravel">
-    <Header />
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/destinations" element={<List />} />
-      <Route path="/destinations/:id" element={<Destination />} />
-      <Route path="*" element={<NotFound />} />
-      <Route path="/login" element={<AuthenticationForm shape="login" />} />
-      <Route path="/login/forgotten-password" element={<AuthenticationForm shape="forgotten-password" />} />
-      <Route path="/logout" element={<Navigate to="/" />} />
-      <Route path="/profile" element={<Profil />} />
-      <Route path="/inscription" element={<Inscription />} />
-    </Routes>
-    <Footer />
-  </div>
-);
+const Otravel = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getLastUser());
+  }, []);
+
+  return (
+    <div className="otravel">
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/destinations" element={<List />} />
+        <Route path="/destinations/:id" element={<Destination />} />
+        <Route path="*" element={<NotFound />} />
+        <Route path="/login" element={<AuthenticationForm shape="login" />} />
+        <Route path="/login/forgotten-password" element={<AuthenticationForm shape="forgotten-password" />} />
+        <Route path="/logout" element={<Navigate to="/" />} />
+        <Route path="/profile" element={<Profil />} />
+        <Route path="/inscription" element={<Inscription />} />
+      </Routes>
+      <Footer />
+    </div>
+  );
+};
 
 // == Export
 export default Otravel;

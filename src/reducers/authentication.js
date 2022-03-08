@@ -1,6 +1,7 @@
 import {
   SET_FORM_FIELD, LOGOUT, SAVE_USER_INFO,
   SEND_FORM,
+  SAVE_PREVIOUS_USER,
 } from 'src/actions/authenticationActions';
 
 const initialState = {
@@ -25,8 +26,17 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         firstname: action.firstname,
         lastname: action.lastname,
+        password: '',
         isUserLogged: true,
-        isFormSend: true,
+      };
+
+    case SAVE_PREVIOUS_USER:
+      return {
+        ...state,
+        email: action.email,
+        firstname: action.firstname,
+        lastname: action.lastname,
+        isUserLogged: true,
       };
 
     case SEND_FORM:
@@ -36,15 +46,7 @@ const reducer = (state = initialState, action = {}) => {
       };
 
     case LOGOUT:
-      return {
-        ...state,
-        firstname: '',
-        lastname: '',
-        email: '',
-        password: '',
-        isUserLogged: false,
-        isFormSend: false,
-      };
+      return { ...initialState };
     default:
       return state;
   }

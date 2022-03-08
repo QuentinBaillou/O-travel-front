@@ -22,6 +22,7 @@ const signInMiddleware = (store) => (next) => (action) => {
       break;
     default:
       next(action);
+      break;
   };
 };
 

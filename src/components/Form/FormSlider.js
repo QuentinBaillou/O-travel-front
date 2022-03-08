@@ -13,20 +13,20 @@ const FormSlider = () => {
   };
 
   return (
-    <div className="form__slider">
+    <div className="main-form__slider">
       <input
         type="range"
-        className="form__slider-input"
+        className="main-form__slider-input"
         value={budget}
         onChange={handleSlider}
         min="0"
         max="5000"
         step="500"
       />
-      <div className="form__slider-values">
-        <div className="form__slider-min">0</div>
-        <div className="form__slider-current">Budget max : {budget}</div>
-        <div className="form__slider-max">5000</div>
+      <div className="main-form__slider-values">
+        <div className="main-form__slider-min">0</div>
+        <div className="main-form__slider-current">Budget max : {budget}</div>
+        <div className="main-form__slider-max">5000</div>
       </div>
     </div>
   );

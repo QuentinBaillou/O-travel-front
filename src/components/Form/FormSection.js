@@ -27,8 +27,8 @@ const FormSection = ({
   }
 
   return (
-    <fieldset className={`form__${field}`}>
-      <legend className="form__legend">{legend}</legend>
+    <fieldset className={`main-form__${field}`}>
+      <legend className="main-form__legend">{legend}</legend>
       {
       sectionElements.map(
         (element) => (
