@@ -15,7 +15,7 @@ import Destination from 'src/components/Destination';
 
 // == Composant
 const Otravel = () => (
-   <div className="otravel">
+  <div className="otravel">
     <Header />
     <Routes>
       <Route path="/" element={<Home />} />
