@@ -53,3 +53,10 @@ export const savePreviousUser = (email, firstname, lastname) => ({
   firstname,
   lastname,
 });
+
+// ACTION TYPE GET_NEW_PASSWORD
+export const GET_NEW_PASSWORD = 'GET_NEW_PASSWORD';
+// ACTION CREATOR getNewPassword
+export const getNewPassword = () => ({
+  type: GET_NEW_PASSWORD,
+});

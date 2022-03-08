@@ -1,14 +1,16 @@
 import PropTypes from 'prop-types';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { getNewPassword } from 'src/actions/authenticationActions';
 import Input from './Input';
 
 import './style.scss';
 
 const ForgottenPassword = ({ handleChange }) => {
   const email = useSelector((state) => state.authentication.email);
+  const dispatch = useDispatch();
   const handleSubmit = () => {
-
+    dispatch(getNewPassword());
   };
 
   return (

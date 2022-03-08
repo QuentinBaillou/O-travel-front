@@ -2,6 +2,7 @@
 import jwtDecode from 'jwt-decode';
 import {
   LOGIN, GET_LAST_USER, LOGOUT, saveUserInfo, sendForm, savePreviousUser,
+  GET_NEW_PASSWORD,
 } from 'src/actions/authenticationActions';
 import axiosInstance from 'src/axiosInstance';
 
@@ -46,6 +47,20 @@ const authenticationMiddleware = (store) => (next) => (action) => {
         const { username: email, firstname, lastname } = jwtDecode(token);
         store.dispatch(savePreviousUser(email, 'firstname', 'lastname'));
       }
+      next(action);
+      break;
+
+    case GET_NEW_PASSWORD:
+      axiosInstance
+        .post('user/reset-password', {
+          email: store.getState().authentication.email,
+        })
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
       next(action);
       break;
 
