@@ -32,7 +32,7 @@ const Inscription = () => {
     else {
       dispatch(setSubmitted(true));
       dispatch(setError(false));
-      setCreateUser();
+      dispatch(setCreateUser());
     }
   };
 

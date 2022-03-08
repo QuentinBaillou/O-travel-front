@@ -3,7 +3,7 @@ import destinationReducer from './destination';
 import listReducer from './list';
 import formReducer from './form';
 import authenticationReducer from './authentication';
-import favoritesReducer from './form';
+import favoritesReducer from './favorites';
 import signInReducer from './signin';
 
 const rootReducer = combineReducers({
