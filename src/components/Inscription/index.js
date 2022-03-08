@@ -115,13 +115,45 @@ const Inscription = () => {
         )}
 
         <label className="signin_form__label" htmlFor="email">E-mail</label>
-        <input className="signin_form__input" value={email} onChange={handleEmail} name="email" type="email" placeholder="Saisissez votre e-mail" />
+        <input
+          className="signin_form__input"
+          value={email}
+          onChange={handleEmail}
+          name="email"
+          id="email"
+          type="email"
+          placeholder="Saisissez votre e-mail"
+        />
         <label className="signin_form__label" htmlFor="password">Mot de passe</label>
-        <input className="signin_form__input" value={password} onChange={handlePassword} name="password" type="password" placeholder="Saisissez votre mot de passe" />
+        <input
+          className="signin_form__input"
+          value={password}
+          onChange={handlePassword}
+          name="password"
+          id="password"
+          type="password"
+          placeholder="Saisissez votre mot de passe"
+        />
         <label className="signin_form__label" htmlFor="firstname">Prénom</label>
-        <input className="signin_form__input" value={firstname} onChange={handleFirstname} name="firstname" type="text" placeholder="Saisissez votre prénom" />
+        <input
+          className="signin_form__input"
+          value={firstname}
+          onChange={handleFirstname}
+          name="firstname"
+          id="firstname"
+          type="text"
+          placeholder="Saisissez votre prénom"
+        />
         <label className="signin_form__label" htmlFor="lastname">Nom</label>
-        <input className="signin_form__input" value={lastname} onChange={handleLastname} name="lastname" type="text" placeholder="Saisissez votre nom" />
+        <input
+          className="signin_form__input"
+          value={lastname}
+          onChange={handleLastname}
+          name="lastname"
+          id="lastname"
+          type="text"
+          placeholder="Saisissez votre nom"
+        />
 
         <button className="signin_form__submit" type="submit">Sign In</button>
       </form>
