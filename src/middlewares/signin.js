@@ -7,10 +7,10 @@ const signInMiddleware = (store) => (next) => (action) => {
       const state = store.getState();
       axiosInstance
         .post('user/form', {
-          email: state.signin.email,
-          password: state.signin.password,
           firstname: state.signin.firstname,
           lastname: state.signin.lastname,
+          email: state.signin.email,
+          password: state.signin.password,
         })
         .then((response) => {
           console.log(response);
@@ -24,7 +24,7 @@ const signInMiddleware = (store) => (next) => (action) => {
       next(action);
       break;
   };
-}
+};
 
 <<<<<<< HEAD
 export default authenticationMiddleware;
