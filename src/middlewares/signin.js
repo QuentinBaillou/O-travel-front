@@ -1,5 +1,6 @@
 import axiosInstance from 'src/axiosInstance';
 import { CREATE_USER } from 'src/actions/signin';
+import { login } from 'src/actions/authenticationActions';
 
 const signInMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
@@ -13,7 +14,7 @@ const signInMiddleware = (store) => (next) => (action) => {
           password: state.signin.password,
         })
         .then((response) => {
-          console.log(response);
+          store.dispatch(login());
         })
         .catch((error) => {
           (console.log(error))
