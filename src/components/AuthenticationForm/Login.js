@@ -34,7 +34,7 @@ const Login = ({ handleChange }) => {
       <Input handleChange={handleChange} label="Email" name="email" value={email} />
       <Input handleChange={handleChange} label="Mot de passe" name="password" value={password} />
       <Link to="/login/forgotten-password" className="authentication-form__link">Mot de passe oublié</Link>
-      <Link to="/sign-in" className="authentication-form__link">Vous voulez vous inscrire? C'est ici</Link>
+      <Link to="/inscription" className="authentication-form__link">Vous voulez vous inscrire? C'est ici</Link>
       <button type="submit" className="authentication-form__submit">Connexion</button>
     </form>
   );

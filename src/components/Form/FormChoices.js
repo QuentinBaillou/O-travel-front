@@ -11,7 +11,7 @@ const FormChoices = () => {
   const areLandscapesPresent = landscapesSelected.length > 0;
   return (
     (areLandscapesPresent || areSeasonsPresent || areTransportsPresent) && (
-    <div className="form__choices">
+    <div className="main-form__choices">
       {areLandscapesPresent && (
         <p>Vous voulez un paysage {
           // Condition to match a correct punctuation,

@@ -42,14 +42,14 @@ const Form = () => {
   };
 
   return (
-    <form className="form" onSubmit={handleSubmit}>
+    <form className="main-form" onSubmit={handleSubmit}>
       <FormSection
         field="landscapes"
         legend="Un paysage de rêve?"
         handleChange={handleChange}
         isItemChecked={isItemChecked}
       />
-      <div className="form__section">
+      <div className="main-form__section">
         <FormSection
           field="transports"
           legend="Un moyen de transport idéal?"
@@ -65,7 +65,7 @@ const Form = () => {
       </div>
       <FormSlider />
       <FormChoices />
-      <button type="submit" className="form__submit"><img src={sendLogo} alt="send logo" /></button>
+      <button type="submit" className="main-form__submit"><img src={sendLogo} alt="send logo" /></button>
     </form>
   );
 };
