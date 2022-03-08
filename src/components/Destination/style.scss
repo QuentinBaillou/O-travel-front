@@ -48,8 +48,10 @@
 
     .flags {
       display: flex;
-      gap: 5px;
-      width: 3em;
+    }
+
+    .flags img {
+      height: 3em;
     }
 
     .infos {
