@@ -39,15 +39,15 @@ const authenticationMiddleware = (store) => (next) => (action) => {
 
         // Retrieve user info from api thanks to jwt token
         axiosInstance
-          .get('user/auth', { token }, {
+          .get('user/auth', {
             headers: {
               Authorization: `Bearer ${token}`,
             },
           })
           .then((response) => {
             console.log(response);
-            const { email, firstname, lastname } = response.data;
-            store.dispatch(saveUserInfo(email, firstname, lastname));
+            // const { email, firstname, lastname } = response.data;
+            store.dispatch(saveUserInfo('email', 'firstname', 'lastname'));
           })
           .catch((error) => {
             console.log(error);
