@@ -1,7 +1,7 @@
 import { SAVE_DESTINATION, SET_FLAG } from 'src/actions/destinationActions';
 
 const initialState = {
-  destination: [],
+  destination: {},
   flag: '',
 };
 
