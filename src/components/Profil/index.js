@@ -19,6 +19,10 @@ const Profil = () => {
   );
 
   const destinations = useSelector((state) => state.favorites.destinations);
+  const firstname = useSelector((state) => state.authentication.firstname);
+  const lastname = useSelector((state) => state.authentication.lastname);
+  const email = useSelector((state) => state.authentication.email);
+
   console.table(destinations);
 
   return (
@@ -34,20 +38,20 @@ const Profil = () => {
         <div className="profil-description">
           <List.Item>
             <List.Icon name="user" />Nom :
-            <List.Content>Wilkinson</List.Content>
+            <List.Content>{lastname}</List.Content>
           </List.Item>
           <List.Item>
             <List.Icon name="user" />Prénom :
-            <List.Content>John</List.Content>
+            <List.Content>{firstname}</List.Content>
           </List.Item>
           <List.Item>
             <List.Icon name="marker" />Pays :
-            <List.Content>New York, NY</List.Content>
+            <List.Content>France, FR</List.Content>
           </List.Item>
           <List.Item>
             <List.Icon name="mail" />E-mail :
             <List.Content>
-              <a href="mailto:Yves@travelInc.com">John@travelInc.com</a>
+              <a href="mailto:Yves@travelInc.com">{email}</a>
             </List.Content>
           </List.Item>
         </div>
