@@ -6,8 +6,8 @@ import {
 const initialState = {
   firstname: '',
   lastname: '',
-  password: 'user',
-  email: 'user@user.com',
+  password: '',
+  email: '',
   isUserLogged: false,
   isFormSend: false,
 };
