@@ -28,8 +28,8 @@ const List = () => {
 
     <div className="trip-list">
       <h2 className="trip-title">Les voyages</h2>
-      {destinations.length === 0 || true && <Loading />}
-      {destinations.length > 0 && false && (
+      {destinations.length === 0 && <Loading />}
+      {destinations.length > 0 && (
       <>
         <Card.Group>
           {destinations.map((destination) => (
