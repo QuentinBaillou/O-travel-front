@@ -10,6 +10,7 @@ import Summary from 'src/components/Destination/Summary';
 import MiddlePics from 'src/components/Destination/MiddlePics';
 import Itinerary from 'src/components/Destination/Itinerary';
 import FinalPic from 'src/components/Destination/FinalPic';
+import Loading from 'src/components/Loading';
 
 // IMPORT styles
 import './style.scss';
@@ -18,11 +19,11 @@ import { getDestination } from 'src/actions/destinationActions';
 
 const Destination = () => {
   const dispatch = useDispatch();
-  const { id } = useParams();
+  const { id: urlId } = useParams();
 
   useEffect(
     () => {
-      dispatch(getDestination(id));
+      dispatch(getDestination(urlId));
     },
     [],
   );
@@ -33,6 +34,7 @@ const Destination = () => {
   const way = currentTransport && currentTransport[0].way;
 
   const {
+    id,
     state,
     surname,
     extract,
@@ -45,17 +47,20 @@ const Destination = () => {
     picture5,
   } = currentDestination;
 
-  return (
-    <div className="container">
-      <Header country={state} surname={surname} price_per_night={price_per_night} way={way} />
-      <MainPic picture={picture} />
-      <Summary extract={extract} />
-      <MiddlePics picture2={picture2} picture3={picture3} picture4={picture4} />
-      <Itinerary summary={summary} />
-      <FinalPic picture5={picture5} />
+  if (id) {
+    return (
+      <div className="container">
+        <Header country={state} surname={surname} price_per_night={price_per_night} way={way} />
+        <MainPic picture={picture} />
+        <Summary extract={extract} />
+        <MiddlePics picture2={picture2} picture3={picture3} picture4={picture4} />
+        <Itinerary summary={summary} />
+        <FinalPic picture5={picture5} />
 
-    </div>
-  );
+      </div>
+    );
+  }
+  return <Loading />;
 };
 
 export default Destination;

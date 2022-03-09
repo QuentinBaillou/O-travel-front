@@ -1,6 +1,11 @@
+@use 'src/styles/vars';
+
 .trip-list {
+  margin: 2rem 0;
   padding: 2em 0;
   position: relative;
+  min-height: calc(100vh - 8rem - 96.44px);
+  background-color: vars.$main-block-and-fonts-color;
 }
 
 .trip-title {
@@ -14,7 +19,7 @@
   font-weight: bold;
   color: #446962;
   text-transform: uppercase;
-  top: 0.8rem;
+  top: -1.2rem;
 }
 
 .content img {
@@ -73,10 +78,11 @@ div.header {
 
 }
 
-.ui.corner.label{
+.ui.corner.label {
   top: -300px;
 }
 
-a.ui.label:hover, a.ui.labels .label:hover {
+a.ui.label:hover,
+a.ui.labels .label:hover {
   color: rgb(243 190 46);
 }
