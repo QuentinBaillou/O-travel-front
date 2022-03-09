@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 
 import { Image, List, Button } from 'semantic-ui-react';
-import { getFavoritesDestinations } from 'src/actions/favoritesActions';
+import { getFavoritesDestination } from 'src/actions/favoritesActions';
 
 // == Composant
 const Profil = () => {
@@ -13,7 +13,7 @@ const Profil = () => {
 
   useEffect(
     () => {
-      dispatch(getFavoritesDestinations());
+      dispatch(getFavoritesDestination());
     },
     [],
   );
