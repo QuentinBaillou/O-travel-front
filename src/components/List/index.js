@@ -35,9 +35,6 @@ const List = () => {
                 {/* <Image src={flag} size="mini" /> */}
                 <Image
                   src={destination.picture}
-                  ui={false}
-                  fluid
-                  label={{ as: 'div', corner: 'right', icon: 'star' }}
                 />
                 <Card.Header>
                   {destination.state} | {destination.surname}
@@ -47,6 +44,11 @@ const List = () => {
                 </Card.Header>
               </Card.Content>
             </Link>
+            <Image
+              ui={false}
+              fluid
+              label={{ as: 'a', corner: 'right', icon: 'star' }}
+            />
           </Card>
         ))}
       </Card.Group>
