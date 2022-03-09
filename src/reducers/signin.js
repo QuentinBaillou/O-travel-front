@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 import { SET_EMAIL, SET_PASSWORD, SET_FIRSTNAME, SET_LASTNAME, SET_SUBMITTED, SET_ERROR } from "src/actions/signin";
+=======
+import {
+  SET_EMAIL, SET_PASSWORD, SET_FIRSTNAME, SET_LASTNAME, SET_SUBMITTED, SET_ERROR,
+} from 'src/actions/signin';
+>>>>>>> feature/login-logout
 
 const initialState = {
   firstname: '',
@@ -12,35 +18,35 @@ const initialState = {
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case SET_EMAIL:
-    return {
-      ...state,
-      email: action.email,
-    };
+      return {
+        ...state,
+        email: action.email,
+      };
     case SET_PASSWORD:
-    return {
-      ...state,
-      password: action.password,
-    };
+      return {
+        ...state,
+        password: action.password,
+      };
     case SET_FIRSTNAME:
-    return {
-      ...state,
-      firstname: action.firstname,
-    };
+      return {
+        ...state,
+        firstname: action.firstname,
+      };
     case SET_LASTNAME:
-    return {
-      ...state,
-      lastname: action.lastname,
-    };
+      return {
+        ...state,
+        lastname: action.lastname,
+      };
     case SET_SUBMITTED:
-    return {
-      ...state,
-      submitted: action.submitted,
-    };
+      return {
+        ...state,
+        submitted: action.submitted,
+      };
     case SET_ERROR:
-    return {
-      ...state,
-      error: action.error,
-    };
+      return {
+        ...state,
+        error: action.error,
+      };
     default:
       return state;
   }

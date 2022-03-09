@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import axiosInstance from 'src/axiosInstance';
 import { GET_FAVORITES_DESTINATIONS, saveFavoritesDestinations } from 'src/actions/favoritesActions';
 

@@ -47,7 +47,7 @@ const Destination = () => {
 
   return (
     <div className="container">
-      <Header state={state} surname={surname} price_per_night={price_per_night} way={way} />
+      <Header country={state} surname={surname} price_per_night={price_per_night} way={way} />
       <MainPic picture={picture} />
       <Summary extract={extract} />
       <MiddlePics picture2={picture2} picture3={picture3} picture4={picture4} />
