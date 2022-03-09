@@ -25,11 +25,7 @@ const signInMiddleware = (store) => (next) => (action) => {
     default:
       next(action);
       break;
-<<<<<<< HEAD
-  };
-=======
   }
->>>>>>> feature/login-logout
 };
 
 export default signInMiddleware;

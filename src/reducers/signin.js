@@ -1,10 +1,6 @@
-<<<<<<< HEAD
-import { SET_EMAIL, SET_PASSWORD, SET_FIRSTNAME, SET_LASTNAME, SET_SUBMITTED, SET_ERROR } from "src/actions/signin";
-=======
 import {
   SET_EMAIL, SET_PASSWORD, SET_FIRSTNAME, SET_LASTNAME, SET_SUBMITTED, SET_ERROR,
 } from 'src/actions/signin';
->>>>>>> feature/login-logout
 
 const initialState = {
   firstname: '',
