@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import { useDispatch, useSelector } from 'react-redux';
 import { setFlag } from 'src/actions/destinationActions';
 
@@ -5,33 +6,34 @@ import './style.scss';
 
 import PropTypes from 'prop-types';
 
-const Header = ({state, surname, way, price_per_night}) => {
-
+const Header = ({
+  country, surname, way, price_per_night,
+}) => {
   const dispatch = useDispatch();
 
   const flag = useSelector((state) => state.destination.flag);
 
   //* Flags display
-  if(state == 'Pays nordique'){ 
-    import(`src/assets/svg/flags/pays_nordique.svg`).then((response) => {
+  if (country === 'Pays nordique') {
+    import('src/assets/svg/flags/pays_nordique.svg').then((response) => {
       dispatch(setFlag(response.default));
     });
   }
-  else if(state == 'Amérique du Sud'){
-    import(`src/assets/svg/flags/amerique_du_sud.svg`).then((response) => {
+  else if (country === 'Amérique du Sud') {
+    import('src/assets/svg/flags/amerique_du_sud.svg').then((response) => {
       dispatch(setFlag(response.default));
     });
   }
-  else if(state == 'Road Trip Alpes'){
-    import(`src/assets/svg/flags/road_trip_alpes.svg`).then((response) => {
+  else if (country === 'Road Trip Alpes') {
+    import('src/assets/svg/flags/road_trip_alpes.svg').then((response) => {
       dispatch(setFlag(response.default));
     });
   }
   else {
-    import(`src/assets/svg/flags/${state}.svg`).then((response) => {
+    import(`src/assets/svg/flags/${country}.svg`).then((response) => {
       dispatch(setFlag(response.default));
     });
-  };
+  }
   //* Flags display
 
   return (
@@ -40,10 +42,10 @@ const Header = ({state, surname, way, price_per_night}) => {
         <h1 className="title">{surname}</h1>
       </div>
 
-    <div className="block_part_infos">
-      <div className="flags">
-        <img src={flag} />
-      </div>
+      <div className="block_part_infos">
+        <div className="flags">
+          <img src={flag} alt="flag img" />
+        </div>
 
         <div className="infos">
           <span className="nights" />
@@ -60,13 +62,13 @@ const Header = ({state, surname, way, price_per_night}) => {
       </div>
     </header>
   );
+};
 
-  Header.propTypes = {
-    state: PropTypes.string.isRequired,
-    surname: PropTypes.string.isRequired,
-    way: PropTypes.string.isRequired,
-    price_per_night: PropTypes.number.isRequired,
-  };
+Header.propTypes = {
+  country: PropTypes.string.isRequired,
+  surname: PropTypes.string.isRequired,
+  way: PropTypes.string.isRequired,
+  price_per_night: PropTypes.number.isRequired,
 };
 
 export default Header;

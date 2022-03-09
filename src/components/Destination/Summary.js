@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import './style.scss';
 
 const Summary = ({ extract }) => (
@@ -20,5 +22,9 @@ const Summary = ({ extract }) => (
 
   </div>
 );
+
+Summary.propTypes = {
+  extract: PropTypes.string.isRequired,
+};
 
 export default Summary;

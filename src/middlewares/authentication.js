@@ -39,7 +39,7 @@ const authenticationMiddleware = (store) => (next) => (action) => {
 
         // Retrieve user info from api thanks to jwt token
         axiosInstance
-          .get('destinations/list', {
+          .get('user/auth', { token }, {
             headers: {
               Authorization: `Bearer ${token}`,
             },
