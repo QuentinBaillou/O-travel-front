@@ -10,6 +10,7 @@ import flag from 'src/assets/images/canada-svgrepo-com.svg';
 import { Card, Image, Pagination } from 'semantic-ui-react';
 import { getDestinations } from 'src/actions/listActions';
 import Loading from '../Loading';
+import { saveFavoritesDestination } from 'src/actions/favoritesActions';
 
 // == Composant
 const List = () => {
@@ -50,6 +51,11 @@ const List = () => {
               </Link>
               <Image
                 ui={false}
+                onClick={
+                  () => {
+                    dispatch(saveFavoritesDestination(destination.id));
+                  }
+                }
                 fluid
                 label={{ as: 'a', corner: 'right', icon: 'star' }}
               />
