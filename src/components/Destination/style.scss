@@ -12,8 +12,6 @@
   margin-bottom: vars.$gutter*5;
 }
 
-// Container principal
-
 // Composant Header
 .destination_header {
   display: flex;
@@ -97,8 +95,6 @@
   }
 }
 
-// Composant Header
-
 
 // Composant Main Pic
 .main_pic {
@@ -106,58 +102,53 @@
   width: 100%;
 }
 
-// Composant Main Pic
-
 
 // Composant Summary
 .summary_wrapper {
-  position: relative;
-  height: 8em;
+  margin-top: min(vars.$gutter * 2);
+  margin-left: min(vars.$gutter * 3);
+  margin-right: min(vars.$gutter * 3);
+
+  &__extract {
+    color: vars.$lightest-color;
+    border-left: 2px solid vars.$lightest-color; 
+    padding-left: min(vars.$gutter);
+    margin-bottom: min(vars.$gutter *2);
+  }
+  &__strong_points {
+    width: 40%;
+    background-color: vars.$titles-box-and-buttons-color;
+    padding-left: min(vars.$gutter);
+    padding-top: min(vars.$gutter);
+    padding-bottom: min(vars.$gutter);
+
+    &-title {
+      font-weight: bold;
+      color: vars.$main-block-and-fonts-color;
+    }
+
+    &-element {
+      color: vars.$lightest-color;
+      display: inline;
+    }
+  }
 }
 
-.summary {
-  width: 85%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: vars.$gutter*1.5;
-  margin-bottom: vars.$gutter*1.5;
-  color: vars.$lightest-color;
-  border-left: 2px solid vars.$lightest-color;
-  padding-left: vars.$gutter*1.5;
+@include tablet {
+  .summary_wrapper__strong_points {
+    width: 75%;
+    font-size: 0.9em;
+  }
 }
 
-.strong_points_wrapper {
-  width: 85%;
-  margin-left: auto;
-  margin-right: auto;
+@include mobile-only {
+  .summary_wrapper__strong_points {
+    width: 100%;
+  }
+  .summary_wrapper__strong_points-element {
+    font-size: 0.8em;
+  }
 }
-
-.strong_points {
-  width: 40%;
-  height: 10em;
-  padding: vars.$gutter *2;
-  background-color: vars.$titles-box-and-buttons-color;
-  position: absolute;
-  top: 4.7em;
-  color: vars.$main-block-and-fonts-color;
-  overflow: hidden;
-}
-
-.strong_points h2 {
-  font-weight: bold;
-}
-
-li {
-  display: inline;
-  color: vars.$lightest-color;
-}
-
-.bullet_point {
-  display: inline;
-  color: vars.$main-block-and-fonts-color;
-}
-
-// Composant Summary
 
 
 // Bloc Middle Pics
