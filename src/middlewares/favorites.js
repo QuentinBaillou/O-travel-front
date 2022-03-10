@@ -12,7 +12,7 @@ const fetchFavorites = (store) => (next) => (action) => {
           },
         })
         .then((response) => {
-          store.dispatch(saveFavorites(response.data));
+          store.dispatch(saveFavorites(response.data.destination));
         })
         .catch((error) => {
           console.log('erreur : ', error);
