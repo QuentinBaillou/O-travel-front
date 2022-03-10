@@ -22,8 +22,8 @@ const Profil = () => {
   const firstname = useSelector((state) => state.authentication.firstname);
   const lastname = useSelector((state) => state.authentication.lastname);
   const email = useSelector((state) => state.authentication.email);
-
   console.table(destinations);
+  console.log(destinations);
 
   return (
 
@@ -60,25 +60,28 @@ const Profil = () => {
           <Button color="blue">Changer mot de passe</Button>
         </div>
       </List>
-      <div className="favorites">
-        <h2 className="favorites-title">Listes favoris</h2>
-        <List className="favorites-list">
-          <Image
-            src="https://react.semantic-ui.com/images/avatar/large/daniel.jpg"
-            size="medium"
-          />
-          <List.Item>
-            <List.Content>New York, NY</List.Content>
-            <List.Description>
-              An excellent polish restaurant, quick delivery and hearty, filling
-              meals.excellent polish restaurant, quick delivery and hearty, filling
-              meals.excellent polish restaurant, quick delivery and hearty, filling
-              meals.
-            </List.Description>
-            <Button color="red" icon="trash alternate" />
-          </List.Item>
-        </List>
-      </div>
+      {true && (
+        <div className="favorites">
+          <h2 className="favorites-title">Listes favoris</h2>
+          <List className="favorites-list">
+            {destinations.map((destination) => (
+              <div key={destination.id}>
+                <Image
+                  src={destination.picture}
+                  size="medium"
+                />
+                <List.Item>
+                  <List.Content>{destination.surname}</List.Content>
+                  <List.Description>
+                    {destination.extract}
+                  </List.Description>
+                  <Button color="red" icon="trash alternate" />
+                </List.Item>
+              </div>
+            ))}
+          </List>
+        </div>
+      )}
     </div>
   );
 };

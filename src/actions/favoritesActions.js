@@ -12,3 +12,11 @@ export const saveFavoritesDestination = (destination) => ({
   type: SAVE_FAVORITES_DESTINATION,
   destination,
 });
+
+// ACTION TYPE SAVE_FAVORITES
+export const SAVE_FAVORITES = 'SAVE_FAVORITES';
+// ACTION CREATOR saveFavorites
+export const saveFavorites = (destinations) => ({
+  type: SAVE_FAVORITES,
+  destinations,
+});
