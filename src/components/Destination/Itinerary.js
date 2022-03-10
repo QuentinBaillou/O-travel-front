@@ -5,9 +5,9 @@ import PropTypes from 'prop-types';
 const Itinerary = ({ summary }) => (
   <div className="itinerary">
 
-    <img className="itinerary_icon" src={ItineraryIcon} alt="Itinéraire" />
+    <img className="itinerary__icon" src={ItineraryIcon} alt="Itinéraire" />
 
-    <p className="itinerary_text">{summary}<br /><br />
+    <p className="itinerary__text">{summary}<br /><br />
     </p>
 
   </div>
