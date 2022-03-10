@@ -38,25 +38,25 @@ const Header = ({
 
   return (
     <header className="destination_header">
-      <div className="block_part_title">
-        <h1 className="title">{surname}</h1>
+      <div className="destination_header__upper_part">
+        <h1 className="destination_header__upper_part-title">{surname}</h1>
       </div>
 
-      <div className="block_part_infos">
-        <div className="flags">
+      <div className="destination_header__lower_part">
+        <div className="destination_header__lower_part-flags">
           <img src={flag} alt="flag img" />
         </div>
 
-        <div className="infos">
-          <span className="nights" />
+        <div className="destination_header__lower_part-infos">
+          <span className="destination_header__lower_part-infos-nights" />
 
-          <span className="way">{way}</span>
+          <span className="destination_header__lower_part-infos-way">{way}</span>
           |
-          <span className="price">{price_per_night} / p.</span>
+          <span className="destination_header__lower_part-infos-price">{price_per_night} / p.</span>
         </div>
 
-        <div className="hidden">
-          <span>.</span>
+        <div className="destination_header__lower_part-hidden">
+          <span></span>
         </div>
 
       </div>
