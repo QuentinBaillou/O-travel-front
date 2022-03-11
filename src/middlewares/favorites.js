@@ -1,12 +1,12 @@
 /* eslint-disable no-console */
 import axiosInstance from 'src/axiosInstance';
-import { GET_FAVORITES_DESTINATION, saveFavorites, SAVE_FAVORITES_DESTINATION } from 'src/actions/favoritesActions';
+import { GET_FAVORITES_DESTINATION, saveFavorites, SAVE_FAVORITES_DESTINATION, DELETE_FAVORITES } from 'src/actions/favoritesActions';
 
 const fetchFavorites = (store) => (next) => (action) => {
   switch (action.type) {
     case GET_FAVORITES_DESTINATION:
       axiosInstance
-        .get('user/favoris/list', {
+        .get('api/user/favoris/list', {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`,
           },
@@ -22,7 +22,25 @@ const fetchFavorites = (store) => (next) => (action) => {
 
     case SAVE_FAVORITES_DESTINATION:
       axiosInstance
-        .post('user/favoris', {
+        .post('api/user/favoris', {
+          destination: action.destination,
+        }, {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`,
+          },
+        })
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((error) => {
+          (console.log(error));
+        });
+      next(action);
+      break;
+
+    case DELETE_FAVORITES:
+      axiosInstance
+        .post('api/remove/favoris', {
           destination: action.destination,
         }, {
           headers: {
