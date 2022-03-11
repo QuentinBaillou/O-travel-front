@@ -23,8 +23,6 @@ const fetchFavorites = (store) => (next) => (action) => {
     case SAVE_FAVORITES_DESTINATION:
       axiosInstance
         .post('api/user/favoris', {
-<<<<<<< HEAD
-=======
           destination: action.destination,
         }, {
           headers: {
@@ -43,7 +41,6 @@ const fetchFavorites = (store) => (next) => (action) => {
     case DELETE_FAVORITES:
       axiosInstance
         .post('api/remove/favoris', {
->>>>>>> 3deb6cea10444de29e032f2b87600c093ff07531
           destination: action.destination,
         }, {
           headers: {
