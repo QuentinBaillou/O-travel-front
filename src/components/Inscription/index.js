@@ -1,3 +1,4 @@
+/* eslint-disable no-empty */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
@@ -23,7 +24,6 @@ const Inscription = () => {
   const lastname = useSelector((state) => state.signin.lastname);
   const logged = useSelector((state) => state.authentication.isUserLogged);
   const navigate = useNavigate();
-
   const error = useSelector((state) => state.signin.error);
   const submitted = useSelector((state) => state.signin.submitted);
 
@@ -40,6 +40,8 @@ const Inscription = () => {
   // console.log(`Nom de famille : ${lastname}`);
   // console.log(`Erreur : ${error}`);
   // console.log(`Submitted : ${submitted}`);
+
+  console.log(firstnameError);
 
   // A la soumission du formulaire
   const handleSubmit = (event) => {
@@ -67,7 +69,7 @@ const Inscription = () => {
   );
 
   // Si persiste des erreurs
-  const errorMessage = () => (
+  const errorEmptyField = () => (
     <div
       className="error"
       style={{
@@ -114,7 +116,7 @@ const Inscription = () => {
         {error
         && (
         <div className="signin_form__error-message">
-          {errorMessage()}
+          {errorEmptyField()}
         </div>
         )}
 

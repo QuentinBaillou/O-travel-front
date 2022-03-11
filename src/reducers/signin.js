@@ -1,4 +1,5 @@
 import {
+  // eslint-disable-next-line max-len
   SET_EMAIL, SET_PASSWORD, SET_FIRSTNAME, SET_LASTNAME, SET_SUBMITTED, SET_ERROR,
 } from 'src/actions/signin';
 
