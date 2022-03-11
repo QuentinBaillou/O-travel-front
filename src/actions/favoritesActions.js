@@ -28,3 +28,11 @@ export const deleteFavorites = (destination) => ({
   type: DELETE_FAVORITES,
   destination,
 });
+
+// ACTION TYPE DELETE_PROFIL
+export const DELETE_PROFIL = 'DELETE_PROFIL';
+// ACTION CREATOR deleteProfil
+export const deleteProfil = (destination) => ({
+  type: DELETE_PROFIL,
+  destination,
+});
