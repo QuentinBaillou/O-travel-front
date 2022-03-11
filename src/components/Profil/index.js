@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 // == Import
 import './style.scss';
 
@@ -15,7 +16,6 @@ const Profil = () => {
     () => {
       dispatch(getFavoritesDestination());
     },
-    [],
   );
 
   const destinations = useSelector((state) => state.favorites.destinations);
@@ -23,7 +23,6 @@ const Profil = () => {
   const lastname = useSelector((state) => state.user.lastname);
   const email = useSelector((state) => state.user.email);
   console.table(destinations);
-  console.log(destinations);
 
   return (
 
