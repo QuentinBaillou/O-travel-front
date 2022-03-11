@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import {
-  LOGIN, GET_LAST_USER, LOGOUT, saveUserInfo, sendForm,
-  GET_NEW_PASSWORD,
+  LOGIN, GET_LAST_USER, LOGOUT, saveUserInfo, setError,
+  // GET_NEW_PASSWORD,
 } from 'src/actions/authenticationActions';
 import axiosInstance from 'src/axiosInstance';
 
@@ -11,7 +11,7 @@ const authenticationMiddleware = (store) => (next) => (action) => {
     case LOGIN: {
       const { email: stateEmail, password } = authenticationState;
       axiosInstance
-        .post('login_check', {
+        .post('api/login_check', {
           username: stateEmail,
           password,
         })
@@ -25,8 +25,20 @@ const authenticationMiddleware = (store) => (next) => (action) => {
           store.dispatch(saveUserInfo(email, firstname, lastname));
         })
         .catch((error) => {
-          console.log(error);
-          store.dispatch(sendForm(true));
+          console.log(error.response);
+          let errorMessage = '';
+          if (error.response) {
+            if (error.response.status >= 500) {
+              errorMessage = 'Erreur serveur: Merci de réessayer plus tard';
+            }
+            else {
+              errorMessage = 'Email ou mot de passe incorrect';
+            }
+          }
+          else {
+            errorMessage = 'Erreur serveur: Merci de réessayer plus tard';
+          }
+          store.dispatch(setError(errorMessage, true));
         });
       next(action);
       break;
@@ -39,7 +51,7 @@ const authenticationMiddleware = (store) => (next) => (action) => {
 
         // Retrieve user info from api thanks to jwt token
         axiosInstance
-          .get('user/profile', {
+          .get('api/user/profile', {
             headers: {
               Authorization: `Bearer ${token}`,
             },
@@ -56,19 +68,33 @@ const authenticationMiddleware = (store) => (next) => (action) => {
       next(action);
       break;
 
-    case GET_NEW_PASSWORD:
+      /* case GET_NEW_PASSWORD:
       axiosInstance
-        .post('user/reset-password', {
+        .post('email/resetpassword', {
           email: store.getState().authentication.email,
         })
         .then((response) => {
           console.log(response);
         })
         .catch((error) => {
-          console.log(error);
+          console.log(error.response);
+
+          let errorMessage = '';
+          if (error.response) {
+            if (error.response.status >= 500) {
+              errorMessage = 'Erreur serveur: Merci de réessayer plus tard';
+            }
+            else {
+              errorMessage = 'Email ou mot de passe incorrect';
+            }
+          }
+          else {
+            errorMessage = 'Erreur serveur: Merci de réessayer plus tard';
+          }
+          store.dispatch(setError(errorMessage, true));
         });
       next(action);
-      break;
+      break; */
 
     case LOGOUT:
       localStorage.removeItem('token');

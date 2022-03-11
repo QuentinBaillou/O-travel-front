@@ -31,12 +31,13 @@ export const saveUserInfo = (email, firstname, lastname) => ({
   lastname,
 });
 
-// ACTION TYPE SEND_FORM
-export const SEND_FORM = 'SEND_FORM';
-// ACTION CREATOR sendForm
-export const sendForm = (state) => ({
-  type: SEND_FORM,
+// ACTION TYPE SET_ERROR
+export const SET_ERROR = 'SET_ERROR';
+// ACTION CREATOR setError
+export const setError = (errorMessage, state) => ({
+  type: SET_ERROR,
   state,
+  errorMessage,
 });
 
 // ACTION TYPE GET_LAST_USER
