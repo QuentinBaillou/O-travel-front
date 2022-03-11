@@ -1,14 +1,18 @@
 /* eslint-disable no-console */
 import axiosInstance from 'src/axiosInstance';
-import { GET_FAVORITES_DESTINATION, saveFavoritesDestination, SAVE_FAVORITES_DESTINATION } from 'src/actions/favoritesActions';
+import { GET_FAVORITES_DESTINATION, saveFavorites, SAVE_FAVORITES_DESTINATION } from 'src/actions/favoritesActions';
 
 const fetchFavorites = (store) => (next) => (action) => {
   switch (action.type) {
     case GET_FAVORITES_DESTINATION:
       axiosInstance
-        .get('user/favoris')
+        .get('user/favoris/list', {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`,
+          },
+        })
         .then((response) => {
-          store.dispatch(saveFavoritesDestination(response.data));
+          store.dispatch(saveFavorites(response.data.destination));
         })
         .catch((error) => {
           console.log('erreur : ', error);
@@ -21,9 +25,9 @@ const fetchFavorites = (store) => (next) => (action) => {
         .post('user/favoris', {
           destination: action.destination,
         }, {
-          header: {
+          headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`,
-          }
+          },
         })
         .then((response) => {
           console.log(response);
