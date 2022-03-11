@@ -81,19 +81,37 @@
   margin: auto;
   background-color: #446962;
   color: white;
-  padding: 3em 0 1.5em;
+  padding: 3em 2em 1.5em 2em;
   display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+}
 
+.favorites-card{
+  display: flex;
+  margin: 1.5em auto;
+  flex-wrap: wrap; 
+  justify-content: center;
+  border: solid 0.2em white;
+    padding: 1.5em;
+    border-radius: 0.5em;
+    background-color: rgb(205 178 148);
+
+    .image{
+      border: solid 0.2em;
+      border-radius: 0.5em;
+    }
+    
     .item{
       width: 25em;
       margin: 0 2em;
     }
 
     .content{
-      font-size: 1.5em;
+      font-size: 2em;
       text-align: center;
+      font-weight: bold;
     }
 
     .description{
@@ -106,5 +124,4 @@
     .button{
       margin: 1em 9.3em 0;
     }
-
 }

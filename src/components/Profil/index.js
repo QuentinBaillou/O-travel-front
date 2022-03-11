@@ -65,13 +65,13 @@ const Profil = () => {
           <h2 className="favorites-title">Listes favoris</h2>
           <List className="favorites-list">
             {destinations.map((destination) => (
-              <div key={destination.id}>
+              <div className="favorites-card" key={destination.id}>
                 <Image
                   src={destination.picture}
                   size="medium"
                 />
                 <List.Item>
-                  <List.Content>{destination.surname}</List.Content>
+                  <List.Content>{destination.surname}, {destination.state}</List.Content>
                   <List.Description>
                     {destination.extract}
                   </List.Description>
