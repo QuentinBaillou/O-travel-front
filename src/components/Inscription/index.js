@@ -166,8 +166,8 @@ const Inscription = () => {
           placeholder="Saisissez votre nom"
         />
 
-        <button className="signin_form__submit" type="submit">Sign In</button>
-    
+        <button className="signin_form__submit" type="submit">Sign In</button><br />
+          
         <Link to="/login"><span className="signin_form__already">Vous avez déjà un compte ?</span></Link>
 
       </form>
