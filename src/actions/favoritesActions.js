@@ -20,3 +20,11 @@ export const saveFavorites = (destinations) => ({
   type: SAVE_FAVORITES,
   destinations,
 });
+
+// ACTION TYPE DELETE_FAVORITES
+export const DELETE_FAVORITES = 'DELETE_FAVORITES';
+// ACTION CREATOR deleteFavorites
+export const deleteFavorites = (destination) => ({
+  type: DELETE_FAVORITES,
+  destination,
+});

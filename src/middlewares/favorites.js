@@ -1,6 +1,8 @@
 /* eslint-disable no-console */
 import axiosInstance from 'src/axiosInstance';
-import { GET_FAVORITES_DESTINATION, saveFavorites, SAVE_FAVORITES_DESTINATION } from 'src/actions/favoritesActions';
+import {
+  GET_FAVORITES_DESTINATION, saveFavorites, SAVE_FAVORITES_DESTINATION, DELETE_FAVORITES,
+} from 'src/actions/favoritesActions';
 
 const fetchFavorites = (store) => (next) => (action) => {
   switch (action.type) {
@@ -34,6 +36,24 @@ const fetchFavorites = (store) => (next) => (action) => {
         })
         .catch((error) => {
           (console.log(error));
+        });
+      next(action);
+      break;
+
+    case DELETE_FAVORITES:
+      axiosInstance
+        .post('api/remove/favoris', {
+          destination: action.destination,
+        }, {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`,
+          },
+        })
+        .then((response) => {
+          console.log('Then', response);
+        })
+        .catch((error) => {
+          (console.log(error.response));
         });
       next(action);
       break;

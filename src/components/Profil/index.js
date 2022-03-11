@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 // == Import
 import './style.scss';
 
@@ -5,7 +6,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 
 import { Image, List, Button } from 'semantic-ui-react';
-import { getFavoritesDestination } from 'src/actions/favoritesActions';
+import { getFavoritesDestination, deleteFavorites } from 'src/actions/favoritesActions';
 
 // == Composant
 const Profil = () => {
@@ -15,7 +16,6 @@ const Profil = () => {
     () => {
       dispatch(getFavoritesDestination());
     },
-    [],
   );
 
   const destinations = useSelector((state) => state.favorites.destinations);
@@ -23,7 +23,6 @@ const Profil = () => {
   const lastname = useSelector((state) => state.user.lastname);
   const email = useSelector((state) => state.user.email);
   console.table(destinations);
-  console.log(destinations);
 
   return (
 
@@ -56,8 +55,7 @@ const Profil = () => {
           </List.Item>
         </div>
         <div className="profil-button">
-          <Button color="blue">Créer/Modifier</Button>
-          <Button color="blue">Changer mot de passe</Button>
+          <Button color="red">Supprimer mon profil</Button>
         </div>
       </List>
       {true && (
@@ -75,7 +73,15 @@ const Profil = () => {
                   <List.Description>
                     {destination.extract}
                   </List.Description>
-                  <Button color="red" icon="trash alternate" />
+                  <Button
+                    onClick={
+                      () => {
+                        dispatch(deleteFavorites(destination.id));
+                      }
+                    }
+                    color="red"
+                    icon="trash alternate"
+                  />
                 </List.Item>
               </div>
             ))}
