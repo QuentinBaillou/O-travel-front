@@ -6,7 +6,7 @@ import List from 'src/components/List';
 import Footer from 'src/components/Footer';
 import Home from 'src/components/Home';
 import NotFound from 'src/components/NotFound';
-import AuthenticationForm from 'src/components/AuthenticationForm';
+import UserForm from 'src/components/UserForm';
 import Profil from 'src/components/Profil';
 import Inscription from 'src/components/Inscription';
 
@@ -31,8 +31,13 @@ const Otravel = () => {
         <Route path="/destinations" element={<List />} />
         <Route path="/destinations/:id" element={<Destination />} />
         <Route path="*" element={<NotFound />} />
-        <Route path="/login" element={<AuthenticationForm shape="login" />} />
-        <Route path="/login/forgotten-password" element={<AuthenticationForm shape="forgotten-password" />} />
+        <Route path="/login" element={<UserForm shape="login" />} />
+        {/* <Route
+          path="/login/forgotten-password"
+          element={
+            <UserForm shape="forgotten-password" />
+          }
+        /> */}
         <Route path="/logout" element={<Navigate to="/" />} />
         <Route path="/profile" element={<Profil />} />
         <Route path="/inscription" element={<Inscription />} />
