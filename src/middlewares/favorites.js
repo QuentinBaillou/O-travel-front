@@ -43,7 +43,7 @@ const fetchFavorites = (store) => (next) => (action) => {
     case DELETE_FAVORITES:
       axiosInstance
         .post('api/remove/favoris', {
-          destination: action.destinations,
+          destination: action.destination,
         }, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`,
