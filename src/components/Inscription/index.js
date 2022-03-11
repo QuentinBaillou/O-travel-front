@@ -5,6 +5,8 @@ import {
   setEmail, setPassword, setFirstname, setLastname,
   setSubmitted, setError, setCreateUser,
 } from 'src/actions/signin';
+import { Link } from 'react-router-dom';
+
 
 import './style.scss';
 import Lake from 'src/assets/images/postcard/lake.jpg';
@@ -132,6 +134,9 @@ const Inscription = () => {
         <input className="signin_form__input" value={lastname} onChange={handleLastname} name="lastname" type="text" placeholder="Saisissez votre nom" />
 
         <button className="signin_form__submit" type="submit">Sign In</button>
+          <br />
+        <Link to="/login"><span className="signin_form__already">Vous avez déjà un compte ?</span></Link>
+
       </form>
 
     </div>

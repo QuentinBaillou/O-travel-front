@@ -33,7 +33,8 @@
   margin-right: vars.$gutter * 10;
   border-radius: 1rem;
   gap: 1rem;
-  width: 35%;
+  width: 30%;
+  z-index: 2;
 
   &__error-message {
     padding: 0.5 * vars.$gutter;
@@ -79,6 +80,15 @@
     }
   }
 
+  &__already {
+    color: vars.$lightest-color;
+    margin-left: vars.$gutter * 5;
+
+    &:hover {
+      color: vars.$titles-box-and-buttons-color;
+    }
+  }
+
   @include tablet {
     width: 60%;
   }
@@ -94,14 +104,16 @@
   display: flex;
   width: 100%;
   height: 100%;
-  margin-left: vars.$gutter * 10;
+  margin-left: vars.$gutter * 5;
+  margin-left: vars.$gutter * 2;
+  z-index: 1;
 
   #lake {
     position: relative;
     left: 2em;
     z-index: 3;
-    width: 30%;
-    height: 30%;
+    width: 32%;
+    height: 33%;
     transform: rotate(-10deg);
     border: vars.$gutter * 0.5 solid vars.$lightest-color;
     box-shadow: 3px 3px 3px 3px rgba($color: #000000, $alpha: 0.3);
@@ -112,8 +124,8 @@
     top: -5em;
     z-index: 2;
     left: -0.5em;
-    width: 30%;
-    height: 30%;
+    width: 32%;
+    height: 33%;
     transform: rotate(5deg);
     border: vars.$gutter * 0.5 solid vars.$lightest-color;
     box-shadow: 3px 3px 3px 3px rgba($color: #000000, $alpha: 0.3);
@@ -124,8 +136,8 @@
     top: 2em;
     z-index: 1;
     left: -2em;
-    width: 30%;
-    height: 30%;
+    width: 32%;
+    height: 33%;
     transform: rotate(-7deg);
     border: vars.$gutter * 0.5 solid vars.$lightest-color;
     box-shadow: 3px 3px 3px 3px rgba($color: #000000, $alpha: 0.3);
