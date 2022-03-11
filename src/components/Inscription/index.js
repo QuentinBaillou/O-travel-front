@@ -7,6 +7,9 @@ import {
 } from 'src/actions/signin';
 
 import './style.scss';
+import Lake from 'src/assets/images/postcard/lake.jpg';
+import City from 'src/assets/images/postcard/city.jpg';
+import Beach from 'src/assets/images/postcard/beach.jpg';
 
 const Inscription = () => {
   const dispatch = useDispatch();
@@ -94,6 +97,12 @@ const Inscription = () => {
 
   return (
     <div className="signin">
+
+      <div className="postcards_wrapper">
+        <img id="lake" src={Lake} alt="lake" />
+        <img id="city" src={City} alt="city" />
+        <img id="beach" src={Beach} alt="beach" />
+      </div>
 
       <h2 className="signin__title">Inscription</h2>
 

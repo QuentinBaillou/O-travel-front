@@ -1,4 +1,5 @@
 @use 'src/styles/vars';
+@import 'src/styles/mixins';
 
 .signin {
   min-height: calc(100vh - 8rem - 96.44px);
@@ -6,7 +7,7 @@
   margin: 2 * vars.$gutter 0;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   background-color: vars.$main-block-and-fonts-color;
 
   &__title {
@@ -20,7 +21,7 @@
     font-weight: bold;
     background-color: vars.$titles-box-and-buttons-color;
     color: #446962;
-    text-transform: uppercase;
+    //text-transform: uppercase;
   }
 }
 
@@ -29,8 +30,10 @@
   flex-direction: column;
   background-color: rgba($color: #000000, $alpha: 0.3);
   padding: 2rem;
+  margin-right: vars.$gutter * 10;
   border-radius: 1rem;
   gap: 1rem;
+  width: 35%;
 
   &__error-message {
     padding: 0.5 * vars.$gutter;
@@ -51,23 +54,17 @@
   &__label {
     display: flex;
     flex-direction: column;
-    margin-bottom: 0.2 * vars.$gutter;
+    margin-bottom: -0.7 * vars.$gutter;
     color: vars.$lightest-color;
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
 
-  &__input,
+  &__input {
+    @include form-input(vars.$lightest-color);
+  }
   &__submit {
-    padding: 0.5 * vars.$gutter;
-    background-color: rgba($color: vars.$lightest-color, $alpha: 0.8);
-    font-size: 1.2rem;
-    border-radius: 1.1rem;
-    border: none;
-
-    &:hover,
-    &:focus {
-      background-color: #fff;
-    }
+    @include form-input(vars.$titles-box-and-buttons-color);
+    margin-top: vars.$gutter * 1.6;
   }
 
   &__link {
@@ -81,5 +78,71 @@
       color: vars.$lightest-color;
     }
   }
+
+  @include tablet {
+    width: 60%;
+  }
+
+  @include mobile-only {
+    width: 85%;
+  }
+
 }
+
+.postcards_wrapper {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  margin-left: vars.$gutter * 10;
+
+  #lake {
+    position: relative;
+    left: 2em;
+    z-index: 3;
+    width: 30%;
+    height: 30%;
+    transform: rotate(-10deg);
+    border: vars.$gutter * 0.5 solid vars.$lightest-color;
+    box-shadow: 3px 3px 3px 3px rgba($color: #000000, $alpha: 0.3);
+  }
+  
+  #city {
+    position: relative;
+    top: -5em;
+    z-index: 2;
+    left: -0.5em;
+    width: 30%;
+    height: 30%;
+    transform: rotate(5deg);
+    border: vars.$gutter * 0.5 solid vars.$lightest-color;
+    box-shadow: 3px 3px 3px 3px rgba($color: #000000, $alpha: 0.3);
+  }
+
+  #beach {
+    position: relative;
+    top: 2em;
+    z-index: 1;
+    left: -2em;
+    width: 30%;
+    height: 30%;
+    transform: rotate(-7deg);
+    border: vars.$gutter * 0.5 solid vars.$lightest-color;
+    box-shadow: 3px 3px 3px 3px rgba($color: #000000, $alpha: 0.3);
+  }
+
+}
+
+@include tablet {
+  .postcards_wrapper {
+    display: none;
+  }
+  .signin_form {
+  margin-left: auto;
+  margin-right: auto;
+  }
+}
+
+
+
 
