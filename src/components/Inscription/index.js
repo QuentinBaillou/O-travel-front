@@ -6,8 +6,13 @@ import {
   setEmail, setPassword, setFirstname, setLastname,
   setSubmitted, setError, setCreateUser,
 } from 'src/actions/signin';
+import { Link } from 'react-router-dom';
+
 
 import './style.scss';
+import Lake from 'src/assets/images/postcard/lake.jpg';
+import City from 'src/assets/images/postcard/city.jpg';
+import Beach from 'src/assets/images/postcard/beach.jpg';
 
 const Inscription = () => {
   const dispatch = useDispatch();
@@ -96,6 +101,12 @@ const Inscription = () => {
   return (
     <div className="signin">
 
+      <div className="postcards_wrapper">
+        <img id="lake" src={Lake} alt="lake" />
+        <img id="city" src={City} alt="city" />
+        <img id="beach" src={Beach} alt="beach" />
+      </div>
+
       <h2 className="signin__title">Inscription</h2>
 
       <form onSubmit={handleSubmit} className="signin_form">
@@ -156,6 +167,9 @@ const Inscription = () => {
         />
 
         <button className="signin_form__submit" type="submit">Sign In</button>
+    
+        <Link to="/login"><span className="signin_form__already">Vous avez déjà un compte ?</span></Link>
+
       </form>
 
     </div>

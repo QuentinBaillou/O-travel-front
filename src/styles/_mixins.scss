@@ -47,3 +47,16 @@
   border-radius: 2.5px;
   transition: all 0.5s;
 }
+
+@mixin form-input ($input-color) {
+  padding: 0.5 * vars.$gutter;
+  background-color: rgba($color: $input-color, $alpha: 0.8);
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  border: none;
+
+  &:hover,
+    &:focus {
+      background-color: #fff;
+    }
+}
