@@ -1,7 +1,7 @@
 import {
   SET_FORM_FIELD, LOGOUT, SAVE_USER_INFO,
   SET_ERROR,
-} from 'src/actions/authenticationActions';
+} from 'src/actions/userActions';
 
 const initialState = {
   firstname: '',

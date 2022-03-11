@@ -19,9 +19,9 @@ const Profil = () => {
   );
 
   const destinations = useSelector((state) => state.favorites.destinations);
-  const firstname = useSelector((state) => state.authentication.firstname);
-  const lastname = useSelector((state) => state.authentication.lastname);
-  const email = useSelector((state) => state.authentication.email);
+  const firstname = useSelector((state) => state.user.firstname);
+  const lastname = useSelector((state) => state.user.lastname);
+  const email = useSelector((state) => state.user.email);
   console.table(destinations);
   console.log(destinations);
 

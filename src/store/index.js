@@ -4,7 +4,7 @@ import reducer from 'src/reducers';
 import formMiddleware from 'src/middlewares/form';
 import destinationMiddleware from 'src/middlewares/destination';
 import listMiddleware from 'src/middlewares/list';
-import authenticationMiddleware from 'src/middlewares/authentication';
+import userMiddleware from 'src/middlewares/user';
 import favoritesMiddleware from 'src/middlewares/favorites';
 import signInMiddleware from 'src/middlewares/signin';
 
@@ -15,7 +15,7 @@ const enhancers = composeEnhancers(
     formMiddleware,
     listMiddleware,
     destinationMiddleware,
-    authenticationMiddleware,
+    userMiddleware,
     favoritesMiddleware,
     signInMiddleware,
   ),

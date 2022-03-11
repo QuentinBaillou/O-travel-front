@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { logout } from 'src/actions/authenticationActions';
+import { logout } from 'src/actions/userActions';
 import './style.scss';
 
 const Nav = () => {
   const dispatch = useDispatch();
-  const logged = useSelector((state) => state.authentication.isUserLogged);
-  const username = useSelector((state) => state.authentication.firstname);
+  const logged = useSelector((state) => state.user.isUserLogged);
+  const username = useSelector((state) => state.user.firstname);
   // Local state used to or to not display nav menu, when on tablet resolution and bellow
   const [active, setActive] = useState(false);
   const handleClick = () => {

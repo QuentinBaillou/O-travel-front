@@ -14,7 +14,7 @@ import './style.scss';
 import Destination from 'src/components/Destination';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { getLastUser } from 'src/actions/authenticationActions';
+import { getLastUser } from 'src/actions/userActions';
 
 // == Composant
 const Otravel = () => {

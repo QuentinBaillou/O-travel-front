@@ -2,14 +2,14 @@
 import {
   LOGIN, GET_LAST_USER, LOGOUT, saveUserInfo, setError,
   // GET_NEW_PASSWORD,
-} from 'src/actions/authenticationActions';
+} from 'src/actions/userActions';
 import axiosInstance from 'src/axiosInstance';
 
-const authenticationMiddleware = (store) => (next) => (action) => {
-  const authenticationState = store.getState().authentication;
+const userMiddleware = (store) => (next) => (action) => {
+  const userState = store.getState().user;
   switch (action.type) {
     case LOGIN: {
-      const { email: stateEmail, password } = authenticationState;
+      const { email: stateEmail, password } = userState;
       axiosInstance
         .post('api/login_check', {
           username: stateEmail,
@@ -71,7 +71,7 @@ const authenticationMiddleware = (store) => (next) => (action) => {
       /* case GET_NEW_PASSWORD:
       axiosInstance
         .post('email/resetpassword', {
-          email: store.getState().authentication.email,
+          email: store.getState().user.email,
         })
         .then((response) => {
           console.log(response);
@@ -105,4 +105,4 @@ const authenticationMiddleware = (store) => (next) => (action) => {
   }
 };
 
-export default authenticationMiddleware;
+export default userMiddleware;

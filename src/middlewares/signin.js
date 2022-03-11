@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import axiosInstance from 'src/axiosInstance';
 import { CREATE_USER } from 'src/actions/signin';
-import { login } from 'src/actions/authenticationActions';
+import { login } from 'src/actions/userActions';
 
 const signInMiddleware = (store) => (next) => (action) => {
   switch (action.type) {

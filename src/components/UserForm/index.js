@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { setFormField } from 'src/actions/authenticationActions';
+import { setFormField } from 'src/actions/userActions';
 import Login from './Login';
 import ForgottenPassword from './ForgottenPassword';
 import './style.scss';

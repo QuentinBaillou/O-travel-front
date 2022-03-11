@@ -16,7 +16,7 @@ const Inscription = () => {
   const password = useSelector((state) => state.signin.password);
   const firstname = useSelector((state) => state.signin.firstname);
   const lastname = useSelector((state) => state.signin.lastname);
-  const logged = useSelector((state) => state.authentication.isUserLogged);
+  const logged = useSelector((state) => state.user.isUserLogged);
   const navigate = useNavigate();
 
   const error = useSelector((state) => state.signin.error);

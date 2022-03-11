@@ -17,17 +17,17 @@ const Input = ({
 
   return (
     <div>
-      <label htmlFor={name} className="authentication-form__label">{label}*</label>
+      <label htmlFor={name} className="user-form__label">{label}*</label>
       <input
         type={name}
-        className="authentication-form__input"
+        className="user-form__input"
         id={name}
         value={value}
         onChange={handleChange}
         required
         ref={firstInput ? focusInput : null}
       />
-      <legend className="authentication-form__legend">Champs requis</legend>
+      <legend className="user-form__legend">Champs requis</legend>
     </div>
   );
 };
