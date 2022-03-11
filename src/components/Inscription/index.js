@@ -5,22 +5,22 @@ import { useNavigate } from 'react-router-dom';
 import {
   setEmail, setPassword, setFirstname, setLastname,
   setSubmitted, setError, setCreateUser,
-} from 'src/actions/signin';
+} from 'src/actions/userActions';
 
 import './style.scss';
 
 const Inscription = () => {
   const dispatch = useDispatch();
 
-  const email = useSelector((state) => state.signin.email);
-  const password = useSelector((state) => state.signin.password);
-  const firstname = useSelector((state) => state.signin.firstname);
-  const lastname = useSelector((state) => state.signin.lastname);
+  const email = useSelector((state) => state.user.email);
+  const password = useSelector((state) => state.user.password);
+  const firstname = useSelector((state) => state.user.firstname);
+  const lastname = useSelector((state) => state.user.lastname);
   const logged = useSelector((state) => state.user.isUserLogged);
   const navigate = useNavigate();
 
-  const error = useSelector((state) => state.signin.error);
-  const submitted = useSelector((state) => state.signin.submitted);
+  const error = useSelector((state) => state.user.error);
+  const submitted = useSelector((state) => state.user.submitted);
 
   // Redirection after successfully logged, using useNavigate hook from react-router-dom
   useEffect(() => {

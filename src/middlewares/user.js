@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 import {
-  LOGIN, GET_LAST_USER, LOGOUT, saveUserInfo, setError,
+  LOGIN, GET_LAST_USER, LOGOUT, saveUserInfo, setFormError, CREATE_USER, login,
   // GET_NEW_PASSWORD,
 } from 'src/actions/userActions';
 import axiosInstance from 'src/axiosInstance';
@@ -38,7 +38,7 @@ const userMiddleware = (store) => (next) => (action) => {
           else {
             errorMessage = 'Erreur serveur: Merci de réessayer plus tard';
           }
-          store.dispatch(setError(errorMessage, true));
+          store.dispatch(setFormError(errorMessage, true));
         });
       next(action);
       break;
@@ -91,10 +91,30 @@ const userMiddleware = (store) => (next) => (action) => {
           else {
             errorMessage = 'Erreur serveur: Merci de réessayer plus tard';
           }
-          store.dispatch(setError(errorMessage, true));
+          store.dispatch(setFormError(errorMessage, true));
         });
       next(action);
       break; */
+
+    case CREATE_USER: {
+      const state = store.getState();
+      axiosInstance
+        .post('api/user/form', {
+          firstname: state.signin.firstname,
+          lastname: state.signin.lastname,
+          email: state.signin.email,
+          password: state.signin.password,
+        })
+        .then((response) => {
+          console.log(response);
+          store.dispatch(login());
+        })
+        .catch((error) => {
+          (console.log(error));
+        });
+      next(action);
+      break;
+    }
 
     case LOGOUT:
       localStorage.removeItem('token');
