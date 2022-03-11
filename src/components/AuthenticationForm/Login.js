@@ -31,7 +31,7 @@ const Login = ({ handleChange }) => {
   return (
     <form className="authentication-form" onSubmit={handleSubmit}>
       { errorState && <p className="authentication-form__error-message">{errorMessage}</p>}
-      <Input handleChange={handleChange} label="Email" name="email" value={email} />
+      <Input handleChange={handleChange} label="Email" name="email" value={email} firstInput />
       <Input handleChange={handleChange} label="Mot de passe" name="password" value={password} />
       <Link to="/login/forgotten-password" className="authentication-form__link">Mot de passe oublié</Link>
       <Link to="/inscription" className="authentication-form__link">Vous voulez vous inscrire? C'est ici</Link>

@@ -8,7 +8,7 @@ const signInMiddleware = (store) => (next) => (action) => {
     case CREATE_USER: {
       const state = store.getState();
       axiosInstance
-        .post('user/form', {
+        .post('api/user/form', {
           firstname: state.signin.firstname,
           lastname: state.signin.lastname,
           email: state.signin.email,

@@ -6,7 +6,7 @@ const fetchList = (store) => (next) => (action) => {
   switch (action.type) {
     case GET_DESTINATIONS:
       axiosInstance
-        .get('destinations/list')
+        .get('api/destinations/list')
         .then((response) => {
           store.dispatch(saveDestinations(response.data));
         })

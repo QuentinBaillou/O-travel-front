@@ -6,7 +6,7 @@ const fetchFavorites = (store) => (next) => (action) => {
   switch (action.type) {
     case GET_FAVORITES_DESTINATION:
       axiosInstance
-        .get('user/favoris')
+        .get('api/user/favoris')
         .then((response) => {
           store.dispatch(saveFavoritesDestination(response.data));
         })
@@ -18,12 +18,12 @@ const fetchFavorites = (store) => (next) => (action) => {
 
     case SAVE_FAVORITES_DESTINATION:
       axiosInstance
-        .post('user/favoris', {
+        .post('api/user/favoris', {
           destination: action.destination,
         }, {
           header: {
             Authorization: `Bearer ${localStorage.getItem('token')}`,
-          }
+          },
         })
         .then((response) => {
           console.log(response);

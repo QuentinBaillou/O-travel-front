@@ -8,7 +8,7 @@ import axiosInstance from 'src/axiosInstance';
 const fetchDestinations = (store) => (next) => (action) => {
   switch (action.type) {
     case GET_DESTINATION:
-      axiosInstance.get(`destinations/${action.destinationId}`)
+      axiosInstance.get(`api/destinations/${action.destinationId}`)
         .then((response) => {
           console.log(response.data);
           store.dispatch(saveDestination(response.data));

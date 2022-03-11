@@ -11,7 +11,7 @@ const authenticationMiddleware = (store) => (next) => (action) => {
     case LOGIN: {
       const { email: stateEmail, password } = authenticationState;
       axiosInstance
-        .post('login_check', {
+        .post('api/login_check', {
           username: stateEmail,
           password,
         })
@@ -51,7 +51,7 @@ const authenticationMiddleware = (store) => (next) => (action) => {
 
         // Retrieve user info from api thanks to jwt token
         axiosInstance
-          .get('user/profile', {
+          .get('api/user/profile', {
             headers: {
               Authorization: `Bearer ${token}`,
             },
@@ -70,7 +70,7 @@ const authenticationMiddleware = (store) => (next) => (action) => {
 
     case GET_NEW_PASSWORD:
       axiosInstance
-        .post('user/reset-password', {
+        .post('email/resetpassword', {
           email: store.getState().authentication.email,
         })
         .then((response) => {

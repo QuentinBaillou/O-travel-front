@@ -19,7 +19,7 @@ const ForgottenPassword = ({ handleChange }) => {
   return (
     <form className="authentication-form" onSubmit={handleSubmit}>
       { errorState && <p className="authentication-form__error-message">{errorMessage}</p>}
-      <Input handleChange={handleChange} label="Email" name="email" value={email} />
+      <Input handleChange={handleChange} label="Email" name="email" value={email} firstInput />
       <Link to="/login" className="authentication-form__link">Revenir à la connexion</Link>
       <button type="submit" className="authentication-form__submit">Envoyer</button>
     </form>
