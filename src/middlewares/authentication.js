@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import {
   LOGIN, GET_LAST_USER, LOGOUT, saveUserInfo, setError,
-  GET_NEW_PASSWORD,
+  // GET_NEW_PASSWORD,
 } from 'src/actions/authenticationActions';
 import axiosInstance from 'src/axiosInstance';
 
@@ -68,7 +68,7 @@ const authenticationMiddleware = (store) => (next) => (action) => {
       next(action);
       break;
 
-    case GET_NEW_PASSWORD:
+      /* case GET_NEW_PASSWORD:
       axiosInstance
         .post('email/resetpassword', {
           email: store.getState().authentication.email,
@@ -94,7 +94,7 @@ const authenticationMiddleware = (store) => (next) => (action) => {
           store.dispatch(setError(errorMessage, true));
         });
       next(action);
-      break;
+      break; */
 
     case LOGOUT:
       localStorage.removeItem('token');
