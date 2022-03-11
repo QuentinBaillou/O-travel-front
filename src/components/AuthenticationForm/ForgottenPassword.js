@@ -8,13 +8,17 @@ import './style.scss';
 
 const ForgottenPassword = ({ handleChange }) => {
   const email = useSelector((state) => state.authentication.email);
+  const errorState = useSelector((state) => state.authentication.errorState);
+  const errorMessage = useSelector((state) => state.authentication.errorMessage);
   const dispatch = useDispatch();
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     dispatch(getNewPassword());
   };
 
   return (
     <form className="authentication-form" onSubmit={handleSubmit}>
+      { errorState && <p className="authentication-form__error-message">{errorMessage}</p>}
       {/* {(isFormSend && !isUserLogged) &&
       <p className="authentication-form__error-message">Email ou mot de passe incorrect</p>} */}
       <Input handleChange={handleChange} label="Email" name="email" value={email} />

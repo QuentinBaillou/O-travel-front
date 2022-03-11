@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 import {
-  LOGIN, GET_LAST_USER, LOGOUT, saveUserInfo, sendForm,
+  LOGIN, GET_LAST_USER, LOGOUT, saveUserInfo, setError,
   GET_NEW_PASSWORD,
 } from 'src/actions/authenticationActions';
 import axiosInstance from 'src/axiosInstance';
@@ -25,8 +25,20 @@ const authenticationMiddleware = (store) => (next) => (action) => {
           store.dispatch(saveUserInfo(email, firstname, lastname));
         })
         .catch((error) => {
-          console.log(error);
-          store.dispatch(sendForm(true));
+          console.log(error.response);
+          let errorMessage = '';
+          if (error.response) {
+            if (error.response.status >= 500) {
+              errorMessage = 'Erreur serveur: Merci de réessayer plus tard';
+            }
+            else {
+              errorMessage = 'Email ou mot de passe incorrect';
+            }
+          }
+          else {
+            errorMessage = 'Erreur serveur: Merci de réessayer plus tard';
+          }
+          store.dispatch(setError(errorMessage, true));
         });
       next(action);
       break;
@@ -65,7 +77,21 @@ const authenticationMiddleware = (store) => (next) => (action) => {
           console.log(response);
         })
         .catch((error) => {
-          console.log(error);
+          console.log(error.response);
+
+          let errorMessage = '';
+          if (error.response) {
+            if (error.response.status >= 500) {
+              errorMessage = 'Erreur serveur: Merci de réessayer plus tard';
+            }
+            else {
+              errorMessage = 'Email ou mot de passe incorrect';
+            }
+          }
+          else {
+            errorMessage = 'Erreur serveur: Merci de réessayer plus tard';
+          }
+          store.dispatch(setError(errorMessage, true));
         });
       next(action);
       break;

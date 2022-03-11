@@ -1,6 +1,6 @@
 import {
   SET_FORM_FIELD, LOGOUT, SAVE_USER_INFO,
-  SEND_FORM,
+  SET_ERROR,
 } from 'src/actions/authenticationActions';
 
 const initialState = {
@@ -9,7 +9,8 @@ const initialState = {
   password: '',
   email: '',
   isUserLogged: false,
-  isFormSend: false,
+  errorMessage: '',
+  errorState: false,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -28,12 +29,15 @@ const reducer = (state = initialState, action = {}) => {
         lastname: action.lastname,
         password: '',
         isUserLogged: true,
+        errorMessage: '',
+        errorState: false,
       };
 
-    case SEND_FORM:
+    case SET_ERROR:
       return {
         ...state,
-        isFormSend: action.state,
+        errorMessage: action.errorMessage,
+        errorState: action.state,
       };
 
     case LOGOUT:
