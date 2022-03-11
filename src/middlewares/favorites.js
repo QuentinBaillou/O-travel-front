@@ -2,7 +2,9 @@
 import axiosInstance from 'src/axiosInstance';
 import {
   GET_FAVORITES_DESTINATION, saveFavorites, SAVE_FAVORITES_DESTINATION, DELETE_FAVORITES,
+  DELETE_PROFIL
 } from 'src/actions/favoritesActions';
+import { logout } from 'src/actions/userActions';
 
 const fetchFavorites = (store) => (next) => (action) => {
   switch (action.type) {
@@ -51,6 +53,23 @@ const fetchFavorites = (store) => (next) => (action) => {
         })
         .then((response) => {
           console.log('Then', response);
+        })
+        .catch((error) => {
+          (console.log(error.response));
+        });
+      next(action);
+      break;
+
+    case DELETE_PROFIL:
+      axiosInstance
+        .get('api/user/remove/profile', {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`,
+          },
+        })
+        .then((response) => {
+          console.log('Then', response);
+          store.dispatch(logout());
         })
         .catch((error) => {
           (console.log(error.response));

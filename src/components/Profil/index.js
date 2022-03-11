@@ -6,11 +6,14 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 
 import { Image, List, Button } from 'semantic-ui-react';
-import { getFavoritesDestination, deleteFavorites } from 'src/actions/favoritesActions';
+import { getFavoritesDestination, deleteFavorites, deleteProfil } from 'src/actions/favoritesActions';
+import { useNavigate } from 'react-router-dom';
 
 // == Composant
 const Profil = () => {
   const dispatch = useDispatch();
+
+  const navigate = useNavigate();
 
   useEffect(
     () => {
@@ -55,7 +58,17 @@ const Profil = () => {
           </List.Item>
         </div>
         <div className="profil-button">
-          <Button color="red">Supprimer mon profil</Button>
+          <Button
+            onClick={
+              () => {
+                dispatch(deleteProfil());
+                navigate('/');
+              }
+            }
+            color="red"
+          >
+            Supprimer mon profil
+          </Button>
         </div>
       </List>
       {true && (
