@@ -134,7 +134,7 @@ const Inscription = () => {
         <input className="signin_form__input" value={lastname} onChange={handleLastname} name="lastname" type="text" placeholder="Saisissez votre nom" />
 
         <button className="signin_form__submit" type="submit">Sign In</button>
-          <br />
+    
         <Link to="/login"><span className="signin_form__already">Vous avez déjà un compte ?</span></Link>
 
       </form>
