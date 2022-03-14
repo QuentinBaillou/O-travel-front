@@ -8,11 +8,12 @@ import { logout } from 'src/actions/userActions';
 
 const fetchFavorites = (store) => (next) => (action) => {
   switch (action.type) {
-    case GET_FAVORITES_DESTINATION:
+    case GET_FAVORITES_DESTINATION: {
+      const { token } = store.getState().user;
       axiosInstance
         .get('api/user/favoris/list', {
           headers: {
-            Authorization: `Bearer ${localStorage.getItem('token')}`,
+            Authorization: `Bearer ${token}`,
           },
         })
         .then((response) => {
@@ -23,14 +24,15 @@ const fetchFavorites = (store) => (next) => (action) => {
         });
       next(action);
       break;
-
-    case SAVE_FAVORITES_DESTINATION:
+    }
+    case SAVE_FAVORITES_DESTINATION: {
+      const { token } = store.getState().user;
       axiosInstance
         .post('api/user/favoris', {
           destination: action.destination,
         }, {
           headers: {
-            Authorization: `Bearer ${localStorage.getItem('token')}`,
+            Authorization: `Bearer ${token}`,
           },
         })
         .catch((error) => {
@@ -38,14 +40,15 @@ const fetchFavorites = (store) => (next) => (action) => {
         });
       next(action);
       break;
-
-    case DELETE_FAVORITES:
+    }
+    case DELETE_FAVORITES: {
+      const { token } = store.getState().user;
       axiosInstance
         .post('api/remove/favoris', {
           destination: action.destination,
         }, {
           headers: {
-            Authorization: `Bearer ${localStorage.getItem('token')}`,
+            Authorization: `Bearer ${token}`,
           },
         })
         .then((response) => {
@@ -56,12 +59,13 @@ const fetchFavorites = (store) => (next) => (action) => {
         });
       next(action);
       break;
-
-    case DELETE_PROFIL:
+    }
+    case DELETE_PROFIL: {
+      const { token } = store.getState().user;
       axiosInstance
         .get('api/user/remove/profile', {
           headers: {
-            Authorization: `Bearer ${localStorage.getItem('token')}`,
+            Authorization: `Bearer ${token}`,
           },
         })
         .then((response) => {
@@ -73,7 +77,7 @@ const fetchFavorites = (store) => (next) => (action) => {
         });
       next(action);
       break;
-
+    }
     default:
       next(action);
       break;

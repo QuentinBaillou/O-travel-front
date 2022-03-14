@@ -81,7 +81,6 @@ const Profil = () => {
               <div className="favorites-card" key={destination.id}>
                 <Image
                   src={destination.picture}
-                  size="large"
                 />
                 <List.Item>
                   <List.Content>{destination.surname}, {destination.state}</List.Content>
@@ -108,7 +107,7 @@ const Profil = () => {
                       }}
                       animated
                     >
-                      <Button.Content visible>Aller au voyage</Button.Content>
+                      <Button.Content visible>Détails</Button.Content>
                       <Button.Content hidden><Icon name="arrow right" /></Button.Content>
                     </Button>
                   </Button.Group>

@@ -19,10 +19,11 @@ const userMiddleware = (store) => (next) => (action) => {
           console.log(response);
 
           // Store JWT token in local storage to use it later
-          localStorage.setItem('token', response.data.token);
+          const { token } = response.data;
+          localStorage.setItem('token', token);
           const { email, firstname, lastname } = response.data.data;
 
-          store.dispatch(saveUserInfo(email, firstname, lastname));
+          store.dispatch(saveUserInfo(email, firstname, lastname, token));
         })
         .catch((error) => {
           console.log(error.response);
@@ -59,7 +60,7 @@ const userMiddleware = (store) => (next) => (action) => {
           .then((response) => {
             console.log(response);
             const { email, firstname, lastname } = response.data;
-            store.dispatch(saveUserInfo(email, firstname, lastname));
+            store.dispatch(saveUserInfo(email, firstname, lastname, token));
           })
           .catch((error) => {
             console.log(error);

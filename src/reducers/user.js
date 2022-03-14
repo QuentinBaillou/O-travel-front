@@ -11,7 +11,6 @@ const initialState = {
   isUserLogged: false,
   errorMessage: '',
   errorState: false,
-
   submitted: false,
   error: false,
 };
@@ -34,6 +33,7 @@ const reducer = (state = initialState, action = {}) => {
         isUserLogged: true,
         errorMessage: '',
         errorState: false,
+        token: action.token,
       };
 
     case SET_FORM_ERROR:

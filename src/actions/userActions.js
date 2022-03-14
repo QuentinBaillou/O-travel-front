@@ -24,11 +24,12 @@ export const logout = () => ({
 // ACTION TYPE SAVE_USER_INFO
 export const SAVE_USER_INFO = 'SAVE_USER_INFO';
 // ACTION CREATOR saveUserInfo
-export const saveUserInfo = (email, firstname, lastname) => ({
+export const saveUserInfo = (email, firstname, lastname, token) => ({
   type: SAVE_USER_INFO,
   email,
   firstname,
   lastname,
+  token,
 });
 
 // ACTION TYPE SET_FORM_ERROR
