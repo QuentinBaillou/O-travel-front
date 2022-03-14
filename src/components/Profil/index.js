@@ -88,7 +88,7 @@ const Profil = () => {
                         }
                       }
                       color="red"
-                      animated
+                      animated="fade"
                     >
                       <Button.Content visible>Supprimer</Button.Content>
                       <Button.Content hidden><Icon name="trash alternate" /></Button.Content>
@@ -98,7 +98,7 @@ const Profil = () => {
                       onClick={() => {
                         navigate(`/destinations/${destination.id}`);
                       }}
-                      animated
+                      animated="fade"
                     >
                       <Button.Content visible>Détails</Button.Content>
                       <Button.Content hidden><Icon name="arrow right" /></Button.Content>
