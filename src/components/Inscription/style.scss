@@ -36,14 +36,6 @@
   width: 30%;
   z-index: 2;
 
-  &__error-message {
-    padding: 0.5 * vars.$gutter;
-    border-radius: 5px;
-    text-align: center;
-    background-color: vars.$titles-box-and-buttons-color;
-    color: red;
-  }
-
   &__submitted-message {
     padding: 0.5 * vars.$gutter;
     border-radius: 5px;
@@ -62,7 +54,18 @@
 
   &__input {
     @include form-input(vars.$lightest-color);
+
+    &:valid {
+      background-color: vars.$header-main-color;
+      color: vars.$lightest-color;
+    }
+
+    &:invalid{
+      background-color: vars.$lightest-color;
+    }
+
   }
+  
   &__submit {
     @include form-input(vars.$titles-box-and-buttons-color);
     margin-top: vars.$gutter * 1.6;
@@ -86,6 +89,22 @@
     &:hover {
       color: vars.$titles-box-and-buttons-color;
     }
+  }
+
+  #emailError {
+    @include form-error-message;
+  }
+
+  #passwordError {
+    @include form-error-message;
+  }
+
+  #firstnameError {
+    @include form-error-message;
+  }
+
+  #lastnameError {
+    @include form-error-message;
   }
 
   @include tablet {
@@ -143,6 +162,8 @@
   }
 
 }
+
+
 
 @include tablet {
   .postcards_wrapper {

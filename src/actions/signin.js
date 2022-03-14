@@ -33,11 +33,25 @@ export const setSubmitted = (bool) => ({
   submitted: bool,
 });
 
-export const SET_ERROR = 'SET_ERROR';
+export const EMPTY_FIELD_ERROR = 'EMPTY_FIELD_ERROR';
 
-export const setError = (bool) => ({
-  type: SET_ERROR,
-  error: bool,
+export const setEmptyFieldError = (bool) => ({
+  type: EMPTY_FIELD_ERROR,
+  emptyFieldError: bool,
+});
+
+export const FIRSTNAME_ERROR = 'FIRSTNAME_ERROR';
+
+export const setFirstnameError = (bool) => ({
+  type: FIRSTNAME_ERROR,
+  firstnameError: bool,
+});
+
+export const LASTNAME_ERROR = 'LASTNAME_ERROR';
+
+export const setLastnameError = (bool) => ({
+  type: LASTNAME_ERROR,
+  lastnameError: bool,
 });
 
 export const CREATE_USER = 'CREATE_USER';
