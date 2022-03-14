@@ -21,20 +21,19 @@ const Inscription = () => {
   const lastname = useSelector((state) => state.signin.lastname);
   const logged = useSelector((state) => state.authentication.isUserLogged);
   const navigate = useNavigate();
-
   const submitted = useSelector((state) => state.signin.submitted);
 
-  // Redirection après login réussi
+  // Redirection after login successfull
   useEffect(() => {
     if (logged) {
       navigate('/');
     }
   });
 
-  // A la soumission du formulaire
+  // When form is submitted
   const handleSubmit = (event) => {
     event.preventDefault();
-    
+
     const emailInput = document.getElementById('emailInput');
     const passwordInput = document.getElementById('passwordInput');
     const firstnameInput = document.getElementById('firstnameInput');
@@ -45,39 +44,55 @@ const Inscription = () => {
     const firstnameError = document.getElementById('firstnameError');
     const lastnameError = document.getElementById('lastnameError');
 
-    // On affiche ou non une erreur e-mail
-    if (!emailInput.validity.valid) {
+    // Display email errors on submit
+    if (!emailInput.validity.valid && email !== '') {
       emailError.style.display = 'inline';
       emailError.innerHTML = 'Ceci n\'est pas une adresse e-mail valide';
+    }
+    else if (email === '') {
+      emailError.style.display = 'inline';
+      emailError.innerHTML = 'Le champ est vide';
     }
     else {
       emailError.style.display = 'none';
     }
 
-    // On affiche ou non une erreur password
-    if (!passwordInput.validity.valid) {
+    // Display password errors on submit
+    if (!passwordInput.validity.valid && password !== '') {
       passwordError.style.display = 'inline';
       passwordError.innerHTML = 'Doit contenir au moins un chiffre, une majuscule et un caractère spécial';
+    }
+    else if (password === '') {
+      passwordError.style.display = 'inline';
+      passwordError.innerHTML = 'Le champ est vide';
     }
     else {
       passwordError.innerHTML = '';
       passwordError.style.display = 'none';
     }
   
-    // On affiche ou non une erreur prénom
-    if (!firstnameInput.validity.valid) {
+    // Display firstname errors on submit
+    if (!firstnameInput.validity.valid && firstname !== '') {
       firstnameError.style.display = 'inline';
       firstnameError.innerHTML = 'Doit contenir au moins 2 caractères';
+    }
+    else if (firstname === '') {
+      firstnameError.style.display = 'inline';
+      firstnameError.innerHTML = 'Le champ est vide';
     }
     else {
       firstnameError.innerHTML = '';
       firstnameError.style.display = 'none';
     }
 
-    // On affiche ou non une erreur nom
-    if (!lastnameInput.validity.valid) {
+    // Display lastname errors on submit
+    if (!lastnameInput.validity.valid && lastname !== '') {
       lastnameError.style.display = 'inline';
       lastnameError.innerHTML = 'Doit contenir au moins 2 caractères';
+    }
+    else if (lastname === '') {
+      lastnameError.style.display = 'inline';
+      lastnameError.innerHTML = 'Le champ est vide';
     }
     else {
       lastnameError.innerHTML = '';
@@ -89,13 +104,18 @@ const Inscription = () => {
         passwordInput.validity.valid &&
         firstnameInput.validity.valid &&
         lastnameInput.validity.valid
-       ) {
+    ) {
       dispatch(setSubmitted(true));
       dispatch(setCreateUser());
+
+      // Redirection on home page after 3 seconds
+      setTimeout(() => {
+        navigate('/');
+      }, 3000);
     }
   };
 
-  // Si authentification réussie
+  // If authentication successful
   const successMessage = () => (
     <div
       className="success"
@@ -107,22 +127,52 @@ const Inscription = () => {
     </div>
   );
 
+  // Function that can display field error messages dynamically with onChange
+  const displayFieldChangeErrorMessage = (i, e, eM) => {
+    const input = document.getElementById(`${i}`);
+    const error = document.getElementById(`${e}`);
+
+    const currentInput = window[input.dataset.name];
+    const currentError = window[error.dataset.name];
+
+    if (currentInput.validity.valid) {
+      currentError.innerHTML = '';
+      currentError.style.display = 'none';
+    }
+    else if (!currentInput.validity.valid && currentInput.value !== '') {
+      currentError.innerHTML = '';
+      currentError.style.display = 'none';
+      currentError.innerHTML = eM;
+      currentError.style.display = 'inline';
+    }
+    else if (currentInput.value === '') {
+      currentError.innerHTML = '';
+      currentError.style.display = 'none';
+      currentError.innerHTML = 'Le champ est vide';
+      currentError.style.display = 'inline';
+    }
+  };
+
   const handleEmail = (event) => {
+    displayFieldChangeErrorMessage('emailInput', 'emailError', 'Ceci n\'est pas une adresse e-mail valide');
     dispatch(setEmail(event.target.value));
     dispatch(setSubmitted(false));
   };
 
   const handlePassword = (event) => {
+    displayFieldChangeErrorMessage('passwordInput', 'passwordError', 'Doit contenir au moins un chiffre, une majuscule et un caractère spécial');
     dispatch(setPassword(event.target.value));
     dispatch(setSubmitted(false));
   };
 
   const handleFirstname = (event) => {
+    displayFieldChangeErrorMessage('firstnameInput', 'firstnameError', 'Doit contenir au moins 2 caractères');
     dispatch(setFirstname(event.target.value));
     dispatch(setSubmitted(false));
   };
 
   const handleLastname = (event) => {
+    displayFieldChangeErrorMessage('lastnameInput', 'lastnameError', 'Doit contenir au moins 2 caractères');
     dispatch(setLastname(event.target.value));
     dispatch(setSubmitted(false));
   };
@@ -148,20 +198,20 @@ const Inscription = () => {
         )}
 
         <label className="signin_form__label" htmlFor="email">E-mail</label>
-        <input id="emailInput" className="signin_form__input" value={email} onChange={handleEmail} name="email" type="email" placeholder="Saisissez votre e-mail" required />
-        <span id="emailError" aria-live="polite"></span>
+        <input id="emailInput" className="signin_form__input" data-name="emailInput" value={email} onChange={handleEmail} name="email" type="email" placeholder="Saisissez votre e-mail" required />
+        <span id="emailError" data-name="emailError" aria-live="polite"></span>
 
         <label className="signin_form__label" htmlFor="password">Mot de passe</label>
-        <input id="passwordInput" className="signin_form__input" value={password} onChange={handlePassword} name="password" type="password" placeholder="Saisissez votre mot de passe" required pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[-+!*$@%_])([-+!*$@%_\w]{8,15})$" />
-        <span id="passwordError" aria-live="polite"></span>
+        <input id="passwordInput" className="signin_form__input" data-name="passwordInput" value={password} onChange={handlePassword} name="password" type="password" placeholder="Saisissez votre mot de passe" required pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[-+!*$@%_])([-+!*$@%_\w]{8,15})$" />
+        <span id="passwordError" data-name="passwordError" aria-live="polite"></span>
 
         <label className="signin_form__label" htmlFor="firstname">Prénom</label>
-        <input id="firstnameInput" className="signin_form__input" value={firstname} onChange={handleFirstname} name="firstname" type="text" placeholder="Saisissez votre prénom" required minLength="2" />
-        <span id="firstnameError" aria-live="polite"></span>
+        <input id="firstnameInput" className="signin_form__input" data-name="firstnameInput" value={firstname} onChange={handleFirstname} name="firstname" type="text" placeholder="Saisissez votre prénom" required minLength="2" />
+        <span id="firstnameError" data-name="firstnameError" aria-live="polite"></span>
 
-        <label className="signin_form__label" htmlFor="lastname">Nom</label>
-        <input id="lastnameInput" className="signin_form__input" value={lastname} onChange={handleLastname} name="lastname" type="text" placeholder="Saisissez votre nom" required minLength="2" />
-        <span id="lastnameError" aria-live="polite"></span>
+        <label className="signin_form__label" htmlFor="lastnameInput">Nom</label>
+        <input id="lastnameInput" className="signin_form__input" data-name="lastnameInput" value={lastname} onChange={handleLastname} name="lastnameInput" type="text" placeholder="Saisissez votre nom" required minLength="2" />
+        <span id="lastnameError" data-name="lastnameError" aria-live="polite"></span>
 
         <button className="signin_form__submit" type="submit">Sign In</button><br />
           
@@ -174,107 +224,3 @@ const Inscription = () => {
 };
 
 export default Inscription;
-
-
-// if (email === '' || password === '' || firstname === '' || lastname === '') {
-//   dispatch(setEmptyFieldError(true));
-// }
-// else {
-//   dispatch(setEmptyFieldError(false));
-
-//   if (firstname.length < 2) {
-//     dispatch(setFirstnameError(true));
-//   }
-//   else {
-//     dispatch(setFirstnameError(false));
-//     if (lastnameError === false) {
-//       dispatch(setSubmitted(true));
-//       dispatch(setCreateUser());
-//     }
-//   }
-//   if (lastname.length < 2) {
-//     dispatch(setLastnameError(true));
-//   }
-//   else {
-//     dispatch(setLastnameError(false));
-//     if (firstnameError === false) {
-//       dispatch(setSubmitted(true));
-//       dispatch(setCreateUser());
-//     }
-//   }
-// }
-
-
-// {lastnameError
-//   && (
-//   <div className="signin_form__error-message">
-//     {lastnameErrorMessage()}
-//   </div>
-//   )}
-
-//   {firstnameError
-//   && (
-//   <div className="signin_form__error-message">
-//     {firstnameErrorMessage()}
-//   </div>
-//   )}
-
-//   {emptyFieldError
-//   && (
-//   <div className="signin_form__error-message">
-//     {emptyFieldMessage()}
-//   </div>
-//   )}
-
-
-// // Si persiste des champs vides
-// const emptyFieldMessage = () => (
-//   <div
-//     className="error"
-//     style={{
-//       display: emptyFieldError ? '' : 'none',
-//     }}
-//   >
-//     <h1>Merci de remplir tous les champs</h1>
-//   </div>
-// );
-
-// // Si erreur champ firstname
-// const firstnameErrorMessage = () => (
-//   <div
-//     className="error"
-//     style={{
-//       display: firstnameError ? '' : 'none',
-//     }}
-//   >
-//     <h1>Le champ prénom doit contenir au moins 2 caractères</h1>
-//   </div>
-// );
-
-// // Si erreur champ lastname
-// const lastnameErrorMessage = () => (
-//   <div
-//     className="error"
-//     style={{
-//       display: lastnameError ? '' : 'none',
-//     }}
-//   >
-//     <h1>Le champ nom doit contenir au moins 2 caractères</h1>
-//   </div>
-// );
-
-// const firstnameError = useSelector((state) => state.signin.firstnameError);
-//   const lastnameError = useSelector((state) => state.signin.lastnameError);
-
-//   const emptyFieldError = useSelector((state) => state.signin.emptyFieldError);
-
-
-//setEmptyFieldError, setCreateUser, setFirstnameError, setLastnameError,
-
-
-//if (event.target.validity.valid) {
-
-  //   const emailError = document.querySelector('.emailError');
-
-  //   emailError.innerHTML = '';
-  //   emailError.className = 'emailError';
