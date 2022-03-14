@@ -21,12 +21,20 @@ export const saveFavorites = (destinations) => ({
   destinations,
 });
 
-// ACTION TYPE DELETE_FAVORITES
-export const DELETE_FAVORITES = 'DELETE_FAVORITES';
-// ACTION CREATOR deleteFavorites
-export const deleteFavorites = (destination) => ({
-  type: DELETE_FAVORITES,
+// ACTION TYPE DELETE_FAVORITE
+export const DELETE_FAVORITE = 'DELETE_FAVORITE';
+// ACTION CREATOR deleteFavorite
+export const deleteFavorite = (destination) => ({
+  type: DELETE_FAVORITE,
   destination,
+});
+
+// ACTION TYPE SAVE_NEW_FAVORITES
+export const SAVE_NEW_FAVORITES = 'SAVE_NEW_FAVORITES';
+// ACTION CREATOR saveNewFavorites
+export const saveNewFavorites = (destinations) => ({
+  type: SAVE_NEW_FAVORITES,
+  destinations,
 });
 
 // ACTION TYPE DELETE_PROFIL

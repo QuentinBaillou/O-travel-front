@@ -1,8 +1,9 @@
 /* eslint-disable no-console */
 import axiosInstance from 'src/axiosInstance';
 import {
-  GET_FAVORITES_DESTINATION, saveFavorites, SAVE_FAVORITES_DESTINATION, DELETE_FAVORITES,
+  GET_FAVORITES_DESTINATION, saveFavorites, SAVE_FAVORITES_DESTINATION, DELETE_FAVORITE,
   DELETE_PROFIL,
+  saveNewFavorites,
 } from 'src/actions/favoritesActions';
 import { logout } from 'src/actions/userActions';
 
@@ -41,7 +42,7 @@ const fetchFavorites = (store) => (next) => (action) => {
       next(action);
       break;
     }
-    case DELETE_FAVORITES: {
+    case DELETE_FAVORITE: {
       const { token } = store.getState().user;
       axiosInstance
         .post('api/remove/favoris', {
@@ -52,7 +53,12 @@ const fetchFavorites = (store) => (next) => (action) => {
           },
         })
         .then((response) => {
-          console.log('Then', response);
+          console.log(response);
+          const { destinations } = store.getState().favorites;
+          const newDestinations = destinations.filter(
+            (destination) => destination.id !== action.destination,
+          );
+          store.dispatch(saveNewFavorites(newDestinations));
         })
         .catch((error) => {
           (console.log(error.response));

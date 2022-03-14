@@ -7,7 +7,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import {
   Image, List, Button, Icon,
 } from 'semantic-ui-react';
-import { deleteFavorites, deleteProfil } from 'src/actions/favoritesActions';
+import { deleteFavorite, deleteProfil } from 'src/actions/favoritesActions';
 import { useNavigate } from 'react-router-dom';
 
 // == Composant
@@ -84,7 +84,7 @@ const Profil = () => {
                     <Button
                       onClick={
                         () => {
-                          dispatch(deleteFavorites(destination.id));
+                          dispatch(deleteFavorite(destination.id));
                         }
                       }
                       color="red"
