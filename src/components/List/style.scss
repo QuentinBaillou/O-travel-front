@@ -33,8 +33,6 @@
 
 .ui.cards {
   background-color: #446962;
-  display: flex;
-  justify-content: center;
   margin: auto;
   padding: 2em;
 }
@@ -53,6 +51,8 @@ div.header {
 .ui.cards>.card>.content {
   max-height: 300px;
   padding: 0;
+  display: flex;
+  justify-content: center;
 }
 
 .ui.cards>.card {

@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 
-import flag from 'src/assets/images/canada-svgrepo-com.svg';
+// import flag from 'src/assets/images/canada-svgrepo-com.svg';
 
 import { Card, Image } from 'semantic-ui-react';
 import { getDestinations } from 'src/actions/listActions';

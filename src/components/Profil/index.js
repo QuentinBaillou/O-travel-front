@@ -5,7 +5,9 @@ import './style.scss';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 
-import { Image, List, Button } from 'semantic-ui-react';
+import {
+  Image, List, Button, Icon,
+} from 'semantic-ui-react';
 import { getFavoritesDestination, deleteFavorites, deleteProfil } from 'src/actions/favoritesActions';
 import { useNavigate } from 'react-router-dom';
 
@@ -86,15 +88,30 @@ const Profil = () => {
                   <List.Description>
                     {destination.extract}
                   </List.Description>
-                  <Button
-                    onClick={
-                      () => {
-                        dispatch(deleteFavorites(destination.id));
+                  <Button.Group>
+                    <Button
+                      onClick={
+                        () => {
+                          dispatch(deleteFavorites(destination.id));
+                        }
                       }
-                    }
-                    color="red"
-                    icon="trash alternate"
-                  />
+                      color="red"
+                      animated
+                    >
+                      <Button.Content visible>Supprimer</Button.Content>
+                      <Button.Content hidden><Icon name="trash alternate" /></Button.Content>
+                    </Button>
+                    <Button
+                      color="green"
+                      onClick={() => {
+                        navigate(`/destinations/${destination.id}`);
+                      }}
+                      animated
+                    >
+                      <Button.Content visible>Aller au voyage</Button.Content>
+                      <Button.Content hidden><Icon name="arrow right" /></Button.Content>
+                    </Button>
+                  </Button.Group>
                 </List.Item>
               </div>
             ))}
