@@ -1,6 +1,6 @@
 import {
   // eslint-disable-next-line max-len
-  SET_EMAIL, SET_PASSWORD, SET_FIRSTNAME, SET_LASTNAME, SET_SUBMITTED, SET_ERROR,
+  SET_EMAIL, SET_PASSWORD, SET_FIRSTNAME, SET_LASTNAME, SET_SUBMITTED, EMPTY_FIELD_ERROR, FIRSTNAME_ERROR, LASTNAME_ERROR,
 } from 'src/actions/signin';
 
 const initialState = {
@@ -8,8 +8,10 @@ const initialState = {
   lastname: '',
   password: '',
   email: '',
-  submitted: false,
-  error: false,
+  submitted: null,
+  emptyFieldError: null,
+  firstnameError: null,
+  lastnameError: null,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -39,10 +41,20 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         submitted: action.submitted,
       };
-    case SET_ERROR:
+    case EMPTY_FIELD_ERROR:
       return {
         ...state,
-        error: action.error,
+        emptyFieldError: action.emptyFieldError,
+      };
+    case FIRSTNAME_ERROR:
+      return {
+        ...state,
+        firstnameError: action.firstnameError,
+      };
+    case LASTNAME_ERROR:
+      return {
+        ...state,
+        lastnameError: action.lastnameError,
       };
     default:
       return state;

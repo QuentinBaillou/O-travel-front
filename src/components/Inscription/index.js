@@ -5,10 +5,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import {
   setEmail, setPassword, setFirstname, setLastname,
-  setSubmitted, setError, setCreateUser,
+  setSubmitted, setCreateUser,
 } from 'src/actions/signin';
 import { Link } from 'react-router-dom';
-
 
 import './style.scss';
 import Lake from 'src/assets/images/postcard/lake.jpg';
@@ -24,39 +23,69 @@ const Inscription = () => {
   const lastname = useSelector((state) => state.signin.lastname);
   const logged = useSelector((state) => state.authentication.isUserLogged);
   const navigate = useNavigate();
-  const error = useSelector((state) => state.signin.error);
   const submitted = useSelector((state) => state.signin.submitted);
 
-  // Redirection after successfully logged, using useNavigate hook from react-router-dom
+  // Redirection after login successfull
   useEffect(() => {
     if (logged) {
       navigate('/');
     }
   });
 
-  // console.log(`Email : ${email}`);
-  // console.log(`Mot de passe : ${password}`);
-  // console.log(`Prénom : ${firstname}`);
-  // console.log(`Nom de famille : ${lastname}`);
-  // console.log(`Erreur : ${error}`);
-  // console.log(`Submitted : ${submitted}`);
-
-  console.log(firstnameError);
-
-  // A la soumission du formulaire
+  // When form is submitted
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (email === '' || password === '' || firstname === '' || lastname === '') {
-      dispatch(setError(true));
-    }
-    else {
+
+    const emailInput = document.getElementById('emailInput');
+    const passwordInput = document.getElementById('passwordInput');
+    const firstnameInput = document.getElementById('firstnameInput');
+    const lastnameInput = document.getElementById('lastnameInput');
+
+    const displayErrorMessagesOnSubmit = (i, e, eM) => {
+      const input = document.getElementById(`${i}`);
+      const error = document.getElementById(`${e}`);
+
+      const currentInput = window[input.dataset.name];
+      const currentError = window[error.dataset.name];
+
+      if (!currentInput.validity.valid && currentInput.value !== '') {
+        currentError.style.display = 'inline';
+        currentError.innerHTML = eM;
+      }
+      else if (currentInput.value === '') {
+        currentError.style.display = 'inline';
+        currentError.innerHTML = 'Le champ est vide';
+      }
+      else {
+        currentError.style.display = 'none';
+      }
+    };
+
+    // Display email errors on submit
+    displayErrorMessagesOnSubmit('emailInput', 'emailError', 'Ceci n\'est pas une adresse e-mail valide');
+
+    // Display password errors on submit
+    displayErrorMessagesOnSubmit('passwordInput', 'passwordError', 'Doit contenir au moins un chiffre, une majuscule et un caractère spécial');
+
+    // Display firstname errors on submit
+    displayErrorMessagesOnSubmit('firstnameInput', 'firstnameError', 'Doit contenir au moins 2 caractères');
+
+    // Display lastname errors on submit
+    displayErrorMessagesOnSubmit('lastnameInput', 'lastnameError', 'Doit contenir au moins 2 caractères');
+
+    // eslint-disable-next-line max-len
+    if (event && emailInput.validity.valid && passwordInput.validity.valid && firstnameInput.validity.valid && lastnameInput.validity.valid) {
       dispatch(setSubmitted(true));
-      dispatch(setError(false));
       dispatch(setCreateUser());
+
+      // Redirection on home page after 3 seconds
+      setTimeout(() => {
+        navigate('/');
+      }, 3000);
     }
   };
 
-  // Si authentification réussie
+  // If authentication successful
   const successMessage = () => (
     <div
       className="success"
@@ -68,34 +97,52 @@ const Inscription = () => {
     </div>
   );
 
-  // Si persiste des erreurs
-  const errorEmptyField = () => (
-    <div
-      className="error"
-      style={{
-        display: error ? '' : 'none',
-      }}
-    >
-      <h1>Merci de remplir tous les champs</h1>
-    </div>
-  );
+  // Function that can display field error messages dynamically with onChange
+  const displayFieldChangeErrorMessage = (i, e, eM) => {
+    const input = document.getElementById(`${i}`);
+    const error = document.getElementById(`${e}`);
+
+    const currentInput = window[input.dataset.name];
+    const currentError = window[error.dataset.name];
+
+    if (currentInput.validity.valid) {
+      currentError.innerHTML = '';
+      currentError.style.display = 'none';
+    }
+    else if (!currentInput.validity.valid && currentInput.value !== '') {
+      currentError.innerHTML = '';
+      currentError.style.display = 'none';
+      currentError.innerHTML = eM;
+      currentError.style.display = 'inline';
+    }
+    else if (currentInput.value === '') {
+      currentError.innerHTML = '';
+      currentError.style.display = 'none';
+      currentError.innerHTML = 'Le champ est vide';
+      currentError.style.display = 'inline';
+    }
+  };
 
   const handleEmail = (event) => {
+    displayFieldChangeErrorMessage('emailInput', 'emailError', 'Ceci n\'est pas une adresse e-mail valide');
     dispatch(setEmail(event.target.value));
     dispatch(setSubmitted(false));
   };
 
   const handlePassword = (event) => {
+    displayFieldChangeErrorMessage('passwordInput', 'passwordError', 'Doit contenir au moins un chiffre, une majuscule et un caractère spécial');
     dispatch(setPassword(event.target.value));
     dispatch(setSubmitted(false));
   };
 
   const handleFirstname = (event) => {
+    displayFieldChangeErrorMessage('firstnameInput', 'firstnameError', 'Doit contenir au moins 2 caractères');
     dispatch(setFirstname(event.target.value));
     dispatch(setSubmitted(false));
   };
 
   const handleLastname = (event) => {
+    displayFieldChangeErrorMessage('lastnameInput', 'lastnameError', 'Doit contenir au moins 2 caractères');
     dispatch(setLastname(event.target.value));
     dispatch(setSubmitted(false));
   };
@@ -111,14 +158,7 @@ const Inscription = () => {
 
       <h2 className="signin__title">Inscription</h2>
 
-      <form onSubmit={handleSubmit} className="signin_form">
-
-        {error
-        && (
-        <div className="signin_form__error-message">
-          {errorEmptyField()}
-        </div>
-        )}
+      <form onSubmit={handleSubmit} className="signin_form" noValidate>
 
         {submitted
         && (
@@ -128,45 +168,20 @@ const Inscription = () => {
         )}
 
         <label className="signin_form__label" htmlFor="email">E-mail</label>
-        <input
-          className="signin_form__input"
-          value={email}
-          onChange={handleEmail}
-          name="email"
-          id="email"
-          type="email"
-          placeholder="Saisissez votre e-mail"
-        />
+        <input id="emailInput" className="signin_form__input" data-name="emailInput" value={email} onChange={handleEmail} name="email" type="email" placeholder="Saisissez votre e-mail" required />
+        <span id="emailError" data-name="emailError" aria-live="polite"></span>
+
         <label className="signin_form__label" htmlFor="password">Mot de passe</label>
-        <input
-          className="signin_form__input"
-          value={password}
-          onChange={handlePassword}
-          name="password"
-          id="password"
-          type="password"
-          placeholder="Saisissez votre mot de passe"
-        />
+        <input id="passwordInput" className="signin_form__input" data-name="passwordInput" value={password} onChange={handlePassword} name="password" type="password" placeholder="Saisissez votre mot de passe" required pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[-+!*$@%_])([-+!*$@%_\w]{8,15})$" />
+        <span id="passwordError" data-name="passwordError" aria-live="polite"></span>
+
         <label className="signin_form__label" htmlFor="firstname">Prénom</label>
-        <input
-          className="signin_form__input"
-          value={firstname}
-          onChange={handleFirstname}
-          name="firstname"
-          id="firstname"
-          type="text"
-          placeholder="Saisissez votre prénom"
-        />
-        <label className="signin_form__label" htmlFor="lastname">Nom</label>
-        <input
-          className="signin_form__input"
-          value={lastname}
-          onChange={handleLastname}
-          name="lastname"
-          id="lastname"
-          type="text"
-          placeholder="Saisissez votre nom"
-        />
+        <input id="firstnameInput" className="signin_form__input" data-name="firstnameInput" value={firstname} onChange={handleFirstname} name="firstname" type="text" placeholder="Saisissez votre prénom" required minLength="2" />
+        <span id="firstnameError" data-name="firstnameError" aria-live="polite"></span>
+
+        <label className="signin_form__label" htmlFor="lastnameInput">Nom</label>
+        <input id="lastnameInput" className="signin_form__input" data-name="lastnameInput" value={lastname} onChange={handleLastname} name="lastnameInput" type="text" placeholder="Saisissez votre nom" required minLength="2" />
+        <span id="lastnameError" data-name="lastnameError" aria-live="polite"></span>
 
         <button className="signin_form__submit" type="submit">Sign In</button><br />
           

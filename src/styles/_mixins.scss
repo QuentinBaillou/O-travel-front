@@ -60,3 +60,12 @@
       background-color: #fff;
     }
 }
+
+@mixin form-error-message() {
+  display: none;
+  width: 100%;
+  padding: vars.$gutter * 0.5;
+  font-size: 0.8em;
+  color: white;
+  background-color: red;
+}
