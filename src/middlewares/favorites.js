@@ -9,7 +9,7 @@ import { logout } from 'src/actions/userActions';
 const fetchFavorites = (store) => (next) => (action) => {
   switch (action.type) {
     case GET_FAVORITES_DESTINATION: {
-      const { token } = store.getState().user;
+      const token = localStorage.getItem('token');
       axiosInstance
         .get('api/user/favoris/list', {
           headers: {

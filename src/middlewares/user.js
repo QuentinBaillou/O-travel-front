@@ -45,10 +45,11 @@ const userMiddleware = (store) => (next) => (action) => {
       break;
     }
 
-    case GET_LAST_USER:
+    case GET_LAST_USER: {
       // If there is a token in local storage, then pick it up
       if (localStorage.getItem('token')) {
         const token = localStorage.getItem('token');
+        console.log(token);
 
         // Retrieve user info from api thanks to jwt token
         axiosInstance
@@ -67,9 +68,9 @@ const userMiddleware = (store) => (next) => (action) => {
           });
       }
       next(action);
-      break;
+      break; }
 
-      /* case GET_NEW_PASSWORD:
+    /* case GET_NEW_PASSWORD:
       axiosInstance
         .post('email/resetpassword', {
           email: store.getState().user.email,
