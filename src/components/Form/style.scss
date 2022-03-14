@@ -173,7 +173,7 @@
 
 // MEDIA QUERIES
 @include display-form-desktop {
-  .form {
+  .main-form {
     width: 100%;
 
     &__legend:first-child {

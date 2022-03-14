@@ -1,5 +1,7 @@
 // == Import
-import { Routes, Route, Navigate } from 'react-router-dom';
+import {
+  Routes, Route, Navigate, useLocation,
+} from 'react-router-dom';
 
 import Header from 'src/components/Header';
 import List from 'src/components/List';
@@ -19,9 +21,14 @@ import { getLastUser } from 'src/actions/userActions';
 // == Composant
 const Otravel = () => {
   const dispatch = useDispatch();
+  const location = useLocation();
   useEffect(() => {
     dispatch(getLastUser());
   }, []);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
 
   return (
     <div className="otravel">
