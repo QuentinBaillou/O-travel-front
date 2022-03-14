@@ -3,12 +3,11 @@
 import './style.scss';
 
 import { useSelector, useDispatch } from 'react-redux';
-import { useEffect } from 'react';
 
 import {
   Image, List, Button, Icon,
 } from 'semantic-ui-react';
-import { getFavoritesDestination, deleteFavorites, deleteProfil } from 'src/actions/favoritesActions';
+import { deleteFavorites, deleteProfil } from 'src/actions/favoritesActions';
 import { useNavigate } from 'react-router-dom';
 
 // == Composant
@@ -16,12 +15,6 @@ const Profil = () => {
   const dispatch = useDispatch();
 
   const navigate = useNavigate();
-
-  useEffect(
-    () => {
-      dispatch(getFavoritesDestination());
-    }, [],
-  );
 
   const destinations = useSelector((state) => state.favorites.destinations);
   const firstname = useSelector((state) => state.user.firstname);

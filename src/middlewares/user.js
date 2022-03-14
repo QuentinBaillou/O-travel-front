@@ -4,6 +4,7 @@ import {
   // GET_NEW_PASSWORD,
 } from 'src/actions/userActions';
 import axiosInstance from 'src/axiosInstance';
+import { getFavoritesDestination } from 'src/actions/favoritesActions';
 
 const userMiddleware = (store) => (next) => (action) => {
   const userState = store.getState().user;
@@ -24,6 +25,7 @@ const userMiddleware = (store) => (next) => (action) => {
           const { email, firstname, lastname } = response.data.data;
 
           store.dispatch(saveUserInfo(email, firstname, lastname, token));
+          store.dispatch(getFavoritesDestination());
         })
         .catch((error) => {
           console.log(error.response);
@@ -62,6 +64,7 @@ const userMiddleware = (store) => (next) => (action) => {
             console.log(response);
             const { email, firstname, lastname } = response.data;
             store.dispatch(saveUserInfo(email, firstname, lastname, token));
+            store.dispatch(getFavoritesDestination());
           })
           .catch((error) => {
             console.log(error);
