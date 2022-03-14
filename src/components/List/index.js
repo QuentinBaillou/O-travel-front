@@ -9,8 +9,8 @@ import flag from 'src/assets/images/canada-svgrepo-com.svg';
 
 import { Card, Image, Pagination } from 'semantic-ui-react';
 import { getDestinations } from 'src/actions/listActions';
-import Loading from '../Loading';
 import { saveFavoritesDestination } from 'src/actions/favoritesActions';
+import Loading from '../Loading';
 
 // == Composant
 const List = () => {
@@ -62,14 +62,6 @@ const List = () => {
             </Card>
           ))}
         </Card.Group>
-        <Pagination
-          defaultActivePage={1}
-          firstItem={null}
-          lastItem={null}
-          pointing
-          secondary
-          totalPages={3}
-        />
       </>
       )}
     </div>

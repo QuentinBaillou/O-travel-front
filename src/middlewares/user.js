@@ -100,10 +100,10 @@ const userMiddleware = (store) => (next) => (action) => {
       const state = store.getState();
       axiosInstance
         .post('api/user/form', {
-          firstname: state.signin.firstname,
-          lastname: state.signin.lastname,
-          email: state.signin.email,
-          password: state.signin.password,
+          firstname: state.user.firstname,
+          lastname: state.user.lastname,
+          email: state.user.email,
+          password: state.user.password,
         })
         .then((response) => {
           console.log(response);

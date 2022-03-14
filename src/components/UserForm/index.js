@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { setFormField } from 'src/actions/userActions';
 import Login from './Login';
-import ForgottenPassword from './ForgottenPassword';
+// import ForgottenPassword from './ForgottenPassword';
 import './style.scss';
 
 const AuthenticationForm = ({ shape }) => {
@@ -20,7 +20,7 @@ const AuthenticationForm = ({ shape }) => {
     <div className="form-wrapper">
       <h2 className="form-wrapper__title">{setTitle()}</h2>
       {shape === 'login' && <Login handleChange={handleChange} />}
-      {shape === 'forgotten-password' && <ForgottenPassword handleChange={handleChange} />}
+      {/* {shape === 'forgotten-password' && <ForgottenPassword handleChange={handleChange} />} */}
     </div>
   );
 };
