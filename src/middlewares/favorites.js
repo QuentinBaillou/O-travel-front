@@ -2,7 +2,7 @@
 import axiosInstance from 'src/axiosInstance';
 import {
   GET_FAVORITES_DESTINATION, saveFavorites, SAVE_FAVORITES_DESTINATION, DELETE_FAVORITES,
-  DELETE_PROFIL
+  DELETE_PROFIL,
 } from 'src/actions/favoritesActions';
 import { logout } from 'src/actions/userActions';
 
@@ -32,9 +32,6 @@ const fetchFavorites = (store) => (next) => (action) => {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`,
           },
-        })
-        .then((response) => {
-          console.log(response);
         })
         .catch((error) => {
           (console.log(error));

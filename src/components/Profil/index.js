@@ -18,7 +18,7 @@ const Profil = () => {
   useEffect(
     () => {
       dispatch(getFavoritesDestination());
-    },
+    }, [],
   );
 
   const destinations = useSelector((state) => state.favorites.destinations);
@@ -79,7 +79,7 @@ const Profil = () => {
               <div className="favorites-card" key={destination.id}>
                 <Image
                   src={destination.picture}
-                  size="medium"
+                  size="large"
                 />
                 <List.Item>
                   <List.Content>{destination.surname}, {destination.state}</List.Content>

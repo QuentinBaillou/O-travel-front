@@ -7,7 +7,7 @@ import { useEffect } from 'react';
 
 import flag from 'src/assets/images/canada-svgrepo-com.svg';
 
-import { Card, Image, Pagination } from 'semantic-ui-react';
+import { Card, Image } from 'semantic-ui-react';
 import { getDestinations } from 'src/actions/listActions';
 import { saveFavoritesDestination } from 'src/actions/favoritesActions';
 import Loading from '../Loading';
@@ -22,6 +22,10 @@ const List = () => {
     },
     [],
   );
+
+  useEffect(() => {
+    console.log('List change');
+  });
 
   const destinations = useSelector((state) => state.list.destinations);
 
