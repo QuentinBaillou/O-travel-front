@@ -39,72 +39,40 @@ const Inscription = () => {
     const firstnameInput = document.getElementById('firstnameInput');
     const lastnameInput = document.getElementById('lastnameInput');
 
-    const emailError = document.getElementById('emailError');
-    const passwordError = document.getElementById('passwordError');
-    const firstnameError = document.getElementById('firstnameError');
-    const lastnameError = document.getElementById('lastnameError');
+    const displayErrorMessagesOnSubmit = (i, e, eM) => {
+      const input = document.getElementById(`${i}`);
+      const error = document.getElementById(`${e}`);
+
+      const currentInput = window[input.dataset.name];
+      const currentError = window[error.dataset.name];
+
+      if (!currentInput.validity.valid && currentInput.value !== '') {
+        currentError.style.display = 'inline';
+        currentError.innerHTML = eM;
+      }
+      else if (currentInput.value === '') {
+        currentError.style.display = 'inline';
+        currentError.innerHTML = 'Le champ est vide';
+      }
+      else {
+        currentError.style.display = 'none';
+      }
+    };
 
     // Display email errors on submit
-    if (!emailInput.validity.valid && email !== '') {
-      emailError.style.display = 'inline';
-      emailError.innerHTML = 'Ceci n\'est pas une adresse e-mail valide';
-    }
-    else if (email === '') {
-      emailError.style.display = 'inline';
-      emailError.innerHTML = 'Le champ est vide';
-    }
-    else {
-      emailError.style.display = 'none';
-    }
+    displayErrorMessagesOnSubmit('emailInput', 'emailError', 'Ceci n\'est pas une adresse e-mail valide');
 
     // Display password errors on submit
-    if (!passwordInput.validity.valid && password !== '') {
-      passwordError.style.display = 'inline';
-      passwordError.innerHTML = 'Doit contenir au moins un chiffre, une majuscule et un caractère spécial';
-    }
-    else if (password === '') {
-      passwordError.style.display = 'inline';
-      passwordError.innerHTML = 'Le champ est vide';
-    }
-    else {
-      passwordError.innerHTML = '';
-      passwordError.style.display = 'none';
-    }
-  
+    displayErrorMessagesOnSubmit('passwordInput', 'passwordError', 'Doit contenir au moins un chiffre, une majuscule et un caractère spécial');
+
     // Display firstname errors on submit
-    if (!firstnameInput.validity.valid && firstname !== '') {
-      firstnameError.style.display = 'inline';
-      firstnameError.innerHTML = 'Doit contenir au moins 2 caractères';
-    }
-    else if (firstname === '') {
-      firstnameError.style.display = 'inline';
-      firstnameError.innerHTML = 'Le champ est vide';
-    }
-    else {
-      firstnameError.innerHTML = '';
-      firstnameError.style.display = 'none';
-    }
+    displayErrorMessagesOnSubmit('firstnameInput', 'firstnameError', 'Doit contenir au moins 2 caractères');
 
     // Display lastname errors on submit
-    if (!lastnameInput.validity.valid && lastname !== '') {
-      lastnameError.style.display = 'inline';
-      lastnameError.innerHTML = 'Doit contenir au moins 2 caractères';
-    }
-    else if (lastname === '') {
-      lastnameError.style.display = 'inline';
-      lastnameError.innerHTML = 'Le champ est vide';
-    }
-    else {
-      lastnameError.innerHTML = '';
-      lastnameError.style.display = 'none';
-    }
+    displayErrorMessagesOnSubmit('lastnameInput', 'lastnameError', 'Doit contenir au moins 2 caractères');
 
-    if (event &&
-        emailInput.validity.valid &&
-        passwordInput.validity.valid &&
-        firstnameInput.validity.valid &&
-        lastnameInput.validity.valid
-    ) {
+    // eslint-disable-next-line max-len
+    if (event && emailInput.validity.valid && passwordInput.validity.valid && firstnameInput.validity.valid && lastnameInput.validity.valid) {
       dispatch(setSubmitted(true));
       dispatch(setCreateUser());
 
