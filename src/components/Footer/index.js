@@ -6,7 +6,7 @@ const Footer = () => (
   <div className="footer">
     <List horizontal>
       <List.Item href="/mentions-legales">Mentions légales</List.Item>
-      <List.Item href="#">Conditions d'utilisation</List.Item>
+      <List.Item href="/contact">Contactez-nous</List.Item>
     </List>
     <List>
       <List.Item>© O'Travel 2022, Inc.</List.Item>
