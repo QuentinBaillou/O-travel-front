@@ -2,12 +2,11 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import {
   setEmail, setPassword, setFirstname, setLastname,
-  setSubmitted, setCreateUser,
-} from 'src/actions/signin';
-import { Link } from 'react-router-dom';
+  setSubmitted, setError, setCreateUser,
+} from 'src/actions/userActions';
 
 import './style.scss';
 import Lake from 'src/assets/images/postcard/lake.jpg';
@@ -17,13 +16,15 @@ import Beach from 'src/assets/images/postcard/beach.jpg';
 const Inscription = () => {
   const dispatch = useDispatch();
 
-  const email = useSelector((state) => state.signin.email);
-  const password = useSelector((state) => state.signin.password);
-  const firstname = useSelector((state) => state.signin.firstname);
-  const lastname = useSelector((state) => state.signin.lastname);
-  const logged = useSelector((state) => state.authentication.isUserLogged);
+  const email = useSelector((state) => state.user.email);
+  const password = useSelector((state) => state.user.password);
+  const firstname = useSelector((state) => state.user.firstname);
+  const lastname = useSelector((state) => state.user.lastname);
+  const logged = useSelector((state) => state.user.isUserLogged);
   const navigate = useNavigate();
-  const submitted = useSelector((state) => state.signin.submitted);
+
+  const error = useSelector((state) => state.user.error);
+  const submitted = useSelector((state) => state.user.submitted);
 
   // Redirection after login successfull
   useEffect(() => {

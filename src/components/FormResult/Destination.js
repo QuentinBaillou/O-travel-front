@@ -9,7 +9,7 @@ const Destination = ({
 }) => (
   <div className="destination">
     <Link to={`/destinations/${id}`}><img src={picture} alt={surname} className="destination__picture" /></Link>
-    <div className="content">
+    <div className="destination__content">
       <Link to={`/destinations/${id}`}>
         <h3 className="destination__surname">{surname}</h3>
       </Link>

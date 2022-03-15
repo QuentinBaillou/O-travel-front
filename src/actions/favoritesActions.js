@@ -12,3 +12,35 @@ export const saveFavoritesDestination = (destination) => ({
   type: SAVE_FAVORITES_DESTINATION,
   destination,
 });
+
+// ACTION TYPE SAVE_FAVORITES
+export const SAVE_FAVORITES = 'SAVE_FAVORITES';
+// ACTION CREATOR saveFavorites
+export const saveFavorites = (destinations) => ({
+  type: SAVE_FAVORITES,
+  destinations,
+});
+
+// ACTION TYPE DELETE_FAVORITE
+export const DELETE_FAVORITE = 'DELETE_FAVORITE';
+// ACTION CREATOR deleteFavorite
+export const deleteFavorite = (destination) => ({
+  type: DELETE_FAVORITE,
+  destination,
+});
+
+// ACTION TYPE SAVE_NEW_FAVORITES
+export const SAVE_NEW_FAVORITES = 'SAVE_NEW_FAVORITES';
+// ACTION CREATOR saveNewFavorites
+export const saveNewFavorites = (destinations) => ({
+  type: SAVE_NEW_FAVORITES,
+  destinations,
+});
+
+// ACTION TYPE DELETE_PROFIL
+export const DELETE_PROFIL = 'DELETE_PROFIL';
+// ACTION CREATOR deleteProfil
+export const deleteProfil = (destination) => ({
+  type: DELETE_PROFIL,
+  destination,
+});

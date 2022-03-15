@@ -9,12 +9,12 @@ const dataFetchingMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case GET_FORM_ELEMENTS:
       axiosInstance
-        .get(action.field)
+        .get(`api/${action.field}`)
         .then((response) => {
           store.dispatch(setFormElements(action.field, response.data));
         })
         .catch((error) => {
-          console.log('erreur : ', error);
+          console.log(error.response);
         });
       next(action);
       break;
@@ -22,7 +22,7 @@ const dataFetchingMiddleware = (store) => (next) => (action) => {
     case SEND_DESTINATION_FORM: {
       const state = store.getState();
       axiosInstance
-        .post('destinations/form', {
+        .post('api/destinations/form', {
           selectedLandscapes: state.form.landscapesSelected,
           selectedTransports: state.form.transportsSelected,
           selectedSeasons: state.form.seasonsSelected,

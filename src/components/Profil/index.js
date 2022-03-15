@@ -1,28 +1,25 @@
+/* eslint-disable no-console */
 // == Import
 import './style.scss';
 
 import { useSelector, useDispatch } from 'react-redux';
-import { useEffect } from 'react';
 
-import { Image, List, Button } from 'semantic-ui-react';
-import { getFavoritesDestination } from 'src/actions/favoritesActions';
+import {
+  Image, List, Button, Icon,
+} from 'semantic-ui-react';
+import { deleteFavorite, deleteProfil } from 'src/actions/favoritesActions';
+import { useNavigate } from 'react-router-dom';
 
 // == Composant
 const Profil = () => {
   const dispatch = useDispatch();
 
-  useEffect(
-    () => {
-      dispatch(getFavoritesDestination());
-    },
-    [],
-  );
+  const navigate = useNavigate();
 
   const destinations = useSelector((state) => state.favorites.destinations);
-  const firstname = useSelector((state) => state.authentication.firstname);
-  const lastname = useSelector((state) => state.authentication.lastname);
-  const email = useSelector((state) => state.authentication.email);
-
+  const firstname = useSelector((state) => state.user.firstname);
+  const lastname = useSelector((state) => state.user.lastname);
+  const email = useSelector((state) => state.user.email);
   console.table(destinations);
 
   return (
@@ -56,29 +53,63 @@ const Profil = () => {
           </List.Item>
         </div>
         <div className="profil-button">
-          <Button color="blue">Créer/Modifier</Button>
-          <Button color="blue">Changer mot de passe</Button>
+          <Button
+            onClick={
+              () => {
+                dispatch(deleteProfil());
+                navigate('/');
+              }
+            }
+            color="red"
+          >
+            Supprimer mon profil
+          </Button>
         </div>
       </List>
-      <div className="favorites">
-        <h2 className="favorites-title">Listes favoris</h2>
-        <List className="favorites-list">
-          <Image
-            src="https://react.semantic-ui.com/images/avatar/large/daniel.jpg"
-            size="medium"
-          />
-          <List.Item>
-            <List.Content>New York, NY</List.Content>
-            <List.Description>
-              An excellent polish restaurant, quick delivery and hearty, filling
-              meals.excellent polish restaurant, quick delivery and hearty, filling
-              meals.excellent polish restaurant, quick delivery and hearty, filling
-              meals.
-            </List.Description>
-            <Button color="red" icon="trash alternate" />
-          </List.Item>
-        </List>
-      </div>
+      {true && (
+        <div className="favorites">
+          <h2 className="favorites-title">Listes favoris</h2>
+          <List className="favorites-list">
+            {destinations.map((destination) => (
+              <div className="favorites-card" key={destination.id}>
+                <Image
+                  src={destination.picture}
+                />
+                <List.Item>
+                  <List.Content>{destination.surname}, {destination.state}</List.Content>
+                  <List.Description>
+                    {destination.extract}
+                  </List.Description>
+                  <Button.Group>
+                    <Button
+                      onClick={
+                        () => {
+                          dispatch(deleteFavorite(destination.id));
+                        }
+                      }
+                      color="red"
+                      animated="fade"
+                    >
+                      <Button.Content visible>Supprimer</Button.Content>
+                      <Button.Content hidden><Icon name="trash alternate" /></Button.Content>
+                    </Button>
+                    <Button
+                      color="green"
+                      onClick={() => {
+                        navigate(`/destinations/${destination.id}`);
+                      }}
+                      animated="fade"
+                    >
+                      <Button.Content visible>Détails</Button.Content>
+                      <Button.Content hidden><Icon name="arrow right" /></Button.Content>
+                    </Button>
+                  </Button.Group>
+                </List.Item>
+              </div>
+            ))}
+          </List>
+        </div>
+      )}
     </div>
   );
 };

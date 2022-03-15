@@ -1,4 +1,4 @@
-import { SAVE_FAVORITES_DESTINATION } from '../actions/favoritesActions';
+import { SAVE_FAVORITES, SAVE_NEW_FAVORITES } from '../actions/favoritesActions';
 
 const initialState = {
   destinations: [],
@@ -6,7 +6,13 @@ const initialState = {
 
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
-    case SAVE_FAVORITES_DESTINATION:
+    case SAVE_FAVORITES:
+      return {
+        ...state,
+        destinations: action.destinations,
+      };
+
+    case SAVE_NEW_FAVORITES:
       return {
         ...state,
         destinations: action.destinations,
