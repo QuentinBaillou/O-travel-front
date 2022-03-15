@@ -71,21 +71,6 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         submitted: action.submitted,
       };
-    case EMPTY_FIELD_ERROR:
-      return {
-        ...state,
-        emptyFieldError: action.emptyFieldError,
-      };
-    case FIRSTNAME_ERROR:
-      return {
-        ...state,
-        firstnameError: action.firstnameError,
-      };
-    case LASTNAME_ERROR:
-      return {
-        ...state,
-        lastnameError: action.lastnameError,
-      };
 
     case LOGOUT:
       return { ...initialState };
