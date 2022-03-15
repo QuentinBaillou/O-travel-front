@@ -42,6 +42,11 @@ const Destination = ({
     }
   };
 
+  useEffect(() => {
+    console.log('montage');
+    console.log(favorites);
+  });
+
   return (
     <div className="destination">
       {buttonDisplay()}

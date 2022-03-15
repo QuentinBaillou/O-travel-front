@@ -61,11 +61,7 @@ const fetchFavorites = (store) => (next) => (action) => {
         })
         .then(() => {
           console.log('favoris supprimé en BDD');
-          const { destinations } = store.getState().favorites;
-          const newDestinations = destinations.filter(
-            (destination) => destination.id !== action.destination,
-          );
-          store.dispatch(saveFavorites(newDestinations));
+          store.dispatch(getFavoritesDestination());
         })
         .catch((error) => {
           (console.log(error.response));
