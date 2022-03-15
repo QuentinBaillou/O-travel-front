@@ -1,24 +1,67 @@
+/* eslint-disable consistent-return */
 import PropTypes from 'prop-types';
+import { useSelector, useDispatch } from 'react-redux';
+import { saveFavoritesDestination, deleteFavorite } from 'src/actions/favoritesActions';
 
 import { Link } from 'react-router-dom';
 
 import './style.scss';
+import { useEffect } from 'react';
 
 const Destination = ({
   picture, surname, extract, pros, price_per_night: pricePerNight, id,
-}) => (
-  <div className="destination">
-    <Link to={`/destinations/${id}`}><img src={picture} alt={surname} className="destination__picture" /></Link>
-    <div className="destination__content">
-      <Link to={`/destinations/${id}`}>
-        <h3 className="destination__surname">{surname}</h3>
-      </Link>
-      <p className="destination__extract">Résumé : <span>{extract}</span></p>
-      <p className="destination__pros">Point fort : <span>{pros}</span></p>
-      <p className="destination__price">Prix par personnes : {pricePerNight}</p>
+}) => {
+  const dispatch = useDispatch();
+  const logged = useSelector((state) => state.user.isUserLogged);
+  const favorites = useSelector((state) => state.favorites.destinations);
+
+  const buttonDisplay = () => {
+    if (logged) {
+      if (favorites.find((favorite) => favorite.id === parseInt(id))) {
+        return (
+          <button
+            type="button"
+            className="destination__add"
+            onClick={() => {
+              dispatch(deleteFavorite(id));
+            }}
+          >Retirer des favoris
+          </button>
+        );
+      }
+      return (
+        <button
+          type="button"
+          className="destination__add"
+          onClick={() => {
+            dispatch(saveFavoritesDestination(id));
+          }}
+        >Ajouter au favoris
+        </button>
+      );
+    }
+  };
+
+  useEffect(() => {
+    console.log('montage');
+    console.log(favorites);
+  });
+
+  return (
+    <div className="destination">
+      {buttonDisplay()}
+      <Link to={`/destinations/${id}`}><img src={picture} alt={surname} className="destination__picture" /></Link>
+      <div className="destination__content">
+        <Link to={`/destinations/${id}`}>
+          <h3 className="destination__surname">{surname}</h3>
+        </Link>
+        <p className="destination__extract">Résumé : <span>{extract}</span></p>
+        <p className="destination__pros">Point fort : <span>{pros}</span></p>
+        <p className="destination__price">Prix par personnes : {pricePerNight}</p>
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 Destination.propTypes = {
   picture: PropTypes.string.isRequired,

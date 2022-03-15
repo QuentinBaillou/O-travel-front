@@ -6,6 +6,7 @@
   justify-content: center;
   align-items: center;
   align-self: center;
+  margin: 2rem 0;
   border-radius: 20px;
   width: 50%;
   height: 550px;
@@ -29,6 +30,7 @@
 .destination {
   display: flex;
   align-items: center;
+  position: relative;
   gap: 1rem;
   width: 100%;
   padding: vars.$gutter;
@@ -36,6 +38,23 @@
   background-color: rgba($color: #000, $alpha: 0.5);
   margin-bottom: vars.$gutter;
   color: vars.$lightest-color;
+
+  &__add {
+    position: absolute;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    border: none;
+    bottom: 5px;
+    right: 5px;
+    color: #000;
+    text-align: center;
+    background-color: vars.$titles-box-and-buttons-color;
+    overflow: hidden;
+
+    &:hover {
+      background-color: darken(vars.$titles-box-and-buttons-color, 5%);
+    }
+  }
 
   &:last-child {
     margin-bottom: 0;
