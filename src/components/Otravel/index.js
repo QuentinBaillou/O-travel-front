@@ -12,6 +12,7 @@ import UserForm from 'src/components/UserForm';
 import Profil from 'src/components/Profil';
 import Inscription from 'src/components/Inscription';
 import LegalNotice from 'src/components/LegalNotice';
+import Contact from 'src/components/Contact';
 
 import './style.scss';
 import Destination from 'src/components/Destination';
@@ -51,6 +52,7 @@ const Otravel = () => {
         <Route path="/profile" element={<Profil />} />
         <Route path="/inscription" element={<Inscription />} />
         <Route path="/mentions-legales" element={<LegalNotice />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
       <Footer />
     </div>
