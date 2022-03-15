@@ -11,6 +11,7 @@ import NotFound from 'src/components/NotFound';
 import UserForm from 'src/components/UserForm';
 import Profil from 'src/components/Profil';
 import Inscription from 'src/components/Inscription';
+import LegalNotice from 'src/components/LegalNotice';
 
 import './style.scss';
 import Destination from 'src/components/Destination';
@@ -49,6 +50,7 @@ const Otravel = () => {
         <Route path="/logout" element={<Navigate to="/" />} />
         <Route path="/profile" element={<Profil />} />
         <Route path="/inscription" element={<Inscription />} />
+        <Route path="/mentions-legales" element={<LegalNotice />} />
       </Routes>
       <Footer />
     </div>

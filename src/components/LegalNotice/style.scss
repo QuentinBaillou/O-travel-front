@@ -1,0 +1,41 @@
+.notice {
+  padding: 2em 0;
+  position: relative;
+}
+
+.notice-title {
+  background-color: hsl(42deg 69% 61%);
+  height: 2em;
+  width: 16rem;
+  font-size: 1.3em;
+  padding: 0.8rem;
+  margin: 2rem;
+  position: absolute;
+  font-weight: bold;
+  color: #446962;
+  text-transform: uppercase;
+  top: 0.8rem;
+}
+
+.notice-content {
+  background-color: #446962;
+  margin: auto;
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+}
+
+.notice-title-text{
+  font-size: 1.6em;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: underline;
+  padding: 1em 0;
+  color: white;
+}
+
+.notice-text{
+  font-size: 1.2em;
+  color: white;
+  padding: 1em 1.5em ;
+}
