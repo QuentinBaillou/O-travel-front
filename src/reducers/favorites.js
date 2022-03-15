@@ -1,4 +1,4 @@
-import { SAVE_FAVORITES, SAVE_NEW_FAVORITES } from '../actions/favoritesActions';
+import { SAVE_FAVORITES } from '../actions/favoritesActions';
 
 const initialState = {
   destinations: [],

@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate, Link } from 'react-router-dom';
 import {
   setEmail, setPassword, setFirstname, setLastname,
-  setSubmitted, setError, setCreateUser,
+  setSubmitted, setCreateUser,
 } from 'src/actions/userActions';
 
 import './style.scss';
@@ -23,28 +23,16 @@ const Inscription = () => {
   const logged = useSelector((state) => state.user.isUserLogged);
   const navigate = useNavigate();
 
-  const error = useSelector((state) => state.user.error);
   const submitted = useSelector((state) => state.user.submitted);
 
-  // Redirection after login successfull
+  // Redirection after login successful
   useEffect(() => {
     if (logged) {
       navigate('/');
     }
   });
 
-<<<<<<< HEAD
   // When form is submitted
-=======
-  // console.log(`Email : ${email}`);
-  // console.log(`Mot de passe : ${password}`);
-  // console.log(`Prénom : ${firstname}`);
-  // console.log(`Nom de famille : ${lastname}`);
-  // console.log(`Erreur : ${error}`);
-  // console.log(`Submitted : ${submitted}`);
-
-  // At form submit
->>>>>>> Comment
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -97,11 +85,7 @@ const Inscription = () => {
     }
   };
 
-<<<<<<< HEAD
   // If authentication successful
-=======
-  // If successful authentication
->>>>>>> Comment
   const successMessage = () => (
     <div
       className="success"
@@ -113,7 +97,6 @@ const Inscription = () => {
     </div>
   );
 
-<<<<<<< HEAD
   // Function that can display field error messages dynamically with onChange
   const displayFieldChangeErrorMessage = (i, e, eM) => {
     const input = document.getElementById(`${i}`);
@@ -139,19 +122,6 @@ const Inscription = () => {
       currentError.style.display = 'inline';
     }
   };
-=======
-  // If there is still error
-  const errorMessage = () => (
-    <div
-      className="error"
-      style={{
-        display: error ? '' : 'none',
-      }}
-    >
-      <h1>Merci de remplir tous les champs</h1>
-    </div>
-  );
->>>>>>> Comment
 
   const handleEmail = (event) => {
     displayFieldChangeErrorMessage('emailInput', 'emailError', 'Ceci n\'est pas une adresse e-mail valide');
@@ -199,22 +169,22 @@ const Inscription = () => {
 
         <label className="signin_form__label" htmlFor="email">E-mail</label>
         <input id="emailInput" className="signin_form__input" data-name="emailInput" value={email} onChange={handleEmail} name="email" type="email" placeholder="Saisissez votre e-mail" required />
-        <span id="emailError" data-name="emailError" aria-live="polite"></span>
+        <span id="emailError" data-name="emailError" aria-live="polite" />
 
         <label className="signin_form__label" htmlFor="password">Mot de passe</label>
         <input id="passwordInput" className="signin_form__input" data-name="passwordInput" value={password} onChange={handlePassword} name="password" type="password" placeholder="Saisissez votre mot de passe" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,}$" />
-        <span id="passwordError" data-name="passwordError" aria-live="polite"></span>
+        <span id="passwordError" data-name="passwordError" aria-live="polite" />
 
         <label className="signin_form__label" htmlFor="firstname">Prénom</label>
         <input id="firstnameInput" className="signin_form__input" data-name="firstnameInput" value={firstname} onChange={handleFirstname} name="firstname" type="text" placeholder="Saisissez votre prénom" required minLength="2" />
-        <span id="firstnameError" data-name="firstnameError" aria-live="polite"></span>
+        <span id="firstnameError" data-name="firstnameError" aria-live="polite" />
 
         <label className="signin_form__label" htmlFor="lastnameInput">Nom</label>
         <input id="lastnameInput" className="signin_form__input" data-name="lastnameInput" value={lastname} onChange={handleLastname} name="lastnameInput" type="text" placeholder="Saisissez votre nom" required minLength="2" />
-        <span id="lastnameError" data-name="lastnameError" aria-live="polite"></span>
+        <span id="lastnameError" data-name="lastnameError" aria-live="polite" />
 
         <button className="signin_form__submit" type="submit">Sign In</button><br />
-          
+
         <Link to="/login"><span className="signin_form__already">Vous avez déjà un compte ?</span></Link>
 
       </form>
