@@ -11,12 +11,6 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         destinations: action.destinations,
       };
-
-    case SAVE_NEW_FAVORITES:
-      return {
-        ...state,
-        destinations: action.destinations,
-      };
     default:
       return state;
   }
