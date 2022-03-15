@@ -1,10 +1,12 @@
+@use 'src/styles/vars';
+
 .trip-list {
   padding: 2em 0;
   position: relative;
 }
 
 .trip-title {
-  background-color: hsl(42deg 69% 61%);
+  background-color: vars.$titles-box-and-buttons-color;
   height: 2em;
   width: 16rem;
   font-size: 1.3em;
@@ -12,7 +14,7 @@
   margin: 2rem;
   position: absolute;
   font-weight: bold;
-  color: #446962;
+  color: vars.$main-block-and-fonts-color;
   text-transform: uppercase;
   top: 0.8rem;
 }
@@ -22,9 +24,10 @@
   justify-content: center;
 
   & .ui.image {
-  max-width: initial;
-  height: 300px;
-}}
+    max-width: initial;
+    height: 300px;
+  }
+}
 
 .ui.mini.image {
   position: absolute;
@@ -32,15 +35,39 @@
 }
 
 .ui.cards {
-  background-color: #446962;
+  background-color: vars.$main-block-and-fonts-color;
   margin: auto;
   padding: 2em;
   justify-content: center;
+
+  & .favorite {
+    & a.label {
+      color: vars.$titles-box-and-buttons-color;
+
+      &:hover {
+        color: rgba($color: vars.$darkest-color, $alpha: 0.6);
+      }
+    }
+
+    & a.label .icon {
+      cursor: pointer;
+    }
+  }
+
+  & .not-favorite {
+    & a.label:hover {
+      color: vars.$titles-box-and-buttons-color;
+    }
+
+    & a.label .icon {
+      cursor: pointer;
+    }
+  }
 }
 
 div.header {
 
-  background-color: #83828275;
+  background-color: rgba($color: #828282, $alpha: 0.5);
   position: absolute;
   bottom: 0px;
   width: 100%;
@@ -69,7 +96,7 @@ div.header {
 .ui.pagination.pointing.secondary.menu {
   display: flex;
   justify-content: center;
-  background-color: #446962;
+  background-color: vars.$main-block-and-fonts-color;
   padding-bottom: 1em;
 }
 
@@ -81,9 +108,4 @@ div.header {
 
 .ui.corner.label {
   top: -300px;
-}
-
-a.ui.label:hover,
-a.ui.labels .label:hover {
-  color: rgb(243 190 46);
 }

@@ -3,7 +3,7 @@ import axiosInstance from 'src/axiosInstance';
 import {
   GET_FAVORITES_DESTINATION, saveFavorites, SAVE_FAVORITES_DESTINATION, DELETE_FAVORITE,
   DELETE_PROFIL,
-  saveNewFavorites,
+  getFavoritesDestination,
 } from 'src/actions/favoritesActions';
 import { logout } from 'src/actions/userActions';
 
@@ -26,6 +26,7 @@ const fetchFavorites = (store) => (next) => (action) => {
       next(action);
       break;
     }
+
     case SAVE_FAVORITES_DESTINATION: {
       const { token } = store.getState().user;
       axiosInstance
@@ -36,12 +37,17 @@ const fetchFavorites = (store) => (next) => (action) => {
             Authorization: `Bearer ${token}`,
           },
         })
+        .then((response) => {
+          console.log('favoris ajouté en BDD');
+          store.dispatch(getFavoritesDestination());
+        })
         .catch((error) => {
           (console.log(error));
         });
       next(action);
       break;
     }
+
     case DELETE_FAVORITE: {
       const { token } = store.getState().user;
       axiosInstance
@@ -58,7 +64,7 @@ const fetchFavorites = (store) => (next) => (action) => {
           const newDestinations = destinations.filter(
             (destination) => destination.id !== action.destination,
           );
-          store.dispatch(saveNewFavorites(newDestinations));
+          store.dispatch(saveFavorites(newDestinations));
         })
         .catch((error) => {
           (console.log(error.response));
@@ -66,6 +72,7 @@ const fetchFavorites = (store) => (next) => (action) => {
       next(action);
       break;
     }
+
     case DELETE_PROFIL: {
       const { token } = store.getState().user;
       axiosInstance
@@ -84,6 +91,7 @@ const fetchFavorites = (store) => (next) => (action) => {
       next(action);
       break;
     }
+
     default:
       next(action);
       break;

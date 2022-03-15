@@ -1,5 +1,5 @@
 import axios from 'axios';
 
 export default axios.create({
-  baseURL: 'http://cedric-vandermaes.vpnuser.lan:8080/',
+  baseURL: 'http://leluya-server.eddi.cloud/projet-23-o-travel-back/public/',
 });
