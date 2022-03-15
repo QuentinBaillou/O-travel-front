@@ -27,10 +27,15 @@ const List = () => {
 
   const destinations = useSelector((state) => state.list.destinations);
   const favoritesDestinations = useSelector((state) => state.favorites.destinations);
-  console.log(favoritesDestinations);
 
+  /**
+   * Return the correct display depending on favorite destinations
+   * @param {int} destinationId Id of the current destination
+   * @returns Element based on presence or not in favorite destinations
+   */
   const favoriteStarDisplay = (destinationId) => {
     if (logged) {
+      // If the current destination is in favorites
       if (favoritesDestinations.find(
         (favoriteDestination) => favoriteDestination.id === destinationId,
       )) {

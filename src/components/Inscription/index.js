@@ -33,7 +33,18 @@ const Inscription = () => {
     }
   });
 
+<<<<<<< HEAD
   // When form is submitted
+=======
+  // console.log(`Email : ${email}`);
+  // console.log(`Mot de passe : ${password}`);
+  // console.log(`Prénom : ${firstname}`);
+  // console.log(`Nom de famille : ${lastname}`);
+  // console.log(`Erreur : ${error}`);
+  // console.log(`Submitted : ${submitted}`);
+
+  // At form submit
+>>>>>>> Comment
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -86,7 +97,11 @@ const Inscription = () => {
     }
   };
 
+<<<<<<< HEAD
   // If authentication successful
+=======
+  // If successful authentication
+>>>>>>> Comment
   const successMessage = () => (
     <div
       className="success"
@@ -98,6 +113,7 @@ const Inscription = () => {
     </div>
   );
 
+<<<<<<< HEAD
   // Function that can display field error messages dynamically with onChange
   const displayFieldChangeErrorMessage = (i, e, eM) => {
     const input = document.getElementById(`${i}`);
@@ -123,6 +139,19 @@ const Inscription = () => {
       currentError.style.display = 'inline';
     }
   };
+=======
+  // If there is still error
+  const errorMessage = () => (
+    <div
+      className="error"
+      style={{
+        display: error ? '' : 'none',
+      }}
+    >
+      <h1>Merci de remplir tous les champs</h1>
+    </div>
+  );
+>>>>>>> Comment
 
   const handleEmail = (event) => {
     displayFieldChangeErrorMessage('emailInput', 'emailError', 'Ceci n\'est pas une adresse e-mail valide');

@@ -18,6 +18,7 @@ const fetchFavorites = (store) => (next) => (action) => {
           },
         })
         .then((response) => {
+          console.log('favoris récupérés');
           store.dispatch(saveFavorites(response.data.destination));
         })
         .catch((error) => {
@@ -37,7 +38,7 @@ const fetchFavorites = (store) => (next) => (action) => {
             Authorization: `Bearer ${token}`,
           },
         })
-        .then((response) => {
+        .then(() => {
           console.log('favoris ajouté en BDD');
           store.dispatch(getFavoritesDestination());
         })
@@ -58,8 +59,8 @@ const fetchFavorites = (store) => (next) => (action) => {
             Authorization: `Bearer ${token}`,
           },
         })
-        .then((response) => {
-          console.log(response);
+        .then(() => {
+          console.log('favoris supprimé en BDD');
           const { destinations } = store.getState().favorites;
           const newDestinations = destinations.filter(
             (destination) => destination.id !== action.destination,
@@ -81,8 +82,8 @@ const fetchFavorites = (store) => (next) => (action) => {
             Authorization: `Bearer ${token}`,
           },
         })
-        .then((response) => {
-          console.log('Then', response);
+        .then(() => {
+          console.log('Profil supprimé en bdd');
           store.dispatch(logout());
         })
         .catch((error) => {
