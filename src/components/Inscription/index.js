@@ -36,7 +36,7 @@ const Inscription = () => {
   // console.log(`Erreur : ${error}`);
   // console.log(`Submitted : ${submitted}`);
 
-  // A la soumission du formulaire
+  // At form submit
   const handleSubmit = (event) => {
     event.preventDefault();
     if (email === '' || password === '' || firstname === '' || lastname === '') {
@@ -49,7 +49,7 @@ const Inscription = () => {
     }
   };
 
-  // Si authentification réussie
+  // If successful authentication
   const successMessage = () => (
     <div
       className="success"
@@ -61,7 +61,7 @@ const Inscription = () => {
     </div>
   );
 
-  // Si persiste des erreurs
+  // If there is still error
   const errorMessage = () => (
     <div
       className="error"
