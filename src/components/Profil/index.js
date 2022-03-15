@@ -28,7 +28,7 @@ const Profil = () => {
       <h2 className="profil-title">Mon profil</h2>
       <List className="profil-list">
         <Image
-          src="https://react.semantic-ui.com/images/avatar/large/matthew.png"
+          src="https://placebear.com/300/300"
           size="medium"
           circular
         />
