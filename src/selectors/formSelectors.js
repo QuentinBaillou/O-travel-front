@@ -7,8 +7,8 @@
  * If array doesn't contain the item : the array with the item pushed
  */
 export const selectedItemArraySelector = (selectedArray, item) => {
-  if (selectedArray.find((arrayItem) => arrayItem === item)) {
-    return selectedArray.filter((arrayItem) => arrayItem !== item);
+  if (selectedArray.find((arrayItem) => arrayItem.id === item.id)) {
+    return selectedArray.filter((arrayItem) => arrayItem.id !== item.id);
   }
   return [...selectedArray, item];
 };
