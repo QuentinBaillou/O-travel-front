@@ -48,7 +48,10 @@
   transition: all 0.5s;
 }
 
+// Handle style of form inputs with custom color
 @mixin form-input ($input-color) {
+  width: 100%;
+  margin-top: -1 * vars.$gutter;
   padding: 0.5 * vars.$gutter;
   background-color: rgba($color: $input-color, $alpha: 0.8);
   font-size: 1rem;
@@ -57,15 +60,16 @@
 
   &:hover,
     &:focus {
-      background-color: #fff;
+      background-color: vars.$lightest-color;
     }
 }
 
+// Handle style of form error messages
 @mixin form-error-message() {
   display: none;
   width: 100%;
   padding: vars.$gutter * 0.5;
   font-size: 0.8em;
-  color: white;
-  background-color: red;
+  color: vars.$lightest-color;
+  background-color: vars.$form-error-color;
 }

@@ -1,6 +1,6 @@
 import {
   SET_FORM_FIELD, LOGOUT, SAVE_USER_INFO,
-  SET_FORM_ERROR, SET_EMAIL, SET_PASSWORD, SET_FIRSTNAME, SET_LASTNAME, SET_SUBMITTED, SET_ERROR,
+  SET_FORM_ERROR, SET_EMAIL, SET_PASSWORD, SET_FIRSTNAME, SET_LASTNAME, SET_SUBMITTED,
 } from 'src/actions/userActions';
 
 const initialState = {
@@ -8,14 +8,10 @@ const initialState = {
   lastname: '',
   password: '',
   email: '',
-  emptyFieldError: null,
-  firstnameError: null,
-  lastnameError: null,
   isUserLogged: false,
   errorMessage: '',
   errorState: false,
   submitted: false,
-  error: false,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -71,7 +67,6 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         submitted: action.submitted,
       };
-
     case LOGOUT:
       return { ...initialState };
     default:

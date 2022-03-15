@@ -31,6 +31,8 @@
   background-color: rgba($color: #000000, $alpha: 0.3);
   padding: 2rem;
   margin-right: vars.$gutter * 10;
+  margin-top: min(vars.$gutter * 2);
+  margin-bottom: min(vars.$gutter * 2);
   border-radius: 1rem;
   gap: 1rem;
   width: 30%;
@@ -41,13 +43,13 @@
     border-radius: 5px;
     text-align: center;
     background-color: vars.$titles-box-and-buttons-color;
-    color: green;
+    color: vars.$lightest-color;
   }
 
   &__label {
     display: flex;
     flex-direction: column;
-    margin-bottom: -0.7 * vars.$gutter;
+    margin-bottom: 0.7 * vars.$gutter;
     color: vars.$lightest-color;
     font-size: 1rem;
   }
@@ -59,11 +61,6 @@
       background-color: vars.$header-main-color;
       color: vars.$lightest-color;
     }
-
-    &:invalid{
-      background-color: vars.$lightest-color;
-    }
-
   }
   
   &__submit {
@@ -76,15 +73,7 @@
     color: vars.$lightest-color;
     text-align: center;
     transition: 0.2s;
-
-    &:hover {
-      text-decoration: underline;
-      color: vars.$lightest-color;
-    }
-  }
-
-  &__already {
-    color: vars.$lightest-color;
+    margin-top: vars.$gutter * 0.8;
 
     &:hover {
       color: vars.$titles-box-and-buttons-color;
@@ -126,7 +115,7 @@
   margin-left: vars.$gutter * 2;
   z-index: 1;
 
-  #lake {
+  #pic1 {
     position: relative;
     left: 2em;
     z-index: 3;
@@ -137,7 +126,7 @@
     box-shadow: 3px 3px 3px 3px rgba($color: #000000, $alpha: 0.3);
   }
   
-  #city {
+  #pic2 {
     position: relative;
     top: -5em;
     z-index: 2;
@@ -149,7 +138,7 @@
     box-shadow: 3px 3px 3px 3px rgba($color: #000000, $alpha: 0.3);
   }
 
-  #beach {
+  #pic3 {
     position: relative;
     top: 2em;
     z-index: 1;
@@ -162,8 +151,6 @@
   }
 
 }
-
-
 
 @include tablet {
   .postcards_wrapper {

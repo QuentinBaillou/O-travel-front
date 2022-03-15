@@ -7,7 +7,7 @@
   margin: 2 * vars.$gutter 0;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   background-color: vars.$main-block-and-fonts-color;
 
   &__title {
@@ -21,7 +21,7 @@
     font-weight: bold;
     background-color: vars.$titles-box-and-buttons-color;
     color: #446962;
-    text-transform: uppercase;
+    //text-transform: uppercase;
   }
 }
 
@@ -29,44 +29,43 @@
   display: flex;
   flex-direction: column;
   background-color: rgba($color: #000000, $alpha: 0.3);
+  margin-right: vars.$gutter * 7;
+  margin-top: min(vars.$gutter * 2);
+  margin-bottom: min(vars.$gutter * 2);
   padding: 2rem;
   border-radius: 1rem;
   gap: 1rem;
+  width: 30%;
+  z-index: 2;
 
   &__error-message {
     padding: 0.5 * vars.$gutter;
     border-radius: 5px;
     text-align: center;
-    background-color: vars.$titles-box-and-buttons-color;
-    color: red;
+    background-color: vars.$form-error-color;
+    color: vars.$lightest-color;
   }
 
   &__label {
     display: flex;
     flex-direction: column;
-    margin-bottom: 0.2 * vars.$gutter;
+    margin-bottom: -0.7 * vars.$gutter;
     color: vars.$lightest-color;
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
 
-  &__legend {
-    margin-top: 0.1rem;
-    margin-left: 1rem;
-    color: red;
+  &__input {
+    @include form-input(vars.$lightest-color);
+    margin-top: 1.3 * vars.$gutter;
   }
 
-  &__input,
   &__submit {
-    padding: 0.5 * vars.$gutter;
-    width: 100%;
-    background-color: rgba($color: vars.$lightest-color, $alpha: 0.8);
-    font-size: 1.2rem;
-    border-radius: 1.1rem;
-    border: none;
+    @include form-input(vars.$titles-box-and-buttons-color);
+    margin-top: vars.$gutter;
 
     &:hover,
     &:focus {
-      background-color: #fff;
+      background-color: vars.$lightest-color;
     }
   }
 
@@ -75,11 +74,66 @@
     color: vars.$lightest-color;
     text-align: center;
     transition: 0.2s;
+    margin-top: vars.$gutter * 0.8;
 
     &:hover {
-      text-decoration: underline;
-      color: vars.$lightest-color;
+      color: vars.$titles-box-and-buttons-color;
     }
+  }
+
+  .postcards_wrapper {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    margin-left: vars.$gutter * 5;
+    margin-left: vars.$gutter * 2;
+    z-index: 1;
+  
+    #pic1 {
+      position: relative;
+      left: 2em;
+      z-index: 3;
+      width: 32%;
+      height: 33%;
+      transform: rotate(-10deg);
+      border: vars.$gutter * 0.5 solid vars.$lightest-color;
+      box-shadow: 3px 3px 3px 3px rgba($color: #000000, $alpha: 0.3);
+    }
+    
+    #pic2 {
+      position: relative;
+      top: -5em;
+      z-index: 2;
+      left: -0.5em;
+      width: 32%;
+      height: 33%;
+      transform: rotate(5deg);
+      border: vars.$gutter * 0.5 solid vars.$lightest-color;
+      box-shadow: 3px 3px 3px 3px rgba($color: #000000, $alpha: 0.3);
+    }
+  
+    #pic3 {
+      position: relative;
+      top: 2em;
+      z-index: 1;
+      left: -2em;
+      width: 32%;
+      height: 33%;
+      transform: rotate(-7deg);
+      border: vars.$gutter * 0.5 solid vars.$lightest-color;
+      box-shadow: 3px 3px 3px 3px rgba($color: #000000, $alpha: 0.3);
+    }
+  
+  }
+
+  @include tablet {
+    width: 65%;
+    margin-left: vars.$gutter * 6.5;
+  }
+
+  @include mobile-only {
+    width: 90%;
   }
 }
 
