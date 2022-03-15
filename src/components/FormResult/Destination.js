@@ -6,7 +6,6 @@ import { saveFavoritesDestination, deleteFavorite } from 'src/actions/favoritesA
 import { Link } from 'react-router-dom';
 
 import './style.scss';
-import { useEffect } from 'react';
 
 const Destination = ({
   picture, surname, extract, pros, price_per_night: pricePerNight, id,
@@ -17,7 +16,7 @@ const Destination = ({
 
   const buttonDisplay = () => {
     if (logged) {
-      if (favorites.find((favorite) => favorite.id === parseInt(id))) {
+      if (favorites.find((favorite) => favorite.id === parseInt(id, 10))) {
         return (
           <button
             type="button"
@@ -41,11 +40,6 @@ const Destination = ({
       );
     }
   };
-
-  useEffect(() => {
-    console.log('montage');
-    console.log(favorites);
-  });
 
   return (
     <div className="destination">
