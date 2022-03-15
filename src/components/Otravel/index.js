@@ -26,6 +26,7 @@ const Otravel = () => {
     dispatch(getLastUser());
   }, []);
 
+  // Scroll to top if on each page changement
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location]);
