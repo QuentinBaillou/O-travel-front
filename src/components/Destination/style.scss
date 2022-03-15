@@ -1,10 +1,10 @@
 @use "src/styles/vars";
 @import "src/styles/mixins";
 
-// Container principal
+// Wrapper
 .container {
   position: relative;
-  width: 100%;
+  width: 75%;
   background-color: vars.$main-block-and-fonts-color;
   margin-left: auto;
   margin-right: auto;
@@ -12,7 +12,7 @@
   margin-bottom: vars.$gutter*5;
 }
 
-// Composant Header
+// Header component
 .destination_header {
   display: flex;
   flex-wrap: wrap;
@@ -93,14 +93,14 @@
 }
 
 
-// Composant Main Pic
+// Main Pic component
 .main_pic {
   margin-top: 5em;
   width: 100%;
 }
 
 
-// Composant Summary
+// Summary component
 .summary_wrapper {
   margin-top: min(vars.$gutter * 2);
   margin-left: min(vars.$gutter * 2);
@@ -138,6 +138,9 @@
     width: 75%;
     font-size: 0.9em;
   }
+  .container {
+    width: 95%;
+  }
 }
 
 @include mobile-only {
@@ -147,10 +150,13 @@
   .summary_wrapper__strong_points-element {
     font-size: 0.8em;
   }
+  .container {
+    width: 100%;
+  }
 }
 
 
-// Bloc Middle Pics
+// Middle Pics component
 .middle_pics {
   width: 100%;
   position: relative;
@@ -178,7 +184,7 @@
 }
 
 
-// Bloc Itinerary
+// Itinerary component
 .itinerary {
   position: relative;
   top: -6em;
@@ -201,7 +207,7 @@
 }
 
 
-// Bloc Final Pic
+// Final Pic component
 .final_pic {
   position: relative;
   top: -6em;

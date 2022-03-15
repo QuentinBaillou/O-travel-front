@@ -34,7 +34,6 @@ const Header = ({
       dispatch(setFlag(response.default));
     });
   }
-  //* Flags display
 
   return (
     <header className="destination_header">
@@ -56,7 +55,7 @@ const Header = ({
         </div>
 
         <div className="destination_header__lower_part-hidden">
-          <span></span>
+          <span />
         </div>
 
       </div>

@@ -1,9 +1,7 @@
-/* eslint-disable camelcase */
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 
-// IMPORT composants internes
 import Header from 'src/components/Destination/Header';
 import MainPic from 'src/components/Destination/MainPic';
 import Summary from 'src/components/Destination/Summary';
@@ -12,7 +10,6 @@ import Itinerary from 'src/components/Destination/Itinerary';
 import FinalPic from 'src/components/Destination/FinalPic';
 import Loading from 'src/components/Loading';
 
-// IMPORT styles
 import './style.scss';
 
 import { getDestination } from 'src/actions/destinationActions';
