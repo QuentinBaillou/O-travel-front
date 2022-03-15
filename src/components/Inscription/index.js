@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate, Link } from 'react-router-dom';
 import {
   setEmail, setPassword, setFirstname, setLastname,
-  setSubmitted, setError, setCreateUser,
+  setSubmitted, setCreateUser,
 } from 'src/actions/userActions';
 
 import './style.scss';
@@ -23,10 +23,9 @@ const Inscription = () => {
   const logged = useSelector((state) => state.user.isUserLogged);
   const navigate = useNavigate();
 
-  const error = useSelector((state) => state.user.error);
   const submitted = useSelector((state) => state.user.submitted);
 
-  // Redirection after login successfull
+  // Redirection after login successful
   useEffect(() => {
     if (logged) {
       navigate('/');
@@ -170,22 +169,22 @@ const Inscription = () => {
 
         <label className="signin_form__label" htmlFor="email">E-mail</label>
         <input id="emailInput" className="signin_form__input" data-name="emailInput" value={email} onChange={handleEmail} name="email" type="email" placeholder="Saisissez votre e-mail" required />
-        <span id="emailError" data-name="emailError" aria-live="polite"></span>
+        <span id="emailError" data-name="emailError" aria-live="polite" />
 
         <label className="signin_form__label" htmlFor="password">Mot de passe</label>
         <input id="passwordInput" className="signin_form__input" data-name="passwordInput" value={password} onChange={handlePassword} name="password" type="password" placeholder="Saisissez votre mot de passe" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,}$" />
-        <span id="passwordError" data-name="passwordError" aria-live="polite"></span>
+        <span id="passwordError" data-name="passwordError" aria-live="polite" />
 
         <label className="signin_form__label" htmlFor="firstname">Prénom</label>
         <input id="firstnameInput" className="signin_form__input" data-name="firstnameInput" value={firstname} onChange={handleFirstname} name="firstname" type="text" placeholder="Saisissez votre prénom" required minLength="2" />
-        <span id="firstnameError" data-name="firstnameError" aria-live="polite"></span>
+        <span id="firstnameError" data-name="firstnameError" aria-live="polite" />
 
         <label className="signin_form__label" htmlFor="lastnameInput">Nom</label>
         <input id="lastnameInput" className="signin_form__input" data-name="lastnameInput" value={lastname} onChange={handleLastname} name="lastnameInput" type="text" placeholder="Saisissez votre nom" required minLength="2" />
-        <span id="lastnameError" data-name="lastnameError" aria-live="polite"></span>
+        <span id="lastnameError" data-name="lastnameError" aria-live="polite" />
 
         <button className="signin_form__submit" type="submit">Sign In</button><br />
-          
+
         <Link to="/login" className="signin_form__link">Vous avez déjà un compte ?</Link>
 
       </form>

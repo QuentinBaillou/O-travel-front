@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 // == Import
 import './style.scss';
 
@@ -9,12 +10,13 @@ import { useEffect } from 'react';
 
 import { Card, Image } from 'semantic-ui-react';
 import { getDestinations } from 'src/actions/listActions';
-import { saveFavoritesDestination } from 'src/actions/favoritesActions';
+import { saveFavoritesDestination, deleteFavorite } from 'src/actions/favoritesActions';
 import Loading from '../Loading';
 
 // == Composant
 const List = () => {
   const dispatch = useDispatch();
+  const logged = useSelector((state) => state.user.isUserLogged);
 
   useEffect(
     () => {
@@ -23,14 +25,51 @@ const List = () => {
     [],
   );
 
-  useEffect(() => {
-    console.log('List change');
-  });
-
   const destinations = useSelector((state) => state.list.destinations);
+  const favoritesDestinations = useSelector((state) => state.favorites.destinations);
+
+  /**
+   * Return the correct display depending on favorite destinations
+   * @param {int} destinationId Id of the current destination
+   * @returns Element based on presence or not in favorite destinations
+   */
+  const favoriteStarDisplay = (destinationId) => {
+    if (logged) {
+      // If the current destination is in favorites
+      if (favoritesDestinations.find(
+        (favoriteDestination) => favoriteDestination.id === destinationId,
+      )) {
+        return (
+          <Image
+            ui={false}
+            onClick={
+              () => {
+                dispatch(deleteFavorite(destinationId));
+              }
+            }
+            className="favorite"
+            fluid
+            label={{ as: 'a', corner: 'right', icon: 'star' }}
+          />
+        );
+      }
+      return (
+        <Image
+          ui={false}
+          onClick={
+              () => {
+                dispatch(saveFavoritesDestination(destinationId));
+              }
+            }
+          className="not-favorite"
+          fluid
+          label={{ as: 'a', corner: 'right', icon: 'star' }}
+        />
+      );
+    }
+  };
 
   return (
-
     <div className="trip-list">
       <h2 className="trip-title">Les voyages</h2>
       {destinations.length === 0 && <Loading />}
@@ -53,16 +92,7 @@ const List = () => {
                   </Card.Header>
                 </Card.Content>
               </Link>
-              <Image
-                ui={false}
-                onClick={
-                  () => {
-                    dispatch(saveFavoritesDestination(destination.id));
-                  }
-                }
-                fluid
-                label={{ as: 'a', corner: 'right', icon: 'star' }}
-              />
+              {favoriteStarDisplay(destination.id)}
             </Card>
           ))}
         </Card.Group>

@@ -29,14 +29,6 @@ export const deleteFavorite = (destination) => ({
   destination,
 });
 
-// ACTION TYPE SAVE_NEW_FAVORITES
-export const SAVE_NEW_FAVORITES = 'SAVE_NEW_FAVORITES';
-// ACTION CREATOR saveNewFavorites
-export const saveNewFavorites = (destinations) => ({
-  type: SAVE_NEW_FAVORITES,
-  destinations,
-});
-
 // ACTION TYPE DELETE_PROFIL
 export const DELETE_PROFIL = 'DELETE_PROFIL';
 // ACTION CREATOR deleteProfil

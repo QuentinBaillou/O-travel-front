@@ -19,6 +19,7 @@ const AuthenticationForm = ({ shape }) => {
   return (
     <div className="form-wrapper">
       <h2 className="form-wrapper__title">{setTitle()}</h2>
+      {/* Modulate displayed form based on shape prop */}
       {shape === 'login' && <Login handleChange={handleChange} />}
       {/* {shape === 'forgotten-password' && <ForgottenPassword handleChange={handleChange} />} */}
     </div>

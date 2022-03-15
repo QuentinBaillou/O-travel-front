@@ -5,7 +5,7 @@
 import { GET_DESTINATION, saveDestination } from 'src/actions/destinationActions';
 import axiosInstance from 'src/axiosInstance';
 
-const fetchDestinations = (store) => (next) => (action) => {
+const destinations = (store) => (next) => (action) => {
   switch (action.type) {
     case GET_DESTINATION:
       axiosInstance.get(`api/destinations/${action.destinationId}`)
@@ -24,4 +24,4 @@ const fetchDestinations = (store) => (next) => (action) => {
   }
 };
 
-export default fetchDestinations;
+export default destinations;
