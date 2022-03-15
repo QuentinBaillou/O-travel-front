@@ -23,14 +23,18 @@
     color: #446962;
     //text-transform: uppercase;
   }
+
+  @include desktop {
+    justify-content: center;
+  }
 }
 
 .user-form {
   display: flex;
   flex-direction: column;
   background-color: rgba($color: #000000, $alpha: 0.3);
-  margin-right: vars.$gutter * 7;
-  margin-top: min(vars.$gutter * 2);
+  margin-right: vars.$gutter * 5;
+  margin-top: min(vars.$gutter * 1.5);
   margin-bottom: min(vars.$gutter * 2);
   padding: 2rem;
   border-radius: 1rem;
@@ -92,10 +96,9 @@
     display: flex;
     width: 100%;
     height: 100%;
-    margin-left: vars.$gutter * 5;
     margin-left: vars.$gutter * 2;
     z-index: 1;
-  
+
     #pic1 {
       position: relative;
       left: 2em;
@@ -106,7 +109,7 @@
       border: vars.$gutter * 0.5 solid vars.$lightest-color;
       box-shadow: 3px 3px 3px 3px rgba($color: #000000, $alpha: 0.3);
     }
-    
+
     #pic2 {
       position: relative;
       top: -5em;
@@ -118,7 +121,7 @@
       border: vars.$gutter * 0.5 solid vars.$lightest-color;
       box-shadow: 3px 3px 3px 3px rgba($color: #000000, $alpha: 0.3);
     }
-  
+
     #pic3 {
       position: relative;
       top: 2em;
@@ -132,18 +135,12 @@
     }
   }
 
-  @include tablet {
+  @include desktop {
     width: 65%;
-    margin-left: vars.$gutter * 6.5;
+    margin: 1.5rem 1rem 2rem;
   }
 
   @include mobile-only {
     width: 90%;
-  }
-}
-
-@include mobile-only {
-  .user-form {
-    border-radius: 0;
   }
 }
