@@ -149,9 +149,9 @@ const Inscription = () => {
     <div className="signin">
 
       <div className="postcards_wrapper">
-        <img id="lake" src={Lake} alt="lake" />
-        <img id="city" src={City} alt="city" />
-        <img id="beach" src={Beach} alt="beach" />
+        <img id="pic1" src={Lake} alt="lake" />
+        <img id="pic2" src={City} alt="city" />
+        <img id="pic3" src={Beach} alt="beach" />
       </div>
 
       <h2 className="signin__title">Inscription</h2>
@@ -183,7 +183,7 @@ const Inscription = () => {
 
         <button className="signin_form__submit" type="submit">Sign In</button><br />
           
-        <Link to="/login"><span className="signin_form__already">Vous avez déjà un compte ?</span></Link>
+        <Link to="/login" className="signin_form__link">Vous avez déjà un compte ?</Link>
 
       </form>
 
