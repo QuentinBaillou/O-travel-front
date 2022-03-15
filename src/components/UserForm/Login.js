@@ -3,6 +3,11 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { login } from 'src/actions/userActions';
+
+import Desert from 'src/assets/images/postcard/desert.jpg';
+import Coast from 'src/assets/images/postcard/coast.jpg';
+import Train from 'src/assets/images/postcard/train.jpg';
+
 import Input from './Input';
 
 import './style.scss';
@@ -29,7 +34,15 @@ const Login = ({ handleChange }) => {
   };
 
   return (
+    <>
+    <div className="postcards_wrapper">
+      <img id="pic1" src={Desert} alt="desert" />
+      <img id="pic2" src={Coast} alt="coast" />
+      <img id="pic3" src={Train} alt="train" />
+    </div>
+
     <form className="user-form" onSubmit={handleSubmit}>
+
       { errorState && <p className="user-form__error-message">{errorMessage}</p>}
       <Input
         handleChange={handleChange}
@@ -59,6 +72,7 @@ const Login = ({ handleChange }) => {
       </Link>
       <button type="submit" className="user-form__submit">Connexion</button>
     </form>
+    </>
   );
 };
 
