@@ -12,13 +12,16 @@
 
   &__title {
     position: absolute;
-    left: 3rem;
-    top: -1.5rem;
-    padding: 0.5 * vars.$gutter;
-    font-size: 2rem;
-    color: vars.$main-block-and-fonts-color;
-    border-radius: 5px;
+    left: 2rem;
+    top: -1.2rem;
+    height: 2em;
+    width: 16rem;
+    font-size: 1.3em;
+    padding: 0.8rem;
+    font-weight: bold;
     background-color: vars.$titles-box-and-buttons-color;
+    color: #446962;
+    text-transform: uppercase;
   }
 
   &__content {
