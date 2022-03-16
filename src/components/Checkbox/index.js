@@ -4,8 +4,9 @@ import { useState } from 'react';
 import './style.scss';
 
 const Checkbox = ({
-  item, name, field, checked, handleChange, rounded,
+  item, name, field, isChecked, handleChange, rounded,
 }) => {
+  const [checked, setChecked] = useState(isChecked);
   // Local state for dynamically imported image for checkboxes
   const [image, setImage] = useState('');
   // Dynamic import of image, based on field and item.id props
@@ -14,6 +15,7 @@ const Checkbox = ({
   });
 
   const changeStatus = () => {
+    setChecked(!checked);
     handleChange(field, item);
   };
   return (
@@ -36,7 +38,7 @@ Checkbox.propTypes = {
   item: PropTypes.object.isRequired,
   name: PropTypes.string.isRequired,
   field: PropTypes.string.isRequired,
-  checked: PropTypes.bool.isRequired,
+  isChecked: PropTypes.bool.isRequired,
   handleChange: PropTypes.func.isRequired,
   rounded: PropTypes.bool,
 };
