@@ -33,19 +33,19 @@
   position: relative;
   gap: 1rem;
   width: 100%;
-  padding: vars.$gutter;
+  padding: 0 vars.$gutter 0.5 * vars.$gutter;
   border-radius: 20px;
   background-color: rgba($color: #000, $alpha: 0.5);
   margin-bottom: vars.$gutter;
   color: vars.$lightest-color;
 
   &__add {
-    position: absolute;
+    width: fit-content;
+    align-self: flex-end;
     border-radius: 1rem;
     padding: 0.5rem;
+    margin-top: 0.5rem;
     border: none;
-    bottom: 5px;
-    right: 5px;
     color: #000;
     text-align: center;
     background-color: vars.$titles-box-and-buttons-color;
@@ -54,6 +54,11 @@
     &:hover {
       background-color: darken(vars.$titles-box-and-buttons-color, 5%);
     }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
   }
 
   &:last-child {
@@ -85,6 +90,7 @@
   &__extract,
   &__pros {
     font-size: 1.2rem;
+    text-align: justify;
 
     & span {
       display: block;
@@ -107,6 +113,7 @@
 @include tablet {
   .destination {
     height: auto;
+    display: block;
 
     &__picture {
       display: none;

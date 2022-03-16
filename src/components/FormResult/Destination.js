@@ -43,7 +43,6 @@ const Destination = ({
 
   return (
     <div className="destination">
-      {buttonDisplay()}
       <Link to={`/destinations/${id}`}><img src={picture} alt={surname} className="destination__picture" /></Link>
       <div className="destination__content">
         <Link to={`/destinations/${id}`}>
@@ -52,6 +51,7 @@ const Destination = ({
         <p className="destination__extract">Résumé : <span>{extract}</span></p>
         <p className="destination__pros">Point fort : <span>{pros}</span></p>
         <p className="destination__price">Prix par personnes : {pricePerNight}</p>
+        {buttonDisplay()}
       </div>
     </div>
   );

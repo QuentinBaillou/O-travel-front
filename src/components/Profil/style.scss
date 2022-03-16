@@ -1,3 +1,5 @@
+@import 'src/styles/mixins';
+
 .profil {
   padding: 2em 0;
   position: relative;
@@ -102,11 +104,20 @@
   border-radius: 0.5em;
   background-color: rgb(205 178 148);
 
+  @include mobile-only {
+    max-width: calc(320px + 0.2rem * 2);
+  }
+
   .image {
     border: solid 0.2em;
     border-radius: 0.5em;
     max-width: 450px;
     max-height: 300px;
+
+    @include desktop {
+      margin-top: 0.5rem;
+      max-width: 300px;
+    }
   }
 
   .item {
@@ -131,7 +142,7 @@
 
   .button {
     margin: 0 9.3em;
-    
+
     & .content {
       font-size: 1rem;
       padding-top: 0;
