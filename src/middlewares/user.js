@@ -71,7 +71,8 @@ const userMiddleware = (store) => (next) => (action) => {
           });
       }
       next(action);
-      break; }
+      break; 
+    }
 
     /* case GET_NEW_PASSWORD:
       axiosInstance

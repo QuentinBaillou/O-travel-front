@@ -77,11 +77,6 @@ const Inscription = () => {
     if (event && emailInput.validity.valid && passwordInput.validity.valid && firstnameInput.validity.valid && lastnameInput.validity.valid) {
       dispatch(setSubmitted(true));
       dispatch(setCreateUser());
-
-      // Redirection on home page after 3 seconds
-      setTimeout(() => {
-        navigate('/');
-      }, 3000);
     }
   };
 
@@ -172,7 +167,7 @@ const Inscription = () => {
         <span id="emailError" data-name="emailError" aria-live="polite" />
 
         <label className="signin_form__label" htmlFor="password">Mot de passe</label>
-        <input id="passwordInput" className="signin_form__input" data-name="passwordInput" value={password} onChange={handlePassword} name="password" type="password" placeholder="Saisissez votre mot de passe" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,}$" />
+        <input id="passwordInput" className="signin_form__input" data-name="passwordInput" value={password} onChange={handlePassword} name="password" type="password" placeholder="Saisissez votre mot de passe" required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,}$" />
         <span id="passwordError" data-name="passwordError" aria-live="polite" />
 
         <label className="signin_form__label" htmlFor="firstname">Prénom</label>
