@@ -45,7 +45,9 @@ const Form = () => {
       </div>
       <FormSlider />
       <FormChoices />
-      <button type="submit" className="main-form__submit"><img src={sendLogo} alt="send logo" /></button>
+      <button type="submit" className="main-form__submit">
+        <img src={sendLogo} alt="send logo" />
+      </button>
     </form>
   );
 };
